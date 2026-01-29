@@ -3,6 +3,8 @@ import "./HeroSlider.css";
 import NetworkBackground from "../NetworkBackground/NetworkBackground";
 import fibra from "../../assets/fibra.webp";
 import slidetv from "../../assets/slidetv.webp";
+import cristiano from "../../assets/cristiano.webp";
+import bannercanales from "../../assets/bannercanales.svg";
 
 const slides = [
   {
@@ -21,7 +23,6 @@ const slides = [
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
-
   const slide = slides[current];
 
   /* =========================
@@ -59,7 +60,6 @@ export default function HeroSlider() {
 
   return (
     <section
-      key={current}
       className={`hero ${slide.type} hero-transition`}
       onMouseEnter={resetTimeout}
       onMouseLeave={() => {
@@ -68,46 +68,76 @@ export default function HeroSlider() {
         }, 5000);
       }}
     >
-      {/* SLIDE CON NODOS */}
-      {slide.type === "fiber" && (
-        <>
-          <NetworkBackground />
-          <div className="hero-overlay" />
-          <div className="floating-elements">
-            <img
-              src={fibra}
-              alt="Fibra óptica"
-              className="fiber-main"
+      {/* ===== VIEWPORT (SOLO FONDOS + TEXTO) ===== */}
+      <div className="hero-viewport">
+        {/* SLIDE FIBRA */}
+        {slide.type === "fiber" && (
+          <>
+            <NetworkBackground />
+            <div className="hero-overlay" />
+          </>
+        )}
+
+        {/* SLIDE TV */}
+        {slide.type === "image" && (
+          <>
+            <div
+              className="hero-image-bg"
+              style={{ backgroundImage: `url(${slide.image})` }}
             />
-          </div>
-        </>
-      )}
+            <div className="hero-overlay dark" />
+          </>
+        )}
 
-      {/* SLIDE CON IMAGEN */}
-      {slide.type === "image" && (
-        <>
-          <div
-            className="hero-image-bg"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          />
-          <div className="hero-overlay dark" />
-        </>
-      )}
+        {/* CONTENIDO */}
+        <div className="hero-content">
+          <h1>{slide.title}</h1>
 
-      {/* CONTENIDO */}
-      <div className="hero-content">
-        <h1>{slide.title}</h1>
-        <h2>{slide.subtitle}</h2>
-        <button className="hero-btn">VER MÁS</button>
+          {slide.type === "image" ? (
+            <div className="hero-badge">
+              <img
+                src={bannercanales}
+                alt="+150 Canales Digitales"
+                className="badge-50"
+              />
+            </div>
+          ) : (
+            <h2>{slide.subtitle}</h2>
+          )}
+
+          <button className="hero-btn">VER MÁS</button>
+        </div>
+
+        {/* FLECHAS */}
+        <button className="arrow left" onClick={prevSlide}>
+          ❮
+        </button>
+        <button className="arrow right" onClick={nextSlide}>
+          ❯
+        </button>
       </div>
 
-      {/* FLECHAS */}
-      <button className="arrow left" onClick={prevSlide}>
-        ❮
-      </button>
-      <button className="arrow right" onClick={nextSlide}>
-        ❯
-      </button>
+      {/* ===== FIBRA FUERA (INVADE BLANCO) ===== */}
+      {slide.type === "fiber" && (
+        <div className="floating-elements fiber-out">
+          <img
+            src={fibra}
+            alt="Fibra óptica"
+            className="fiber-main"
+          />
+        </div>
+      )}
+
+      {/* ===== JUGADOR TV FUERA (IZQUIERDA) ===== */}
+      {slide.type === "image" && (
+        <div className="floating-elements tv-out">
+          <img
+            src={cristiano}
+            alt="Jugador fútbol"
+            className="tv-player"
+          />
+        </div>
+      )}
 
       {/* INDICADORES */}
       <div className="hero-dots">

@@ -55,10 +55,7 @@ Conectamos empresas y hogares con tecnología de última generación.
 </div>
 
 
-{/* COPY */}
-<div className="footer-bottom">
-© {new Date().getFullYear()} Web Master · Todos los derechos reservados
-</div>
+
 </footer>
 );
 }

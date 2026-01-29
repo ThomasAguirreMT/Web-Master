@@ -4,9 +4,7 @@ HERO CONTENEDOR
 .hero {
   position: relative;
   height: 100vh;
-  padding-top: 90px;
   /* 👈 ESPACIO PARA EL NAVBAR */
-  overflow: hidden;
 
   .arrow {
     position: absolute;
@@ -36,21 +34,25 @@ HERO CONTENEDOR
   }
 
 }
-
-.hero.fiber {
-  background: linear-gradient(to bottom,
-      #0b5ed7 0%,
-      #0a4bb8 40%,
-      #083a8f 100%);
+/* FONDO AZUL SOLO DENTRO DEL VIEWPORT */
+.hero.fiber .hero-viewport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #009FFF 0%,
+    #009FFF 40%,
+    #009FFF 100%
+  );
+  z-index: 0;
 }
-
-.hero.image {
-  background: none;
-}
-
 .hero-content {
+    font-family: 'Montserrat', sans-serif;
+
   position: relative;
-  z-index: 5;
+  z-index: 20;
+  text-align: center;
 
   max-width: 900px;
   margin: 0 auto;
@@ -62,9 +64,22 @@ HERO CONTENEDOR
 
   min-height: calc(100vh - 90px);
   /* 👈 RESTA NAVBAR */
-  text-align: center;
   color: white;
 }
+
+/* TITULO PRINCIPAL */
+.hero-content h1 {
+  font-size: 56px;
+  font-weight: 800;
+  font-style: italic;      /* 👈 look deportivo */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+
 
 .arrow {
   display: flex !important;
@@ -99,12 +114,12 @@ FIBRA FLOTANTE
 
 
   /* POSICIÓN CENTRAL */
-  right: 5%;
-  top: 50%;
+  right: -5%;
+  top: 35%;
   transform: translateY(-50%) rotate(-5deg);
 
 
-  width: 680px;
+  width: 900px;
   z-index: 2;
 
 
@@ -256,4 +271,86 @@ INDICADORES (DOTS)
 .dot.active {
   background: white;
   transform: scale(1.3);
+}
+
+
+/* =========================
+BANNER VIEWPORT (CORTE GLOBAL)
+========================= */
+.hero-viewport {
+  position: relative;
+  height: calc(80vh + 90px); /* 👈 mantiene el tamaño visual */
+  padding-top: 90px;        /* 👈 espacio para el navbar */
+  overflow: hidden;
+}
+
+
+
+/* =========================
+JUGADOR TV (IZQUIERDA Y FUERA)
+========================= */
+.floating-elements.tv-out {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.tv-player {
+  position: absolute;
+
+  left: -25%;        /* 👈 SE SALE POR LA IZQUIERDA */
+  bottom: -60px;     /* 👈 INVADE EL BLANCO */
+
+  width: 520px;      /* ajusta según gusto */
+  max-width: 90%;
+
+  z-index: 8;
+  animation: floatTv 8s ease-in-out infinite;
+  filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));
+}
+/* =========================
+ANIMACIÓN JUGADOR TV
+========================= */
+.tv-player {
+  position: absolute;
+  left: 1%;
+  top: 15%;
+  bottom: -60px;
+  width: 520px;
+  z-index: 8;
+
+  animation: floatPlayer 8s ease-in-out infinite;
+  filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));
+}
+
+@keyframes floatPlayer {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px); /* 👈 sube */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+BADGE +150 CANALES
+========================= */
+.hero-badge {
+  margin: 18px 0 22px;
+  display: flex;
+  justify-content: center;
+  z-index: 15;
+  animation: floatPlayer 6s ease-in-out infinite;
+  filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));
+}
+
+.badge-50 {
+  height: 100px; /* 👈 ajusta a gusto */
+  width: auto;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.35));
 }

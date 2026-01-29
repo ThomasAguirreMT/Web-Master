@@ -106,6 +106,6 @@ BOTTOM
   text-align: center;
   font-size: 13px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background:   #009FFF;
+  border-top: #009FFF;
 }
