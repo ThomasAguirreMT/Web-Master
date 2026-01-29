@@ -1,3 +1,5 @@
+
+
 /* =========================
 HERO CONTENEDOR
 ========================= */
@@ -353,4 +355,130 @@ BADGE +150 CANALES
   height: 100px; /* 👈 ajusta a gusto */
   width: auto;
   filter: drop-shadow(0 15px 30px rgba(0,0,0,0.35));
+}
+/* =========================
+
+VIDEO DE FONDO
+========================= */
+.hero.video .hero-viewport {
+  height: auto;              /* 👈 CLAVE */
+  min-height: 70vh;
+  padding-top: 5px;
+  padding-bottom: 80px;
+}
+
+.hero-video-bg {
+  position: relative;        /* 👈 YA NO absolute */
+  width: 100%;
+  max-width: 1400px;         /* 👈 limita el zoom */
+  margin: 0 auto;
+}
+
+.hero-video-bg video {
+  width: 100%;
+  height: auto;              /* 👈 NO 100% */
+  max-height: 520px;         /* 👈 AQUÍ SE ACABA EL ZOOM */
+  object-fit: contain;
+  display: block;
+}
+
+
+/* =========================
+BOTÓN HERO "VER MÁS"
+========================= */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 10px 20px 10px 20px;
+  border-radius: 99px;
+
+  background: #ffffff;
+  color: #000;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0px;
+
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* =========================
+FLECHA NEGRA
+========================= */
+.hero-btn-arrow {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  transition: transform 0.3s ease;
+}
+
+.hero-btn:hover .hero-btn-arrow {
+  transform: translateX(4px);
+}
+
+
+
+
+
+
+/* =========================
+IMAGEN FLOTANTE DESARROLLO
+========================= */
+.dev-out {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+/* IMAGEN CENTRADA Y FLOTANTE */
+.dev-floating {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  width: 520px;
+  max-width: 90%;
+
+  z-index: 9;
+  pointer-events: none;
+
+  animation: floatDev 8s ease-in-out infinite;
+  filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));
+}
+
+/* ANIMACIÓN */
+@keyframes floatDev {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-22px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
 }

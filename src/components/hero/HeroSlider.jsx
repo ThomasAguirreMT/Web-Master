@@ -1,11 +1,24 @@
 import { useState, useEffect, useRef } from "react";
 import "./HeroSlider.css";
+
+// === COMPONENTES ===
 import NetworkBackground from "../NetworkBackground/NetworkBackground";
+
+// === ASSETS ===
 import fibra from "../../assets/fibra.webp";
 import slidetv from "../../assets/slidetv.webp";
 import cristiano from "../../assets/cristiano.webp";
 import bannercanales from "../../assets/bannercanales.svg";
+import desarrolloslide from "../../assets/desarrolloslide.webp";
+import slidetrabaja from "../../assets/slidetrabaja.webp";
+import slidedesarrolloen from "../../assets/slidedesarrolloen.webp";
 
+/* ======================================================
+   DEFINICIÓN DE SLIDES
+   type     → comportamiento
+   variant  → variación visual
+   floating → elementos flotantes específicos
+====================================================== */
 const slides = [
   {
     type: "fiber",
@@ -14,9 +27,25 @@ const slides = [
   },
   {
     type: "image",
+    variant: "tv",
     title: "LA PARRILLA DE CANALES MÁS GRANDE DE BOGOTÁ",
-    subtitle: "+50 CANALES DIGITALES",
+    subtitle: "+150 CANALES DIGITALES",
     image: slidetv,
+  },
+  {
+    type: "image",
+    variant: "dev",
+    title: "DESARROLLO DE SOFTWARE",
+    subtitle: "SOLUCIONES A TU MEDIDA",
+    image: desarrolloslide,
+    floating: true, // ✅ SOLO ESTE TIENE IMAGEN FLOTANTE
+  },
+  {
+    type: "image",
+    variant: "dev",
+    title: "¿ERES ISP?",
+    subtitle: "TRABAJA CON NOSOTROS",
+    image: slidetrabaja,
   },
 ];
 
@@ -38,9 +67,7 @@ export default function HeroSlider() {
   }, [current]);
 
   const resetTimeout = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
   /* =========================
@@ -68,9 +95,12 @@ export default function HeroSlider() {
         }, 5000);
       }}
     >
-      {/* ===== VIEWPORT (SOLO FONDOS + TEXTO) ===== */}
+      {/* ==================================================
+          HERO VIEWPORT
+      ================================================== */}
       <div className="hero-viewport">
-        {/* SLIDE FIBRA */}
+
+        {/* ===== SLIDE FIBRA ===== */}
         {slide.type === "fiber" && (
           <>
             <NetworkBackground />
@@ -78,22 +108,35 @@ export default function HeroSlider() {
           </>
         )}
 
-        {/* SLIDE TV */}
+        {/* ===== SLIDES CON IMAGEN ===== */}
         {slide.type === "image" && (
           <>
             <div
-              className="hero-image-bg"
+              className={`hero-image-bg ${slide.variant}`}
               style={{ backgroundImage: `url(${slide.image})` }}
+              
             />
             <div className="hero-overlay dark" />
+          
           </>
         )}
 
-        {/* CONTENIDO */}
+        {/* ===== IMAGEN FLOTANTE SOLO PARA DEV ===== */}
+        {slide.floating && (
+          <div className="dev-out">
+            <img
+              src={slidedesarrolloen}
+              alt="Desarrollo flotante"
+              className="dev-floating"
+            />
+          </div>
+        )}
+
+        {/* ===== CONTENIDO ===== */}
         <div className="hero-content">
           <h1>{slide.title}</h1>
 
-          {slide.type === "image" ? (
+          {slide.variant === "tv" ? (
             <div className="hero-badge">
               <img
                 src={bannercanales}
@@ -105,31 +148,30 @@ export default function HeroSlider() {
             <h2>{slide.subtitle}</h2>
           )}
 
-          <button className="hero-btn">VER MÁS</button>
+          <button className="hero-btn">
+            VER MÁS
+            <span className="hero-btn-arrow">→</span>
+          </button>
         </div>
 
-        {/* FLECHAS */}
-        <button className="arrow left" onClick={prevSlide}>
-          ❮
-        </button>
-        <button className="arrow right" onClick={nextSlide}>
-          ❯
-        </button>
+        {/* ===== FLECHAS ===== */}
+        <button className="arrow left" onClick={prevSlide}>❮</button>
+        <button className="arrow right" onClick={nextSlide}>❯</button>
       </div>
 
-      {/* ===== FIBRA FUERA (INVADE BLANCO) ===== */}
+      {/* ==================================================
+          ELEMENTOS FUERA DEL VIEWPORT
+      ================================================== */}
+
+      {/* ===== FIBRA ===== */}
       {slide.type === "fiber" && (
         <div className="floating-elements fiber-out">
-          <img
-            src={fibra}
-            alt="Fibra óptica"
-            className="fiber-main"
-          />
+          <img src={fibra} alt="Fibra óptica" className="fiber-main" />
         </div>
       )}
 
-      {/* ===== JUGADOR TV FUERA (IZQUIERDA) ===== */}
-      {slide.type === "image" && (
+      {/* ===== JUGADOR SOLO EN TV ===== */}
+      {slide.variant === "tv" && (
         <div className="floating-elements tv-out">
           <img
             src={cristiano}
@@ -139,7 +181,7 @@ export default function HeroSlider() {
         </div>
       )}
 
-      {/* INDICADORES */}
+      {/* ===== DOTS ===== */}
       <div className="hero-dots">
         {slides.map((_, index) => (
           <button
