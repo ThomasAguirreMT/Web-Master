@@ -1,0 +1,135 @@
+/* =========================
+SECCIÓN QUIÉNES SOMOS
+========================= */
+
+.about-section {
+  position: relative;
+  padding: 150px 50px 120px;
+  background: #000;
+  overflow: hidden;
+}
+
+/* =========================
+TARJETA PRINCIPAL
+========================= */
+
+.about-card {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 130px 120px 8px;
+  border-radius: 28px;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #0b4f6c 45%,
+    #062f3f 100%
+  );
+  box-shadow: 0 45px 90px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================
+TÍTULO TIPO CINTA
+========================= */
+
+.about-title {
+  position: absolute;
+  top: -2px;
+  left: -200px;
+  z-index: 6;
+}
+
+/* IMAGEN CINTA */
+.about-ribbon {
+  width: 600px;
+  height: auto;
+  display: block;
+}
+
+/* TEXTO ENCIMA */
+.about-title-text {
+  position: absolute;
+  left: 250px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+}
+
+/* =========================
+CONTENIDO TEXTO
+========================= */
+
+.about-content {
+  max-width: 1100px;
+}
+
+.about-content p {
+  font-size: 25px;
+  line-height: 1.9;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.about-content strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+  .about-card {
+    padding: 90px 70px 110px;
+  }
+
+  .about-title {
+    left: -40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-card {
+    width: 95%;
+    padding: 70px 45px 90px;
+  }
+
+  .about-content p {
+    font-size: 17px;
+  }
+
+  .about-base {
+    width: 520px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-title {
+    left: 10px;
+    top: -30px;
+  }
+
+  .about-ribbon {
+    width: 360px;
+  }
+
+  .about-title-text {
+    font-size: 18px;
+    left: 44px;
+  }
+
+  .about-card {
+    padding: 60px 28px 80px;
+    border-radius: 20px;
+  }
+
+  .about-base {
+    display: none;
+  }
+}

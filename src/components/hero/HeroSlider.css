@@ -3,10 +3,13 @@
 /* =========================
 HERO CONTENEDOR
 ========================= */
+
+
 .hero {
+    background: #000;
   position: relative;
   height: 100vh;
-  /* 👈 ESPACIO PARA EL NAVBAR */
+  
 
   .arrow {
     position: absolute;
@@ -20,7 +23,7 @@ HERO CONTENEDOR
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-    /* 🔥 MÁS ALTO QUE EL CANVAS */
+
     font-size: 22px;
     display: flex;
     align-items: center;
@@ -36,6 +39,8 @@ HERO CONTENEDOR
   }
 
 }
+
+
 /* FONDO AZUL SOLO DENTRO DEL VIEWPORT */
 .hero.fiber .hero-viewport::before {
   content: "";
@@ -281,9 +286,23 @@ BANNER VIEWPORT (CORTE GLOBAL)
 ========================= */
 .hero-viewport {
   position: relative;
-  height: calc(80vh + 90px); /* 👈 mantiene el tamaño visual */
-  padding-top: 90px;        /* 👈 espacio para el navbar */
+  height: 100vh;       /* 👈 CAMBIO CLAVE */
+  padding-top: 90px;  /* navbar */
   overflow: hidden;
+}
+
+/* SLIDES NORMALES */
+.hero.image .hero-viewport,
+.hero.fiber .hero-viewport {
+  height: 100vh;
+}
+
+/* SLIDE VIDEO (el único especial) */
+.hero.video .hero-viewport {
+  height: auto;
+  min-height: 70vh;
+  padding-top: 5px;
+  padding-bottom: 80px;
 }
 
 
@@ -347,7 +366,6 @@ BADGE +150 CANALES
   display: flex;
   justify-content: center;
   z-index: 15;
-  animation: floatPlayer 6s ease-in-out infinite;
   filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));
 }
 
@@ -361,23 +379,23 @@ BADGE +150 CANALES
 VIDEO DE FONDO
 ========================= */
 .hero.video .hero-viewport {
-  height: auto;              /* 👈 CLAVE */
+  height: auto;              
   min-height: 70vh;
   padding-top: 5px;
   padding-bottom: 80px;
 }
 
 .hero-video-bg {
-  position: relative;        /* 👈 YA NO absolute */
+  position: relative;      
   width: 100%;
-  max-width: 1400px;         /* 👈 limita el zoom */
+  max-width: 1400px;         
   margin: 0 auto;
 }
 
 .hero-video-bg video {
   width: 100%;
-  height: auto;              /* 👈 NO 100% */
-  max-height: 520px;         /* 👈 AQUÍ SE ACABA EL ZOOM */
+  height: auto;             
+  max-height: 520px;         
   object-fit: contain;
   display: block;
 }
@@ -456,15 +474,15 @@ IMAGEN FLOTANTE DESARROLLO
 /* IMAGEN CENTRADA Y FLOTANTE */
 .dev-floating {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
 
   transform: translate(-50%, -50%);
-  width: 520px;
+  width: 750px;
   max-width: 90%;
 
   z-index: 9;
-  pointer-events: none;
+pointer-events: auto;
 
   animation: floatDev 8s ease-in-out infinite;
   filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));

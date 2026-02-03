@@ -15,9 +15,6 @@ import slidedesarrolloen from "../../assets/slidedesarrolloen.webp";
 
 /* ======================================================
    DEFINICIÓN DE SLIDES
-   type     → comportamiento
-   variant  → variación visual
-   floating → elementos flotantes específicos
 ====================================================== */
 const slides = [
   {
@@ -38,7 +35,6 @@ const slides = [
     title: "DESARROLLO DE SOFTWARE",
     subtitle: "SOLUCIONES A TU MEDIDA",
     image: desarrolloslide,
-    floating: true, // ✅ SOLO ESTE TIENE IMAGEN FLOTANTE
   },
   {
     type: "image",
@@ -46,6 +42,7 @@ const slides = [
     title: "¿ERES ISP?",
     subtitle: "TRABAJA CON NOSOTROS",
     image: slidetrabaja,
+    floating: true,
   },
 ];
 
@@ -70,9 +67,6 @@ export default function HeroSlider() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
-  /* =========================
-     CONTROLES
-  ========================= */
   const nextSlide = () => {
     resetTimeout();
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -95,12 +89,12 @@ export default function HeroSlider() {
         }, 5000);
       }}
     >
-      {/* ==================================================
-          HERO VIEWPORT
-      ================================================== */}
+      {/* =========================
+          HERO VIEWPORT (RECORTA)
+      ========================= */}
       <div className="hero-viewport">
 
-        {/* ===== SLIDE FIBRA ===== */}
+        {/* SLIDE FIBRA */}
         {slide.type === "fiber" && (
           <>
             <NetworkBackground />
@@ -108,31 +102,18 @@ export default function HeroSlider() {
           </>
         )}
 
-        {/* ===== SLIDES CON IMAGEN ===== */}
+        {/* SLIDES CON IMAGEN */}
         {slide.type === "image" && (
           <>
             <div
               className={`hero-image-bg ${slide.variant}`}
               style={{ backgroundImage: `url(${slide.image})` }}
-              
             />
             <div className="hero-overlay dark" />
-          
           </>
         )}
 
-        {/* ===== IMAGEN FLOTANTE SOLO PARA DEV ===== */}
-        {slide.floating && (
-          <div className="dev-out">
-            <img
-              src={slidedesarrolloen}
-              alt="Desarrollo flotante"
-              className="dev-floating"
-            />
-          </div>
-        )}
-
-        {/* ===== CONTENIDO ===== */}
+        {/* CONTENIDO */}
         <div className="hero-content">
           <h1>{slide.title}</h1>
 
@@ -154,23 +135,23 @@ export default function HeroSlider() {
           </button>
         </div>
 
-        {/* ===== FLECHAS ===== */}
+        {/* FLECHAS */}
         <button className="arrow left" onClick={prevSlide}>❮</button>
         <button className="arrow right" onClick={nextSlide}>❯</button>
       </div>
 
-      {/* ==================================================
+      {/* =========================
           ELEMENTOS FUERA DEL VIEWPORT
-      ================================================== */}
+      ========================= */}
 
-      {/* ===== FIBRA ===== */}
+      {/* FIBRA */}
       {slide.type === "fiber" && (
         <div className="floating-elements fiber-out">
           <img src={fibra} alt="Fibra óptica" className="fiber-main" />
         </div>
       )}
 
-      {/* ===== JUGADOR SOLO EN TV ===== */}
+      {/* JUGADOR TV */}
       {slide.variant === "tv" && (
         <div className="floating-elements tv-out">
           <img
@@ -181,7 +162,18 @@ export default function HeroSlider() {
         </div>
       )}
 
-      {/* ===== DOTS ===== */}
+      {/* IMAGEN FLOTANTE DESARROLLO (FUERA DEL VIEWPORT) */}
+      {slide.floating && (
+        <div className="dev-out">
+          <img
+            src={slidedesarrolloen}
+            alt="Desarrollo flotante"
+            className="dev-floating"
+          />
+        </div>
+      )}
+
+      {/* DOTS */}
       <div className="hero-dots">
         {slides.map((_, index) => (
           <button
