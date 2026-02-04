@@ -2,7 +2,7 @@ import Navbar from "./components/navbar/navbar";
 import HeroSlider from "./components/hero/HeroSlider";
 import Footer from "./components/footer/footer";
 import About from "./components/about/about";
-import Quienessomos from "./components/quienessomos/quienessomos";
+import Porqueelegirnos from "./components/porqueelegirnos/porqueelegirnos";
 
 
 
@@ -13,6 +13,7 @@ function App() {
       <Navbar />
       <HeroSlider />
       <About />
+      <Porqueelegirnos />
 
 
 
