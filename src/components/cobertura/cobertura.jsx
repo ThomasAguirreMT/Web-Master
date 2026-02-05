@@ -2,6 +2,7 @@ import "./cobertura.css";
 
 import mapa from "../../assets/mapacolombia.svg";
 import world from "../../assets/mundogirando.svg";
+import napcolombia from "../../assets/napcolombia.png";
 
 import equinix from "../../assets/equinox.svg";
 import odata from "../../assets/ODATA.svg";
@@ -9,7 +10,7 @@ import odata from "../../assets/ODATA.svg";
 function Cobertura() {
   return (
     <section className="cobertura">
-      
+
       {/* MUNDO ANIMADO */}
       <img src={world} className="world-bg" alt="" />
 
@@ -26,10 +27,14 @@ function Cobertura() {
             <span>DATA CENTER</span>
           </h2>
 
-          <div className="logos">
-            <img src={equinix} alt="Equinix" />
-            <img src={odata} alt="Odata" />
-          </div>
+         <div className="logos">
+  <img src={odata} alt="Odata" className="logo-odata" />
+  <img src={equinix} alt="Equinix" className="logo-equinix" />
+  <img src={napcolombia} alt="Nap Colombia" className="logo-napcolombia" />
+</div>
+
+
+          
         </div>
 
       </div>

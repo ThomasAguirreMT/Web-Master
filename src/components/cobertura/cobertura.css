@@ -1,95 +1,118 @@
-.cobertura {
-  background: linear-gradient(90deg, #2b2f91 0%, #1e40af 60%, #1e3a8a 100%);
-  padding: 100px 20px;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-/*  MUNDO ANIMADO */
-.world-bg {
-  position: absolute;
-  right: -500px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 900px;
-  opacity: 0.30;
-  animation: rotateWorld 100s linear infinite;
-  pointer-events: none;
-}
-
-/* ANIMACIÓN */
-@keyframes rotateWorld {
-  from {
-    transform: translateY(-50%) rotate(0deg);
-  }
-  to {
-    transform: translateY(-50%) rotate(360deg);
-  }
-}
-
-/* CONTENIDO */
-.cobertura-container {
-  max-width: 1400px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 40px;
-  position: relative;
-  z-index: 2;
-}
-
-/* MAPA */
-.cobertura-mapa img {
-  max-width: 100%;
-}
-
-/* TEXTO */
-.cobertura-info h2 {
-  font-size: 36px;
-  font-weight: 800;
-  margin-bottom: 40px;
-}
-
-
-
-/* LOGOS */
-.logos {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.logos img {
-  height: 50px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .cobertura-container {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .cobertura {
+    background: linear-gradient(90deg, #2b2f91 0%, #1e40af 60%, #1e3a8a 100%);
+    padding: 100px 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
   }
 
-  .logos {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+  /*  MUNDO ANIMADO */
   .world-bg {
-    width: 400px;
-    right: -120px;
-    opacity: 0.08;
+    position: absolute;
+    right: -500px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 900px;
+    opacity: 0.30;
+    animation: rotateWorld 100s linear infinite;
+    pointer-events: none;
   }
-}
-@keyframes rotateWorld {
-  0% {
-    transform: translate(0, -50%) rotate(0deg);
+
+  /* ANIMACIÓN */
+  @keyframes rotateWorld {
+    from {
+      transform: translateY(-50%) rotate(0deg);
+    }
+
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
   }
-  100% {
-    transform: translate(-100px, -50%) rotate(360deg);
+
+  /* CONTENIDO */
+  .cobertura-container {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
   }
-}
+
+  /* MAPA */
+  .cobertura-mapa img {
+    max-width: 100%;
+  }
+
+  /* TEXTO */
+  .cobertura-info h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .logoss {
+    height: 910px;
+    opacity: 0.9;
+  }
+
+
+  /* LOGOS */
+  .logos {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .logos img {
+    opacity: 0.9;
+    max-width: 100%;
+  }
+
+  /* ODATA MÁS PEQUEÑO */
+  .logo-odata {
+    height: 40px;
+  }
+
+  /* EQUINIX MÁS GRANDE */
+  .logo-equinix {
+    height: 70px;
+  }
+
+  .logo-napcolombia {
+    height: 70px;
+  }
+
+
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .cobertura-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .logos {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .world-bg {
+      width: 400px;
+      right: -120px;
+      opacity: 0.08;
+    }
+  }
+
+  @keyframes rotateWorld {
+    0% {
+      transform: translate(0, -50%) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(-100px, -50%) rotate(360deg);
+    }
+  }

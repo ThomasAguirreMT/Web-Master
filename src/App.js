@@ -8,7 +8,6 @@ import Cobertura from "./components/cobertura/cobertura";
 
 
 
-
 function App() {
   return (
     <>
