@@ -1,11 +1,10 @@
 import "./Footer.css";
-import logo from "../../assets/logo.svg"; // ajusta si es png
+import logo from "../../assets/logo.svg"; 
 
 
 export default function Footer() {
 return (
 <footer className="footer">
-{/* Línea animada superior */}
 <div className="footer-wave" />
 
 
