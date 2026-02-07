@@ -253,7 +253,7 @@ INDICADORES (DOTS)
 
 .hero-dots {
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -407,9 +407,9 @@ BOTÓN HERO "VER MÁS"
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
 
-  padding: 10px 20px;
+  padding: 10px 20px 10px 20px;
   border-radius: 99px;
 
   background: #ffffff;
@@ -418,17 +418,16 @@ BOTÓN HERO "VER MÁS"
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 700;
+  letter-spacing: 0px;
 
   border: none;
   cursor: pointer;
 
-  margin-top: 30px;   
   transition: all 0.3s ease;
 }
 
-
 .hero-btn:hover {
-  transform: translateY(-25px);
+  transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
