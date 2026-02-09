@@ -24,7 +24,7 @@ function Cobertura() {
           <h2>
             TENEMOS COBERTURA EN TODO <br />
             COLOMBIA DESDE LOS PRINCIPALES <br />
-            <span>DATA CENTER</span>
+            <span>DATA CEENTER</span>
           </h2>
 
          <div className="logos">
