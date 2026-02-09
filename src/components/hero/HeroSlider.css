@@ -267,6 +267,8 @@ INDICADORES (DOTS)
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.4);
   border: none;
+   margin-top: 26px;
+
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -418,6 +420,7 @@ BOTÓN HERO "VER MÁS"
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 700;
+  margin-top: 20px;
   letter-spacing: 0px;
 
   border: none;
@@ -499,4 +502,34 @@ pointer-events: auto;
   100% {
     transform: translate(-50%, -50%) translateY(0);
   }
+}
+
+.arrow {
+  position: absolute;
+  z-index: 50;        /* 🔥 más alto que overlays */
+  pointer-events: auto;
+  
+}
+.hero-overlay,
+.floating-elements,
+.tv-player,
+.fiber-main,
+.dev-floating {
+  pointer-events: none;  /* 🔥 clave en móvil */
+}
+@media (max-width: 768px) {
+  .hero-content {
+    pointer-events: none; /* 🔥 clave */
+  }
+}
+
+.hero-btn,
+.hero-btn * {
+  pointer-events: auto;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 999;       /* 🔥 sin discusión */
+  pointer-events: auto;
 }

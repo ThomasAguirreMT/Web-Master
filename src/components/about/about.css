@@ -133,3 +133,58 @@ RESPONSIVE
     display: none;
   }
 }
+
+/* =========================
+ABOUT – MOBILE PRO
+========================= */
+@media (max-width: 600px) {
+
+  .about-section {
+    padding: 90px 16px 70px;
+  }
+
+  .about-card {
+    width: 100%;
+    padding: 90px 22px 60px;
+    border-radius: 18px;
+  }
+
+  /* CINTA */
+  .about-title {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-ribbon {
+    width: 300px;
+  }
+
+  .about-title-text {
+    font-size: 16px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    white-space: nowrap;
+  }
+
+  /* TEXTO */
+  .about-content {
+    max-width: 100%;
+    text-align: center; /* 🔥 */
+  }
+
+  .about-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* BASE OCULTA */
+  .about-base {
+    display: none;
+  }
+}
