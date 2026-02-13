@@ -2,7 +2,7 @@ import "./cobertura.css";
 
 import mapa from "../../assets/mapacolombia.svg";
 import world from "../../assets/mundogirando.svg";
-import napcolombia from "../../assets/napcolombia.png";
+import napcolombia from "../../assets/napcolombia.svg";
 
 import equinix from "../../assets/equinox.svg";
 import odata from "../../assets/ODATA.svg";

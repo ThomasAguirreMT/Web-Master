@@ -55,7 +55,7 @@
   }
 
   .logoss {
-    height: 910px;
+    height: 990px;
     opacity: 0.9;
   }
 
@@ -64,6 +64,9 @@
   .logos {
     display: flex;
     align-items: center;
+      right: -50px;
+      
+
     gap: 40px;
   }
 
@@ -83,7 +86,10 @@
   }
 
   .logo-napcolombia {
-    height: 70px;
+    height: 80px;
+    margin-top: 20px;
+   right: 50px;
+
   }
 
 
