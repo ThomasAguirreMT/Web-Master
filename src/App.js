@@ -5,6 +5,7 @@ import About from "./components/about/about";
 import Porqueelegirnos from "./components/porqueelegirnos/porqueelegirnos";
 import Cobertura from "./components/cobertura/cobertura";
 import Servicios from "./components/servicios/servicios";
+import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
 
 
@@ -18,7 +19,7 @@ function App() {
       <Porqueelegirnos />
       <Cobertura />
       <Servicios />
-
+      <FloatingButtons />
 
 
 

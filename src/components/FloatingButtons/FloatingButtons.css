@@ -1,0 +1,229 @@
+/* ===============================
+   BOTONES FLOTANTES
+=================================*/
+
+.floating-button {
+  position: fixed;
+  right: 25px;
+  width: 260px;
+  height: 60px;
+  background: #000;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.floating-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* POSICIÓN */
+.speed {
+  bottom: 140px;
+}
+
+.whatsapp {
+  bottom: 60px;
+}
+
+/* ===============================
+   ICONOS
+=================================*/
+
+.icon {
+  position: absolute;
+  right: -18px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* SPEED */
+.speed-icon {
+  background: linear-gradient(135deg, #2ea3f2, #1b4db1);
+}
+
+/* WHATSAPP */
+.whatsapp-icon {
+  background: #25d366;
+}
+
+/* ===============================
+   PANEL CONTACTO
+=================================*/
+
+.contact-panel {
+  position: fixed;
+  bottom: 140px;
+  right: 25px;
+  width: 300px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px 20px 20px;
+  z-index: 10000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.25s ease;
+}
+
+/* Animación */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Botón cerrar */
+.close-btn {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Títulos */
+.contact-panel h4 {
+  font-size: 14px;
+  margin: 15px 0 8px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ===============================
+   OPCIONES CONTACTO
+=================================*/
+
+.contact-option {
+  display: block;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: #000000;
+  background: #c9c9ec;
+}
+
+.contact-option:hover {
+  background: #ededed;
+  transform: translateX(3px);
+}
+
+.contact-option span {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 3px;
+  color: #666;
+}
+
+.contact-option strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ACTIVO */
+.contact-option.active {
+  background: #3871c0;
+  color: #fff;
+}
+
+.contact-option.active span,
+.contact-option.active strong {
+  color: #fff;
+}
+
+.contact-option:visited,
+.contact-option:active,
+.contact-option:focus {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+
+/* ===============================
+   EFECTO PULSE WHATSAPP
+=================================*/
+
+.whatsapp .icon {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+
+@media (max-width: 768px) {
+  .floating-button {
+    width: 240px;
+    height: 65px;
+    font-size: 14px;
+  }
+
+  .icon {
+    width: 70px;
+    height: 70px;
+    right: -25px;
+  }
+
+  .contact-panel {
+    width: 90%;
+    right: 5%;
+  }
+}
+
+
+.floating-button {
+  border: none;      
+  outline: none;       
+}
+
+.floating-button:focus,
+.floating-button:active {
+  outline: none;
+  border: none;
+}
