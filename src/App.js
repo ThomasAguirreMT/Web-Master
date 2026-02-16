@@ -6,6 +6,7 @@ import Porqueelegirnos from "./components/porqueelegirnos/porqueelegirnos";
 import Cobertura from "./components/cobertura/cobertura";
 import Servicios from "./components/servicios/servicios";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
+import AlliesCarousel from "./components/AlliesCarousel/AlliesCarousel";
 
 
 
@@ -20,6 +21,8 @@ function App() {
       <Cobertura />
       <Servicios />
       <FloatingButtons />
+      <AlliesCarousel />
+ 
 
 
 

@@ -5,7 +5,7 @@ import world from "../../assets/mundogirando.svg";
 import napcolombia from "../../assets/napcolombia.svg";
 
 import equinix from "../../assets/equinox.svg";
-import odata from "../../assets/ODATA.svg";
+import odata from "../../assets/odata.svg";
 
 function Cobertura() {
   return (
