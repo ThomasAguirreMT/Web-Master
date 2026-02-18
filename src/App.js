@@ -14,6 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/internet" element={<Internet />} />
+        <Route path="/television" element={<Television />} />
+        <Route path="/software" element={<Software />} />
+        <Route path="/trabaja" element={<Trabaja />} />
+        <Route path="/contacto" element={<Contacto />} />
       </Routes>
 
       <Footer />
