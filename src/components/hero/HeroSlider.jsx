@@ -18,6 +18,14 @@ import slidedesarrolloen from "../../assets/slidedesarrolloen.webp";
 ====================================================== */
 const slides = [
   {
+    type: "image",
+    variant: "dev",
+    title: "¿ERES ISP?",
+    subtitle: "TRABAJA CON NOSOTROS",
+    image: slidetrabaja,
+    floating: true,
+  },
+  {
     type: "fiber",
     title: "INTERNET DEDICADO DE ALTA VELOCIDAD",
     subtitle: "PARA TU ISP O EMPRESA",
@@ -36,14 +44,7 @@ const slides = [
     subtitle: "SOLUCIONES A TU MEDIDA",
     image: desarrolloslide,
   },
-  {
-    type: "image",
-    variant: "dev",
-    title: "¿ERES ISP?",
-    subtitle: "TRABAJA CON NOSOTROS",
-    image: slidetrabaja,
-    floating: true,
-  },
+  
 ];
 
 export default function HeroSlider() {

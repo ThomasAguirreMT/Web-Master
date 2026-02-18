@@ -1,41 +1,23 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/navbar/navbar";
-import HeroSlider from "./components/hero/HeroSlider";
 import Footer from "./components/footer/footer";
-import About from "./components/about/about";
-import Porqueelegirnos from "./components/porqueelegirnos/porqueelegirnos";
-import Cobertura from "./components/cobertura/cobertura";
-import Servicios from "./components/servicios/servicios";
-import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
-import AlliesCarousel from "./components/AlliesCarousel/AlliesCarousel";
 
-
-
+import Home from "./pages/Home";
+import Internet from "./pages/internet";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <HeroSlider />
-      <About />
-      <Porqueelegirnos />
-      <Cobertura />
-      <Servicios />
-      <FloatingButtons />
-      <AlliesCarousel />
- 
 
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/internet" element={<Internet />} />
+      </Routes>
 
-
-
-
-
-
-
-      
       <Footer />
-      
-      
-    </>
+    </BrowserRouter>
   );
 }
 

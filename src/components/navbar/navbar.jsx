@@ -1,20 +1,27 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../assets/logo.svg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("INICIO");
+  const location = useLocation();
 
-  const handleClick = (item) => {
-    setActive(item);
-    setOpen(false);
-  };
+  const menuItems = [
+    { name: "INICIO", path: "/" },
+    { name: "INTERNET", path: "/internet" },
+    { name: "TELEVISIÓN", path: "/television" },
+    { name: "DESARROLLO DE SOFTWARE", path: "/software" },
+    { name: "TRABAJA CON NOSOTROS", path: "/trabaja" },
+    { name: "CONTACTO", path: "/contacto" },
+  ];
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <img src={logo} alt="Logo" className="brand-logo" />
+        <Link to="/">
+          <img src={logo} alt="Logo" className="brand-logo" />
+        </Link>
       </div>
 
       <div
@@ -27,20 +34,13 @@ export default function Navbar() {
       </div>
 
       <ul className={`nav-links ${open ? "open" : ""}`}>
-        {[
-          "INICIO",
-          "INTERNET",
-          "TELEVISIÓN",
-          "DESARROLLO DE SOFTWARE",
-          "TRABAJA CON NOSOTROS",
-          "CONTACTO",
-        ].map((item) => (
+        {menuItems.map((item) => (
           <li
-            key={item}
-            className={active === item ? "active" : ""}
-            onClick={() => handleClick(item)}
+            key={item.name}
+            className={location.pathname === item.path ? "active" : ""}
+            onClick={() => setOpen(false)}
           >
-            {item}
+            <Link to={item.path}>{item.name}</Link>
           </li>
         ))}
       </ul>

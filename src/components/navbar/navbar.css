@@ -21,7 +21,6 @@ NAVBAR BASE (DESKTOP)
       rgba(0, 0, 0, 0.45),
       transparent);
 }
-
 /* LOGO */
 .navbar-left {
   display: flex;
@@ -359,4 +358,17 @@ NAVBAR MOBILE – PRO VERSION
     background: rgba(77, 163, 255, 0.08);
     border-left: 3px solid #4da3ff;
   }
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-links a:visited {
+  color: inherit;
+}
+
+.nav-links a:hover {
+  color: #4da3ff;
 }
