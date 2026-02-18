@@ -1,7 +1,7 @@
 import "./AlliesCarousel.css";
 
 import inttelgo from "../../assets/inttelgo.svg";
-import odata from "../../assets/odata.svg";
+import logoodatamorado from "../../assets/logoodatamorado.svg";
 import pit from "../../assets/pits.svg";
 import edgeuno from "../../assets/edgeuno.svg";
 import hurricane from "../../assets/hurricane.svg";
@@ -9,7 +9,7 @@ import hurricane from "../../assets/hurricane.svg";
 export default function AlliesCarousel() {
   const logos = [
     inttelgo,
-    odata,
+    logoodatamorado,
     pit,
     edgeuno,
     hurricane,

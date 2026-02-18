@@ -2,6 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
+import Television from "./pages/television";
+import Software from "./pages/software";
+
+import Trabaja from "./pages/trabaja";
+import Contacto from "./pages/contacto";
+
 
 import Home from "./pages/Home";
 import Internet from "./pages/internet";
