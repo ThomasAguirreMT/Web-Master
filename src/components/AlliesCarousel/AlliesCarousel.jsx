@@ -3,16 +3,16 @@ import "./AlliesCarousel.css";
 import inttelgo from "../../assets/inttelgo.svg";
 import logoodatamorado from "../../assets/logoodatamorado.svg";
 import pit from "../../assets/pits.svg";
-import edgeuno from "../../assets/edgeuno.svg";
-import hurricane from "../../assets/hurricane.svg";
+import vectoredgeuno from "../../assets/vectoredgeuno.svg";
+import vectorhurricane from "../../assets/vectorhurricane.svg";
 
 export default function AlliesCarousel() {
   const logos = [
     inttelgo,
     logoodatamorado,
     pit,
-    edgeuno,
-    hurricane,
+    vectoredgeuno,
+    vectorhurricane,
   ];
 
   return (
