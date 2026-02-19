@@ -32,16 +32,17 @@ const DEFAULT_EFFECT_OPTIONS = {
   carWidthPercentage: [0.3, 0.5],
   carShiftX: [-0.8, 0.8],
   carFloorSeparation: [0, 5],
-  colors: {
-    roadColor: 0x080808,
-    islandColor: 0x0a0a0a,
-    background: 0x000000,
-    shoulderLines: 0xffffff,
-    brokenLines: 0xffffff,
-    leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-    rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-    sticks: 0x03b3c3
-  }
+colors: {
+  roadColor: 0x111111,
+  islandColor: 0x1a1a1a,
+  background: 0x000814,
+  shoulderLines: 0x00b4d8,
+  brokenLines: 0x90e0ef,
+  leftCars: [0x0077b6, 0x0096c7, 0x00b4d8],
+  rightCars: [0x03045e, 0x023e8a, 0x0077b6],
+  sticks: 0x00b4d8
+}
+
 };
 
 const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {

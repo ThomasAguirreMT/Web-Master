@@ -1,9 +1,9 @@
 import "./servicios.css";
 
-import internet from "../../assets/internetdedicado.svg";
-import transporte from "../../assets/transportededatos.svg";
-import infraestructura from "../../assets/alquilerdeinfraestructura.svg";
-import software from "../../assets/desarrollodesoftware.svg";
+import internet from "../../assets/servicios/internetdedicado.svg";
+import transporte from "../../assets/servicios/transportededatos.svg";
+import infraestructura from "../../assets/servicios/alquilerdeinfraestructura.svg";
+import software from "../../assets/servicios/desarrollodesoftware.svg";
 
 const services = [
   {

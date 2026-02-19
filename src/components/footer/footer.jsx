@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../../assets/logo.svg"; // ajusta si es png
+import logo from "../../assets/navbar/logo.svg"; // ajusta si es png
 
 
 export default function Footer() {

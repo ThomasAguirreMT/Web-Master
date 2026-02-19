@@ -1,11 +1,11 @@
 import "./porqueelegirnos.css";
 
 // ICONOS
-import seguridad from "../../assets/iconseguridad.svg";
-import rapido from "../../assets/iconrapido.svg";
-import equipo from "../../assets/iconequipo.svg";
-import precio from "../../assets/iconprecio.svg";
-import ingresos from "../../assets/iconingresos.svg";
+import seguridad from "../../assets/porqueelegirnos/iconseguridad.svg";
+import rapido from "../../assets/porqueelegirnos/iconrapido.svg";
+import equipo from "../../assets/porqueelegirnos/iconequipo.svg";
+import precio from "../../assets/porqueelegirnos/iconprecio.svg";
+import ingresos from "../../assets/porqueelegirnos/iconingresos.svg";
 
 function PorqueElegirnos() {
   return (

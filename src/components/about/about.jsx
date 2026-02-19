@@ -1,5 +1,5 @@
 import "./about.css";
-import flechaquienes from "../../assets/flechaquienes.svg";
+import flechaquienes from "../../assets/about/flechaquienes.svg";
 
 export default function About() {
   return (

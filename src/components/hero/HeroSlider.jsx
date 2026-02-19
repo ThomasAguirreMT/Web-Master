@@ -5,13 +5,13 @@ import "./HeroSlider.css";
 import NetworkBackground from "../NetworkBackground/NetworkBackground";
 
 // === ASSETS ===
-import fibra from "../../assets/fibra.webp";
-import slidetv from "../../assets/slidetv.webp";
-import cristiano from "../../assets/cristiano.webp";
-import bannercanales from "../../assets/bannercanales.svg";
-import desarrolloslide from "../../assets/desarrolloslide.webp";
-import slidetrabaja from "../../assets/slidetrabaja.webp";
-import slidedesarrolloen from "../../assets/slidedesarrolloen.webp";
+import fibra from "../../assets/imageneshomecarrusel/fibra.webp";
+import slidetv from "../../assets/imageneshomecarrusel/slidetv.webp";
+import cristiano from "../../assets/imageneshomecarrusel/cristiano.webp";
+import bannercanales from "../../assets/imageneshomecarrusel/bannercanales.svg";
+import desarrolloslide from "../../assets/imageneshomecarrusel/desarrolloslide.webp";
+import slidetrabaja from "../../assets/imageneshomecarrusel/slidetrabaja.webp";
+import slidedesarrolloen from "../../assets/imageneshomecarrusel/slidedesarrolloen.webp";
 
 /* ======================================================
    DEFINICIÓN DE SLIDES
