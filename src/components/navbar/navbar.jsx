@@ -18,32 +18,36 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-left">
-        <Link to="/">
-          <img src={logo} alt="Logo" className="brand-logo" />
-        </Link>
-      </div>
+      <div className="navbar-container">
 
-      <div
-        className={`menu-toggle ${open ? "active" : ""}`}
-        onClick={() => setOpen(!open)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        <div className="navbar-left">
+          <Link to="/">
+            <img src={logo} alt="Logo" className="brand-logo" />
+          </Link>
+        </div>
 
-      <ul className={`nav-links ${open ? "open" : ""}`}>
-        {menuItems.map((item) => (
-          <li
-            key={item.name}
-            className={location.pathname === item.path ? "active" : ""}
-            onClick={() => setOpen(false)}
-          >
-            <Link to={item.path}>{item.name}</Link>
-          </li>
-        ))}
-      </ul>
+        <div
+          className={`menu-toggle ${open ? "active" : ""}`}
+          onClick={() => setOpen(!open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul className={`nav-links ${open ? "open" : ""}`}>
+          {menuItems.map((item) => (
+            <li
+              key={item.name}
+              className={location.pathname === item.path ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
+              <Link to={item.path}>{item.name}</Link>
+            </li>
+          ))}
+        </ul>
+
+      </div>
     </nav>
   );
 }

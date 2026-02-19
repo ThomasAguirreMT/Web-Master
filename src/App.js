@@ -2,15 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
-import Television from "./pages/television";
-import Software from "./pages/software";
-
-import Trabaja from "./pages/trabaja";
-import Contacto from "./pages/contacto";
-
 
 import Home from "./pages/Home";
 import Internet from "./pages/internet";
+import TelevisionPage from "./pages/television";
+import Software from "./pages/software";
+import Trabaja from "./pages/trabaja";
+import Contacto from "./pages/contacto";
 
 function App() {
   return (
@@ -20,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/internet" element={<Internet />} />
-        <Route path="/television" element={<Television />} />
+        <Route path="/television" element={<TelevisionPage />} />
         <Route path="/software" element={<Software />} />
         <Route path="/trabaja" element={<Trabaja />} />
         <Route path="/contacto" element={<Contacto />} />

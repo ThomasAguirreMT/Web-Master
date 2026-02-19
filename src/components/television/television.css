@@ -1,0 +1,13 @@
+.tv-wrapper {
+  width: 100%;
+  height: calc(90vh - 10px); /* alto navbar */
+  overflow: hidden;
+  background: black;
+}
+
+.tv-video-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

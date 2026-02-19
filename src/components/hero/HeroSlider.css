@@ -6,6 +6,11 @@ HERO CONTENEDOR
 
 
 .hero {
+  max-height: 950px;
+}
+
+
+.hero {
     background: #000;
   position: relative;
   height: 100vh;
@@ -288,8 +293,9 @@ BANNER VIEWPORT (CORTE GLOBAL)
 ========================= */
 .hero-viewport {
   position: relative;
-  height: 100vh;       /* 👈 CAMBIO CLAVE */
-  padding-top: 90px;  /* navbar */
+  min-height: calc(100vh - 90px);
+  max-height:600px;   /* 🔥 límite real */
+  padding-top: 90px;
   overflow: hidden;
 }
 
@@ -298,6 +304,10 @@ BANNER VIEWPORT (CORTE GLOBAL)
 .hero.fiber .hero-viewport {
   height: 100vh;
 }
+body {
+  background: #000;
+}
+
 
 /* SLIDE VIDEO (el único especial) */
 .hero.video .hero-viewport {

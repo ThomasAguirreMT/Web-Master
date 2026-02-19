@@ -9,3 +9,13 @@
 body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --navbar-height: 75px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 65px;
+  }
+}
