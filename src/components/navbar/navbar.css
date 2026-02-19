@@ -65,14 +65,14 @@ NAVBAR BASE (DESKTOP)
 .nav-links li::before {
   content: "";
   position: absolute;
-  top: -14px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: 70px;
-  height: 18px;
+  width: 100px;
+  height: 10px;
   background: radial-gradient(ellipse at center,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.15),
+      rgba(0, 200, 255, 0.9),
+      rgba(0, 0, 0, 0.15),
       transparent);
   opacity: 0;
   filter: blur(2px);
