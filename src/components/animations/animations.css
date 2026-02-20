@@ -1,0 +1,107 @@
+.animations-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 100px;
+    background-color: #ffffff;
+    gap: 40px;
+}
+
+/* COLUMNAS */
+.left,
+.center,
+.right {
+    flex: 1;
+}
+
+/* IZQUIERDA */
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left video {
+    width: 280px;
+}
+
+.label {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* CENTRO */
+.center {
+    padding: 0 60px;
+}
+
+.center ul {
+    list-style: disc;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* DERECHA */
+.right {
+    display: flex;
+    justify-content: center;
+}
+
+.right video {
+    width: 300px;
+}
+
+/* ========================= */
+/* 📱 TABLET */
+@media (max-width: 1024px) {
+
+    .animations-section {
+        padding: 60px 40px;
+        gap: 30px;
+    }
+
+    .center {
+        padding: 0 20px;
+    }
+
+    .left video,
+    .right video {
+        width: 220px;
+    }
+
+    .center ul {
+        font-size: 18px;
+    }
+}
+
+/* ========================= */
+/* 📱 MÓVIL */
+@media (max-width: 768px) {
+
+    .animations-section {
+        flex-direction: column; /* 🔥 CLAVE */
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .left,
+    .center,
+    .right {
+        flex: unset;
+        width: 100%;
+    }
+
+    .center {
+        padding: 20px 0;
+    }
+
+    .left video,
+    .right video {
+        width: 200px;
+    }
+
+    .center ul {
+        list-style-position: inside;
+        font-size: 16px;
+    }
+}

@@ -1,19 +1,7 @@
-import "../components/television/television.css";
-import videoTV from "../assets/television/videotelevision.mp4";
+import Television from "../components/television/television";
 
 const TelevisionPage = () => {
-  return (
-    <div className="tv-wrapper">
-      <video
-        className="tv-video-full"
-        src={videoTV}
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-    </div>
-  );
+  return <Television />;
 };
 
 export default TelevisionPage;

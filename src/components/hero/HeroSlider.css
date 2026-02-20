@@ -294,7 +294,7 @@ BANNER VIEWPORT (CORTE GLOBAL)
 .hero-viewport {
   position: relative;
   min-height: calc(100vh - 90px);
-  max-height:600px;   /* 🔥 límite real */
+  max-height:600px;   
   padding-top: 90px;
   overflow: hidden;
 }
@@ -332,10 +332,10 @@ JUGADOR TV (IZQUIERDA Y FUERA)
 .tv-player {
   position: absolute;
 
-  left: -25%;        /* 👈 SE SALE POR LA IZQUIERDA */
-  bottom: -60px;     /* 👈 INVADE EL BLANCO */
+  left: -25%;        
+  bottom: -60px;    
 
-  width: 520px;      /* ajusta según gusto */
+  width: 520px;      
   max-width: 90%;
 
   z-index: 8;
