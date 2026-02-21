@@ -30,12 +30,24 @@ function App() {
       <Navbar />
 
       <Routes>
+
+
+
+        
         <Route path="/" element={<Home />} />
         <Route path="/internet" element={<Internet />} />
         <Route path="/television" element={<TelevisionPage />} />
         <Route path="/software" element={<Software />} />
         <Route path="/trabaja" element={<Trabaja />} />
         <Route path="/contacto" element={<Contacto />} />
+
+
+
+
+
+
+
+
       </Routes>
 
       <FloatingButtons />

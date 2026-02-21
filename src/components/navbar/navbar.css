@@ -402,3 +402,20 @@ NAVBAR MOBILE – PRO VERSION
   align-items: center;
 }
 
+/* Animación navbar */
+.navbar {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* Visible */
+.navbar.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Oculto */
+.navbar.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+

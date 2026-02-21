@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../assets/navbar/logo.svg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setShowNavbar(false); // se oculta
+      } else {
+        setShowNavbar(true); // aparece
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const menuItems = [
     { name: "INICIO", path: "/" },
@@ -17,7 +34,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${showNavbar ? "show" : "hide"}`}>
       <div className="navbar-container">
 
         <div className="navbar-left">
