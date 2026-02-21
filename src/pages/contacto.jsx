@@ -5,7 +5,6 @@ const ContactoPage = () => {
   return (
     <>
     
-      <FloatingButtons />
     </>
   );
 };

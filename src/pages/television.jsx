@@ -6,7 +6,6 @@ const TelevisionPage = () => {
   return (
     <>
       <Television />
-      <FloatingButtons />
     </>
   );
 };

@@ -3,7 +3,6 @@ import FloatingButtons from "../components/FloatingButtons/FloatingButtons";
 const SoftwarePage = () => {
   return (
     <>
-      <FloatingButtons />
     </>
   );
 };

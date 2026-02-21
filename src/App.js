@@ -10,6 +10,7 @@ import TelevisionPage from "./pages/television";
 import Software from "./pages/software";
 import Trabaja from "./pages/trabaja";
 import Contacto from "./pages/contacto";
+import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,8 +38,12 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
 
+      <FloatingButtons />
       <Footer />
-    </BrowserRouter>
+
+
+      </BrowserRouter>
+
   );
 }
 

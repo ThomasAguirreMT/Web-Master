@@ -26,7 +26,6 @@ const Home = () => {
       <Porqueelegirnos />
       <Cobertura />
       <Servicios />
-      <FloatingButtons />
       <AlliesCarousel />
     </>
   )

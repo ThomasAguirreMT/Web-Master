@@ -13,7 +13,6 @@ const Internet = () => {
       <>
         <HyperSpeed />
         <Animations />
-        <FloatingButtons />
       </>
     );
 };
