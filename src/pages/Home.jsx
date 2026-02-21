@@ -1,3 +1,5 @@
+import { Fragment, useEffect } from "react";
+
 import HeroSlider from "../components/hero/HeroSlider";
 import About from "../components/about/about";
 import Porqueelegirnos from "../components/porqueelegirnos/porqueelegirnos";
@@ -6,7 +8,17 @@ import Servicios from "../components/servicios/servicios";
 import FloatingButtons from "../components/FloatingButtons/FloatingButtons";
 import AlliesCarousel from "../components/AlliesCarousel/AlliesCarousel";
 
-export default function Home() {
+
+
+
+
+
+const Home = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <HeroSlider />
@@ -17,5 +29,11 @@ export default function Home() {
       <FloatingButtons />
       <AlliesCarousel />
     </>
-  );
-}
+  )
+
+
+
+
+};
+
+export default Home;

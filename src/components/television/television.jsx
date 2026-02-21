@@ -6,6 +6,8 @@ import videoMobile from "../../assets/television/bannertvparacell.mp4";
 const Television = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+
+  // 👇 Detectar móvil
   useEffect(() => {
     const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     setIsMobile(mobile);
