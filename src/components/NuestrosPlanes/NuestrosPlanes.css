@@ -1,0 +1,209 @@
+/* =========================
+   SECCIÓN GENERAL
+========================= */
+
+.planes-section {
+  background: #efefef;
+  padding: 90px 70px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.planes-header {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* separación entre texto y flecha */
+  margin-bottom: 15px;
+}
+
+/* Título */
+.planes-header h2 {
+  margin-top:10px;
+  margin-left: 45px;
+  position: relative;
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+/* Flecha como texto (›) */
+.arrow {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
+/* Si usas flecha hecha con CSS */
+.arrow-icon {
+  width: 22px;
+  height: 22px;
+  border-right: 5px solid #000;
+  border-top: 5px solid #000;
+  transform: rotate(45deg);
+}
+
+/* =========================
+   SUBTÍTULO
+========================= */
+
+.planes-subtitle {
+  max-width: 900px;
+  margin-bottom: 70px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* =========================
+   CONTENEDOR TARJETAS
+========================= */
+
+.planes-container {
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.plan-card {
+  background: #f4f4f4;
+  width: 270px;
+  padding: 25px 25px 35px 25px;
+  border-radius: 8px;
+  border: 2px solid #38b6ff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.plan-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   ICONO AZUL FLOTANTE
+========================= */
+
+.icon-circle {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  background: #2e3192;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+/* =========================
+   RECTÁNGULO NEGRO SUPERIOR
+========================= */
+
+.plan-top {
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  padding: 40px 15px 30px 15px;
+  margin-top: -60px;
+  margin-bottom: 25px;
+}
+
+.plan-top h3 {
+  font-size: 78px;
+  margin: 0;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Línea azul debajo del número */
+.blue-line {
+  height: 2px;
+  width: 26%;
+  background: #38b6ff;
+  margin: 10px auto 14px auto;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(56, 182, 255, 0.6);
+}
+
+.plan-top span {
+  font-size: 22px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+/* =========================
+   TEXTO DESCRIPCIÓN
+========================= */
+
+.plan-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.plan-btn {
+  background: linear-gradient(90deg, #1da1f2, #2e3192);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.plan-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+  .planes-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .planes-section {
+    padding: 70px 30px;
+  }
+
+  .planes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan-card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
