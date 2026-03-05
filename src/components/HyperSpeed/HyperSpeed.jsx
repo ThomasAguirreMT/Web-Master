@@ -7,8 +7,8 @@ import './HyperSpeed.css';
 
 
 const DEFAULT_EFFECT_OPTIONS = {
-  onSpeedUp: () => {},
-  onSlowDown: () => {},
+  onSpeedUp: () => { },
+  onSlowDown: () => { },
   distortion: 'turbulentDistortion',
   length: 400,
   roadWidth: 10,
@@ -32,28 +32,28 @@ const DEFAULT_EFFECT_OPTIONS = {
   carWidthPercentage: [0.3, 0.5],
   carShiftX: [-0.8, 0.8],
   carFloorSeparation: [0, 5],
-colors: {
-  roadColor: 0x111111,
-  islandColor: 0x1a1a1a,
-  background: 0x000814,
-  shoulderLines: 0x00b4d8,
-  brokenLines: 0x90e0ef,
-  leftCars: [0x0077b6, 0x0096c7, 0x00b4d8],
-  rightCars: [0x03045e, 0x023e8a, 0x0077b6],
-  sticks: 0x00b4d8
-}
+  colors: {
+    roadColor: 0x111111,
+    islandColor: 0x1a1a1a,
+    background: 0x000814,
+    shoulderLines: 0x00b4d8,
+    brokenLines: 0x90e0ef,
+    leftCars: [0x0077b6, 0x0096c7, 0x00b4d8],
+    rightCars: [0x03045e, 0x023e8a, 0x0077b6],
+    sticks: 0x00b4d8
+  }
 
 };
 
 const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
-const containerRef = useRef(null);
+  const containerRef = useRef(null);
   const appRef = useRef(null);
 
   useEffect(() => {
     if (appRef.current) {
       appRef.current.dispose();
-const container = containerRef.current;
-if (!container) return;
+      const container = containerRef.current;
+      if (!container) return;
       if (container) {
         while (container.firstChild) {
           container.removeChild(container.firstChild);
@@ -113,11 +113,11 @@ if (!container) return;
           let uAmp = mountainUniforms.uAmp.value;
           let distortion = new THREE.Vector3(
             Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-              Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+            Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
             nsin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-              nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
+            nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
             nsin(progress * Math.PI * uFreq.z + time) * uAmp.z -
-              nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
+            nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
           );
           let lookAtAmp = new THREE.Vector3(2, 2, 2);
           let lookAtOffset = new THREE.Vector3(0, 0, -5);
@@ -145,9 +145,9 @@ if (!container) return;
           let uAmp = xyUniforms.uAmp.value;
           let distortion = new THREE.Vector3(
             Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-              Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+            Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
             Math.sin(progress * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y -
-              Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
+            Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
             0
           );
           let lookAtAmp = new THREE.Vector3(2, 0.4, 1);
@@ -176,9 +176,9 @@ if (!container) return;
           let uAmp = LongRaceUniforms.uAmp.value;
           let distortion = new THREE.Vector3(
             Math.sin(progress * Math.PI * uFreq.x + time) * uAmp.x -
-              Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
+            Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
             Math.sin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-              Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
+            Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
             0
           );
           let lookAtAmp = new THREE.Vector3(1, 1, 0);
@@ -1101,16 +1101,22 @@ if (!container) return;
       return needResize;
     }
 
-(function () {
-  const container = containerRef.current; 
-  if (!container) return;
+    (function () {
+      const container = containerRef.current;
+      if (!container) return;
 
       const options = { ...DEFAULT_EFFECT_OPTIONS, ...effectOptions, colors: { ...DEFAULT_EFFECT_OPTIONS.colors, ...effectOptions.colors } };
       options.distortion = distortions[options.distortion];
 
       const myApp = new App(container, options);
       appRef.current = myApp;
-myApp.loadAssets().then(() => myApp.init());
+      myApp.loadAssets().then(() => {
+        myApp.init();
+        setTimeout(() => {
+          myApp.onWindowResize();
+        }, 100);
+      });
+       
     })();
 
     return () => {
@@ -1120,37 +1126,37 @@ myApp.loadAssets().then(() => myApp.init());
     };
   }, [effectOptions]);
 
-return (
-  <section className="hero fiber hero-transition">
-    <div className="hero-viewport">
+  return (
+    <section className="hero fiber hero-transition">
+      <div className="hero-viewport">
 
-      {/* Fondo HyperSpeed */}
-      <div
-        id="lights"
-        ref={containerRef}
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 1
-        }}
-      />
+        {/* Fondo HyperSpeed */}
+        <div
+          id="lights"
+          ref={containerRef}
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 1
+          }}
+        />
 
-      <div className="hero-overlay" />
+        <div className="hero-overlay" />
 
-      {/* CONTENIDO (MISMAS CLASES DEL HERO) */}
-      <div className="hero-content" style={{ position: "relative", zIndex: 2 }}>
-        <h1>INTERNET DEDICADO DE ALTA VELOCIDAD</h1>
-        <h2>PARA TU ISP O EMPRESA</h2>
+        {/* CONTENIDO (MISMAS CLASES DEL HERO) */}
+        <div className="hero-content" style={{ position: "relative", zIndex: 2 }}>
+          <h1>INTERNET DEDICADO DE ALTA VELOCIDAD</h1>
+          <h2>PARA TU ISP O EMPRESA</h2>
 
-        <button className="hero-btn">
-          VER MÁS
-          <span className="hero-btn-arrow">→</span>
-        </button>
+          <button className="hero-btn">
+            VER MÁS
+            <span className="hero-btn-arrow">→</span>
+          </button>
+        </div>
+
       </div>
-
-    </div>
-  </section>
-);
+    </section>
+  );
 
 };
 

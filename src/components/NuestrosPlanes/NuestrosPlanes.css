@@ -15,7 +15,7 @@
 .planes-header {
   display: flex;
   align-items: center;
-  gap: 15px; /* separación entre texto y flecha */
+  gap: 10px; /* separación entre texto y flecha */
   margin-bottom: 15px;
 }
 
@@ -65,7 +65,7 @@
 .planes-container {
   display: flex;
   justify-content: center;
-  gap: 55px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
@@ -75,7 +75,7 @@
 
 .plan-card {
   background: #f4f4f4;
-  width: 270px;
+  width: 240px;
   padding: 25px 25px 35px 25px;
   border-radius: 8px;
   border: 2px solid #38b6ff;

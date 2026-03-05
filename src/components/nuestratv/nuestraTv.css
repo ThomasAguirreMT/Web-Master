@@ -1,0 +1,67 @@
+.tv-section{
+    position: relative;
+    width: 100%;
+    height: 650px;
+
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* FONDO */
+
+.tv-fondo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEXTO */
+
+.tv-text{
+    max-width: 650px;
+    color: white;
+    margin-left: 120px;
+    z-index: 2;
+}
+
+.tv-text h2{
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.tv-text p{
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* PERSONAJE */
+
+.tv-personaje{
+    position: absolute;
+    right: -120px;
+    top: 50px;
+    width: 950px;
+
+    pointer-events: none;
+
+    animation: flotar 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes flotar{
+
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-20px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+
+}
