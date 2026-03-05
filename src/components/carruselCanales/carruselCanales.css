@@ -1,0 +1,103 @@
+.canales-section{
+  margin-top:50px;
+  width:100%;
+}
+
+/* HEADER */
+
+.canales-header{
+  margin-bottom:25px;
+}
+
+.canales-pill{
+  display:inline-block;
+  padding:8px 18px;
+  font-weight:700;
+  font-size:18px;
+
+  color:white;
+
+  border-radius:25px;
+
+  background:linear-gradient(90deg,#1ea7ff,#2c2f87);
+}
+
+/* CARRUSEL */
+
+.canales-slider{
+  width:100%;
+  overflow:hidden;
+}
+
+.canales-track{
+  display:flex;
+  gap:20px;
+  width:max-content;
+
+  animation: scrollCanales 40s linear infinite;
+}
+
+.canales-slider:hover .canales-track{
+  animation-play-state: paused;
+}
+
+/* TARJETAS */
+
+.canal-card{
+
+  min-width:170px;
+  height:180px;
+
+  background:white;
+
+  border-radius:15px;
+
+  border:2px solid #3ea2ff;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:10px;
+}
+
+.canal-card img{
+  width:85px;
+  margin-bottom:10px;
+}
+
+.canal-card h3{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+/* CANAL NUMERO */
+
+.canal-numero{
+  background:rgb(0, 0, 0);
+  color:white;
+
+  font-size:12px;
+
+  padding:4px 12px;
+
+  border-radius:20px;
+}
+
+/* ANIMACION */
+
+@keyframes scrollCanales{
+
+  0%{
+    transform: translateX(0);
+  }
+
+  100%{
+    transform: translateX(-50%);
+  }
+
+}
