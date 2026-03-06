@@ -28,7 +28,10 @@ export const deportes = [
   { nombre: "ESPN 4", canal: "Canal 17", logo: espn4 }
 ];
 
-export const culturales = [];
+export const culturales = [
+  { nombre: "ESPN", canal: "Canal 14", logo: espn },
+
+];
 export const infantiles = [];
 export const peliculas = [];
 export const series = [];

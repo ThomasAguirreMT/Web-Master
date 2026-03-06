@@ -1,6 +1,21 @@
-.canales-section{
-  margin-top:50px;
+/* CONTENEDOR GENERAL DE LA PARRILLA */
+
+.parrilla-tv{
   width:100%;
+  background:#f3f3f3;
+  padding:60px 0;
+}
+
+.parrilla-container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
+}
+/* SECCION DE CADA CARRUSEL */
+
+.canales-section{
+  width:100%;
+  margin-bottom:60px;
 }
 
 /* HEADER */
@@ -11,35 +26,31 @@
 
 .canales-pill{
   display:inline-block;
-  padding:8px 18px;
+  padding:8px 20px;
   font-weight:700;
   font-size:18px;
-
   color:white;
-
   border-radius:25px;
 
   background:linear-gradient(90deg,#1ea7ff,#2c2f87);
 }
 
 /* CARRUSEL */
-
 .canales-slider{
   width:100%;
   overflow:hidden;
+  position:relative;
+  padding:10px 0;
 }
-
 .canales-track{
   display:flex;
-  gap:20px;
+  gap:22px;
   width:max-content;
 
   animation: scrollCanales 40s linear infinite;
 }
 
-.canales-slider:hover .canales-track{
-  animation-play-state: paused;
-}
+
 
 /* TARJETAS */
 
@@ -54,6 +65,8 @@
 
   border:2px solid #3ea2ff;
 
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -62,12 +75,23 @@
   text-align:center;
 
   padding:10px;
+
+  transition: all .25s ease;
 }
+
+.canal-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* LOGO */
 
 .canal-card img{
   width:85px;
   margin-bottom:10px;
 }
+
+/* TITULO */
 
 .canal-card h3{
   font-size:14px;
@@ -75,10 +99,10 @@
   margin-bottom:6px;
 }
 
-/* CANAL NUMERO */
+/* NUMERO CANAL */
 
 .canal-numero{
-  background:rgb(0, 0, 0);
+  background:black;
   color:white;
 
   font-size:12px;
@@ -88,7 +112,7 @@
   border-radius:20px;
 }
 
-/* ANIMACION */
+/* ANIMACION INFINITA */
 
 @keyframes scrollCanales{
 
@@ -100,4 +124,77 @@
     transform: translateX(-50%);
   }
 
+}
+
+/* ----------------------------- */
+/* RESPONSIVE */
+/* ----------------------------- */
+
+@media (max-width:1024px){
+
+  .canal-card{
+    min-width:150px;
+    height:170px;
+  }
+
+  .canal-card img{
+    width:70px;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .canales-pill{
+    font-size:16px;
+  }
+
+  .canal-card{
+    min-width:140px;
+    height:160px;
+  }
+
+  .canal-card img{
+    width:65px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .parrilla-container{
+    width:92%;
+  }
+
+  .canal-card{
+    min-width:130px;
+    height:150px;
+  }
+
+  .canal-card img{
+    width:60px;
+  }
+
+}
+
+.canales-slider::before,
+.canales-slider::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:80px;
+  height:100%;
+  z-index:2;
+}
+
+.canales-slider::before{
+  left:0;
+  background:linear-gradient(to right,#f3f3f3,transparent);
+}
+
+
+.parrilla-titulo{
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:40px;
 }

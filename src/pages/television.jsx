@@ -8,9 +8,7 @@ const TelevisionPage = () => {
   return (
     <>
       <Television />
-
       <NuestraTV />
-
       <CanalesTV />
     </>
   );

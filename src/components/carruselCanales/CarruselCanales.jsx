@@ -5,7 +5,9 @@ export default function CarruselCanales({ titulo, canales }) {
   const canalesDuplicados = [...canales, ...canales];
 
   return (
-    <section className="canales-section">
+
+        
+    <section className="canales-section" >
 
       <div className="canales-header">
         <span className="canales-pill">{titulo}</span>

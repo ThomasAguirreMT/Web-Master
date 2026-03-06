@@ -17,21 +17,31 @@ export default function CanalesTV(){
 
   return(
 
-    <>
-      <CarruselCanales titulo="NACIONALES" canales={nacionales} />
-      <CarruselCanales titulo="DEPORTES" canales={deportes} />
-      <CarruselCanales titulo="CULTURALES" canales={culturales} />
-      <CarruselCanales titulo="INFANTILES" canales={infantiles} />
+    <section className="parrilla-tv">
 
-      <CarruselCanales titulo="PELÍCULAS" canales={peliculas} />
-      <CarruselCanales titulo="SERIES" canales={series} />
+      <div className="parrilla-container">
 
-      <CarruselCanales titulo="VARIEDADES" canales={variedades} />
-      <CarruselCanales titulo="MUSICALES" canales={musicales} />
+        <h2 className="parrilla-titulo">
+          CONOCE NUESTRA PARRILLA
+        </h2>
 
-      <CarruselCanales titulo="NOTICIAS" canales={noticias} />
-      <CarruselCanales titulo="RELIGIOSOS" canales={religiosos} />
-    </>
+        <CarruselCanales titulo="NACIONALES" canales={nacionales} />
+        <CarruselCanales titulo="DEPORTES" canales={deportes} />
+        <CarruselCanales titulo="CULTURALES" canales={culturales} />
+        <CarruselCanales titulo="INFANTILES" canales={infantiles} />
+
+        <CarruselCanales titulo="PELÍCULAS" canales={peliculas} />
+        <CarruselCanales titulo="SERIES" canales={series} />
+
+        <CarruselCanales titulo="VARIEDADES" canales={variedades} />
+        <CarruselCanales titulo="MUSICALES" canales={musicales} />
+
+        <CarruselCanales titulo="NOTICIAS" canales={noticias} />
+        <CarruselCanales titulo="RELIGIOSOS" canales={religiosos} />
+
+      </div>
+
+    </section>
 
   )
 
