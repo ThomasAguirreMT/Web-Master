@@ -48,11 +48,11 @@ import CANAL_DISNEY from "./INFANTILES/CANAL_DISNEY_CHANNEL.png";
 import CANAL_DYSNEY_JUNIOR from "./INFANTILES/CANAL_DISNEY_JUNIOR.png";
 import CANAL_INFANTIL from "./INFANTILES/CANAL_INFANTIL.png";
 import CANAL_NICK_JUNIOR from "./INFANTILES/CANAL_NICK_JUNIOR.png";
-import   CANAL_NICKELONDEON from "./INFANTILES/CANAL_NICKELONDEON.png";
+import CANAL_NICKELONDEON from "./INFANTILES/CANAL_NICKELONDEON.png";
 
 
 // Peliculas
-import CANAL_CINE_CANAL  from "./PELICULAS/CANAL_CINE_CANAL.png";
+import CANAL_CINE_CANAL from "./PELICULAS/CANAL_CINE_CANAL.png";
 import CANAL_CINE_FAMILIAR from "./PELICULAS/CANAL_CINE_FAMILIAR.png";
 import CANAL_CINE_HISPANO from "./PELICULAS/CANAL_CINE_HISPANO.png";
 import CANAL_CINE_LATINO from "./PELICULAS/CANAL_CINE_LATINO.png";
@@ -65,7 +65,7 @@ import CANAL_EDGE from "./PELICULAS/CANAL_EDGE.png";
 import CANAL_FMH_FAMILY from "./PELICULAS/CANAL_FMH_FAMILY.png";
 import CANAL_FMH_MOVIES from "./PELICULAS/CANAL_FMH_MOVIES.png";
 import CANAL_FX from "./PELICULAS/CANAL_FX.png";
-import CANAL_GOLDEN  from "./PELICULAS/CANAL_GOLDEN.png";
+import CANAL_GOLDEN from "./PELICULAS/CANAL_GOLDEN.png";
 import CANAL_MEMORIAS_FILM from "./PELICULAS/CANAL_MEMORIAS_FILM.png";
 import CANAL_SONY_MOVIES from "./PELICULAS/CANAL_SONY_MOVIES.png";
 import CANAL_SPACE from "./PELICULAS/CANAL_SPACE.png";
@@ -95,6 +95,62 @@ import canales_VE_PLUS from "./SERIES/canales_VE_PLUS.png";
 import canales_WARNET_BRETHERS from "./SERIES/canales_WARNER_BROTHERS.png";
 
 
+//variedades
+import CANAL_AZTECA_INTERNACIONAL from "./VARIEDADES/CANAL_AZTECA_INTERNACIONAL.png";
+import CANAL_EL_GOURMET from "./VARIEDADES/CANAL_EL_GOURMET.png";
+import CANAL_ENTERTAIMENT from "./VARIEDADES/CANAL_ENTERTAIMENT.png";
+import CANAL_FOOD_NETWORK from "./VARIEDADES/CANAL_FOOD_NETWORK.png";
+import CANAL_HH from "./VARIEDADES/CANAL_HH.png";
+import CANAL_LAS_ESTRELLAS from "./VARIEDADES/CANAL_LAS_ESTRELLAS.png";
+import CANAL_LIFETIME from "./VARIEDADES/CANAL_LIFETIME.png";
+import CANAL_MEGA from "./VARIEDADES/CANAL_MEGA.png";
+import CANAL_MTV from "./VARIEDADES/CANAL_MTV.png";
+import CANAL_PANAMERICANA from "./VARIEDADES/CANAL_PANAMERICANA.png";
+import CANAL_PASIONES from "./VARIEDADES/CANAL_PASIONES.png";
+import CANAL_TLN_NOVELAS from "./VARIEDADES/CANAL_TLN_NOVELAS.png";
+import CANAL_BIT from "./VARIEDADES/CANAL_BIT.png";
+import CANAL_TNT_NOVELAS from "./VARIEDADES/CANAL_TNT_NOVELAS.png";
+
+
+
+//musicales
+import canales_BANDAMAX from "./MUSICALES/canales_BANDAMAX.png";
+import canales_HTV from "./MUSICALES/canales_HTV.png";
+import canales_KIZZI from "./MUSICALES/canales_KIZZI.png";
+import canales_LA_KALLE from "./MUSICALES/canales_LA_KALLE.png";
+import canales_MEMORIAS_CLASSIC from "./MUSICALES/canales_MEMORIAS_CLASSIC.png";
+import canales_MEMORIAS_CORAZON from "./MUSICALES/canales_MEMORIAS_CORAZON.png";
+
+import canales_MEMORIASTV from "./MUSICALES/canales_MEMORIASTV.png";
+import canales_MIMUSICA_REGGAETON from "./MUSICALES/canales_MIMUSICA_REGGAETON.png";
+import canales_MIMUSICA_ROMANTICA from "./MUSICALES/canales_MIMUSICA_ROMANTICA.png";
+import canales_MIMUSICA_SALSA from "./MUSICALES/canales_MIMUSICA_SALSA.png";
+
+import canales_TEHIT_MUSICA from "./MUSICALES/canales_TEHIT_MUSICA.png";
+import canales_TELEHIT from "./MUSICALES/canales_TELEHIT.png";
+import canales_TLN from "./MUSICALES/canales_TLN.png";
+import canales_14 from "./MUSICALES/canales_14.png";
+
+
+
+//NOTICIAS
+
+import canales_CABLENOTICIAS from "./NOTICIAS/canales_CABLENOTICIAS.png";
+import canales_CNNE from "./NOTICIAS/canales_CNNESPAÑOL.png";
+import canales_CNN from "./NOTICIAS/canales_CNN.png";
+import canales_DW from "./NOTICIAS/canales_DW.png";
+import canales_FRANCE_24H from "./NOTICIAS/canales_FRANCE24H.png";
+import canales_TELESUR from "./NOTICIAS/canales_TELESUR.png";
+
+//RELIGIOSOS
+import CANAL_3ABN from "./RELIGIOSOS/CANAL_3ABN.png";
+import CANAL_BETHEL from "./RELIGIOSOS/CANAL_BETHEL.png";
+import CANAL_CRISTOVISION from "./RELIGIOSOS/CANAL_CRISTOVISION.png";
+import CANAL_ENLACE from "./RELIGIOSOS/CANAL_ENLACE.png";
+import CANAL_EJTV from "./RELIGIOSOS/CANAL_EJTV.png";
+import CANAL_TELEAMIGA from "./RELIGIOSOS/CANAL_TELE_AMIGA.png";
+import CANAL_TELE_VID from "./RELIGIOSOS/CANAL_TELE_VID.png";
+
 
 
 
@@ -116,7 +172,7 @@ export const nacionales = [
 ];
 
 export const deportes = [
-  { nombre: "ESPN", canal: "Canal 14", logo:  espn },
+  { nombre: "ESPN", canal: "Canal 14", logo: espn },
   { nombre: "ESPN 2", canal: "Canal 15", logo: espn2 },
   { nombre: "ESPN 3", canal: "Canal 16", logo: espn3 },
   { nombre: "ESPN 4", canal: "Canal 17", logo: espn4 },
@@ -157,7 +213,7 @@ export const infantiles = [
   { nombre: "DISNEY JUNIOR", canal: "Canal 35", logo: CANAL_DYSNEY_JUNIOR },
   { nombre: "INFANTIL", canal: "Canal 36", logo: CANAL_INFANTIL },
   { nombre: "NICK JUNIOR", canal: "Canal 37", logo: CANAL_NICK_JUNIOR },
-  { nombre: "NICKELONDEON", canal: "Canal 38", logo:   CANAL_NICKELONDEON }
+  { nombre: "NICKELONDEON", canal: "Canal 38", logo: CANAL_NICKELONDEON }
 ];
 export const peliculas = [
   { nombre: "CINE CANAL", canal: "Canal 39", logo: CANAL_CINE_CANAL },
@@ -182,12 +238,12 @@ export const peliculas = [
   { nombre: "TNT", canal: "Canal 58", logo: CANAL_TNT },
   { nombre: "UNIVERSAL", canal: "Canal 59", logo: CANAL_UNIVERSAL }
 
-  
+
 ];
 export const series = [
   { nombre: "A&E", canal: "Canal 60", logo: canales_AE },
   { nombre: "AXN", canal: "Canal 61", logo: canales_AXN },
-  { nombre: "CLIC", canal: "Canal 62", logo: canales_clic },      
+  { nombre: "CLIC", canal: "Canal 62", logo: canales_clic },
   { nombre: "COMEDY CENTRAL", canal: "Canal 63", logo: canales_comedy_central },
   { nombre: "DHE", canal: "Canal 64", logo: canales_DHE },
   { nombre: "DISTRITO COMEDIA", canal: "Canal 65", logo: canales_DISTRITO_COMEDIA },
@@ -206,7 +262,63 @@ export const series = [
 ];
 
 
-export const variedades = [];
-export const musicales = [];
-export const noticias = [];
-export const religiosos = [];
+export const variedades = [
+  { nombre: "AZTECA INTERNACIONAL", canal: "Canal 78", logo: CANAL_AZTECA_INTERNACIONAL },
+  { nombre: "EL GOURMET", canal: "Canal 79", logo: CANAL_EL_GOURMET },
+  { nombre: "ENTERTAIMENT", canal: "Canal 80", logo: CANAL_ENTERTAIMENT },
+  { nombre: "FOOD NETWORK", canal: "Canal 81", logo: CANAL_FOOD_NETWORK },
+  { nombre: "HH", canal: "Canal 82", logo: CANAL_HH },
+  { nombre: "LAS ESTRELLAS", canal: "Canal 83", logo: CANAL_LAS_ESTRELLAS },
+  { nombre: "LIFETIME", canal: "Canal 84", logo: CANAL_LIFETIME },
+  { nombre: "MEGA", canal: "Canal 85", logo: CANAL_MEGA },
+  { nombre: "MTV", canal: "Canal 86", logo: CANAL_MTV },
+  { nombre: "PANAMERICANA", canal: "Canal 87", logo: CANAL_PANAMERICANA },
+  { nombre: "PASIONES", canal: "Canal 88", logo: CANAL_PASIONES },
+  { nombre: "TLN NOVELAS", canal: "Canal 89", logo: CANAL_TLN_NOVELAS },
+  { nombre: "BIT", canal: "Canal 90", logo: CANAL_BIT },
+
+  { nombre: "TNT NOVELAS", canal: "Canal 91", logo: CANAL_TNT_NOVELAS }
+
+
+];
+export const musicales = [
+  { nombre: "BANDAMAX", canal: "Canal 92", logo: canales_BANDAMAX },
+  { nombre: "HTV", canal: "Canal 93", logo: canales_HTV },
+  { nombre: "KIZZI", canal: "Canal 94", logo: canales_KIZZI },
+  { nombre: "LA KALLE", canal: "Canal 95", logo: canales_LA_KALLE },
+  { nombre: "MEMORIAS CLASSIC", canal: "Canal 96", logo: canales_MEMORIAS_CLASSIC },
+  { nombre: "MEMORIAS CORAZON", canal: "Canal 97", logo: canales_MEMORIAS_CORAZON },
+  { nombre: "MEMORIASTV", canal: "Canal 98", logo: canales_MEMORIASTV },
+  { nombre: "MIMUSICA REGGAETON", canal: "Canal 99", logo: canales_MIMUSICA_REGGAETON },
+  { nombre: "MIMUSICA ROMANTICA", canal: "Canal 100", logo: canales_MIMUSICA_ROMANTICA },
+  { nombre: "MIMUSICA salsa", canal: "Canal 100", logo: canales_MIMUSICA_SALSA },
+  { nombre: "TEHIT MUSICA", canal: "Canal 101", logo: canales_TEHIT_MUSICA },
+  { nombre: "TELEHIT", canal: "Canal 102", logo: canales_TELEHIT },
+  { nombre: "TLN", canal: "Canal 103", logo: canales_TLN },
+  { nombre: "14", canal: "Canal 104", logo: canales_14 }
+
+];
+export const noticias = [
+  { nombre: "CABLENOTICIAS", canal: "Canal 105", logo: canales_CABLENOTICIAS },
+  { nombre: "canales_CNNESPAÑOL", canal: "Canal 106", logo: canales_CNNE },
+  { nombre: "CNN", canal: "Canal 107", logo: canales_CNN },
+  { nombre: "DW", canal: "Canal 108", logo: canales_DW },
+  { nombre: "FRANCE 24H", canal: "Canal 109", logo: canales_FRANCE_24H },
+  { nombre: "TELESUR", canal: "Canal 110", logo: canales_TELESUR }
+
+
+
+];
+export const religiosos = [
+  { nombre: "3ABN", canal: "Canal 111", logo: CANAL_3ABN },
+  { nombre: "BETHEL", canal: "Canal 112", logo: CANAL_BETHEL },
+  { nombre: "CRISTOVISION", canal: "Canal 113", logo: CANAL_CRISTOVISION },
+  { nombre: "CANAL_EJTV", canal: "Canal 113", logo: CANAL_EJTV },
+  { nombre: "ENLACE", canal: "Canal 114", logo: CANAL_ENLACE },
+  { nombre: "TELE AMIGA", canal: "Canal 116", logo: CANAL_TELEAMIGA },
+  { nombre: "TELE VID", canal: "Canal 117", logo: CANAL_TELE_VID }
+
+
+
+
+];

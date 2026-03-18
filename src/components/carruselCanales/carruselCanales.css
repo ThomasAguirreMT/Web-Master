@@ -7,7 +7,7 @@
 }
 
 .parrilla-container{
-  width:90%;
+  width:90%;align-self: start;
   max-width:1400px;
   margin:auto;
 }
@@ -24,16 +24,6 @@
   margin-bottom:25px;
 }
 
-.canales-pill{
-  display:inline-block;
-  padding:8px 20px;
-  font-weight:700;
-  font-size:18px;
-  color:white;
-  border-radius:25px;
-
-  background:linear-gradient(90deg,#1ea7ff,#2c2f87);
-}
 
 /* CARRUSEL */
 .canales-slider{
@@ -197,4 +187,100 @@
   font-size:28px;
   font-weight:700;
   margin-bottom:40px;
+}
+
+
+.acordeon-item{
+
+  margin-bottom:25px;
+
+}
+
+.acordeon-header{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:10px 16px;
+
+  border-radius:20px;
+
+  background:linear-gradient(90deg,#1ea7ff,#2c2f87);
+
+  color:white;
+
+  font-weight:700;
+
+}
+
+.acordeon-flecha{
+
+  cursor:pointer;
+
+  font-size:14px;
+
+}
+
+.acordeon-header{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:10px 16px;
+
+  border-radius:20px;
+
+  background:linear-gradient(90deg,#1ea7ff,#2c2f87);
+
+  color:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:all .25s ease;
+
+}
+
+.acordeon-header:hover{
+  transform:scale(1.02);
+}
+
+
+.acordeon-indicador{
+
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+}
+
+
+.texto-ver{
+
+  font-size:12px;
+
+  opacity:.9;
+
+}
+
+
+.acordeon-flecha{
+
+  transition:transform .3s ease;
+
+  font-size:14px;
+
+}
+
+
+/* flecha girada */
+
+.acordeon-flecha.abierta{
+
+  transform:rotate(90deg);
+
 }

@@ -1,0 +1,81 @@
+.banner-tv{
+
+  width:100%;
+
+  margin-top:40px;
+
+  display:flex;
+  justify-content:center;
+
+}
+
+.banner-tv-content{
+
+  width:90%;
+  max-width:1400px;
+
+  height:260px;
+
+  border-radius:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:20px;
+
+  background:linear-gradient(
+    90deg,
+    #1ea7ff,
+    #2c2f87
+  );
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+
+/* TEXTO */
+
+.banner-texto{
+
+  text-align:center;
+
+  color:white;
+
+  font-weight:700;
+
+}
+
+.banner-texto h2{
+
+  margin:0;
+
+  font-size:26px;
+
+}
+
+.banner-logo{
+
+  width:140px;
+
+  margin-top:10px;
+
+}
+
+
+/* IMAGENES */
+
+.banner-izq{
+
+  height:180px;
+
+}
+
+.banner-der{
+
+  height:200px;
+
+}

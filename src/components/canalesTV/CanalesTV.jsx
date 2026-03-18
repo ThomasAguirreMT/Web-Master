@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import CarruselCanales from "../carruselCanales/CarruselCanales";
 
 import {
@@ -13,9 +15,35 @@ import {
   religiosos
 } from "../../assets/television/canales/canalesData";
 
-export default function CanalesTV(){
+export default function CanalesTV() {
 
-  return(
+  const categorias = [
+    { titulo: "NACIONALES", data: nacionales },
+    { titulo: "DEPORTES", data: deportes },
+    { titulo: "CULTURALES", data: culturales },
+    { titulo: "INFANTILES", data: infantiles },
+    { titulo: "PELÍCULAS", data: peliculas },
+    { titulo: "SERIES", data: series },
+    { titulo: "VARIEDADES", data: variedades },
+    { titulo: "MUSICALES", data: musicales },
+    { titulo: "NOTICIAS", data: noticias },
+    { titulo: "RELIGIOSOS", data: religiosos }
+  ];
+
+  // nacionales abierto por defecto
+  const [abierto, setAbierto] = useState("NACIONALES");
+
+  const toggle = (titulo) => {
+
+    if (abierto === titulo) {
+      setAbierto(null);
+    } else {
+      setAbierto(titulo);
+    }
+
+  };
+
+  return (
 
     <section className="parrilla-tv">
 
@@ -25,24 +53,58 @@ export default function CanalesTV(){
           CONOCE NUESTRA PARRILLA
         </h2>
 
-        <CarruselCanales titulo="NACIONALES" canales={nacionales} />
-        <CarruselCanales titulo="DEPORTES" canales={deportes} />
-        <CarruselCanales titulo="CULTURALES" canales={culturales} />
-        <CarruselCanales titulo="INFANTILES" canales={infantiles} />
 
-        <CarruselCanales titulo="PELÍCULAS" canales={peliculas} />
-        <CarruselCanales titulo="SERIES" canales={series} />
+        {categorias.map((cat) => (
 
-        <CarruselCanales titulo="VARIEDADES" canales={variedades} />
-        <CarruselCanales titulo="MUSICALES" canales={musicales} />
+          <div key={cat.titulo} className="acordeon-item">
 
-        <CarruselCanales titulo="NOTICIAS" canales={noticias} />
-        <CarruselCanales titulo="RELIGIOSOS" canales={religiosos} />
+
+            {/* HEADER */}
+
+            <div
+              className="acordeon-header"
+              onClick={() => toggle(cat.titulo)}
+            >
+
+              <span>{cat.titulo}</span>
+
+              <div className="acordeon-indicador">
+
+                <span className="texto-ver">
+                  {abierto === cat.titulo ? "Ocultar canales" : "Ver canales"}
+                </span>
+
+                <span
+                  className={`acordeon-flecha ${abierto === cat.titulo ? "abierta" : ""}`}
+                >
+                  ▶
+                </span>
+
+              </div>
+
+            </div>
+
+
+            {/* CONTENIDO */}
+
+            {abierto === cat.titulo && (
+
+              <CarruselCanales
+                canales={cat.data}
+                ocultarTitulo
+              />
+
+            )}
+
+          </div>
+
+        ))}
+
 
       </div>
 
     </section>
 
-  )
+  );
 
 }
