@@ -1,58 +1,35 @@
 import "./bannerTV.css";
-
-import escandalosos from "../../assets/television/escandalosos.webp";
 import gumball from "../../assets/television/gumball.webp";
-import logo from "../../assets/aliados/inttelgo.svg";
+import escandalosos from "../../assets/television/escandalosos.webp";
+import logo from "../../assets/logo/logo.svg";
 
-export default function BannerTV() {
-
+const Banner = () => {
   return (
+    <section className="banner">
+      <div className="banner-container">
 
-    <section className="banner-tv">
+        {/* Personajes izquierda */}
+        <img src={escandalosos} alt="escandalosos" className="img-left" />
 
-      <div className="banner-tv-content">
-
-        {/* izquierda */}
-
-        <img
-          src={escandalosos}
-          alt=""
-          className="banner-izq"
-        />
-
-        {/* texto */}
-
-        <div className="banner-texto">
-
-          <h2>
-            EL MEJOR ENTRETENIMIENTO
-          </h2>
-
-          <h2>
+        {/* Texto */}
+        <div className="banner-text">
+          <h1>
+            EL MEJOR ENTRETENIMIENTO <br />
             LO ENCUENTRAS EN
-          </h2>
+          </h1>
 
-          <img
-            src={logo}
-            alt=""
-            className="banner-logo"
-          />
-
+          <div className="logo-container">
+            <div className="line"></div>
+            <img src={logo} alt="logo" />
+          </div>
         </div>
 
-
-        {/* derecha */}
-
-        <img
-          src={gumball}
-          alt=""
-          className="banner-der"
-        />
+        {/* Personaje derecha */}
+        <img src={gumball} alt="gumball" className="img-right" />
 
       </div>
-
     </section>
-
   );
+};
 
-}
+export default Banner;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 219.18 216.94">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Degradado_sin_nombre_150);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_150" data-name="Degradado sin nombre 150" x1="-13.83" y1="193.18" x2="309.72" y2="76.46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".11" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset=".23" stop-color="#fff" stop-opacity=".54"/>
+      <stop offset=".33" stop-color="#fff" stop-opacity=".74"/>
+      <stop offset=".42" stop-color="#fff" stop-opacity=".88"/>
+      <stop offset=".49" stop-color="#fff" stop-opacity=".97"/>
+      <stop offset=".53" stop-color="#fff"/>
+      <stop offset=".56" stop-color="#fff" stop-opacity=".97"/>
+      <stop offset=".6" stop-color="#fff" stop-opacity=".89"/>
+      <stop offset=".65" stop-color="#fff" stop-opacity=".75"/>
+      <stop offset=".71" stop-color="#fff" stop-opacity=".56"/>
+      <stop offset=".77" stop-color="#fff" stop-opacity=".31"/>
+      <stop offset=".84" stop-color="#fff" stop-opacity=".02"/>
+      <stop offset=".85" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <rect class="cls-2" x="10.98" y="126.69" width="33.97" height="80.75"/>
+    <rect class="cls-2" x="62.37" y="71" width="37.21" height="136.5"/>
+    <rect class="cls-2" x="115.7" y="91.63" width="36.52" height="115.98"/>
+    <rect class="cls-2" x="168.47" y="48.78" width="34.71" height="158.83"/>
+  </g>
+  <polygon class="cls-1" points="214.71 216.94 -34.95 216.94 -34.95 212.44 210.2 212.44 210.2 6.16 214.71 6.16 214.71 216.94"/>
+</svg>

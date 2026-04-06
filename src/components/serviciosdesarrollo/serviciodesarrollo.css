@@ -1,0 +1,106 @@
+/* CONTENEDOR GENERAL */
+.servicios {
+  padding: 80px 0;
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.servicio {
+  width: 100%;
+  max-width: 1100px; 
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  margin-bottom: 120px;
+  gap: 80px;
+}
+
+.servicio.reverse {
+  flex-direction: row-reverse;
+}
+
+/* IMAGEN / VIDEO */
+.servicio-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicio-img video,
+.servicio-img img {
+  width: 300px; 
+  max-width: 100%;
+}
+
+/* TEXTO "ANIMACION" */
+.animacion {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* TEXTO */
+.servicio-info {
+  max-width: 700px;
+}
+
+.servicio-info h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.servicio-info p {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* TECNOLOGIAS */
+.tecnologias {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.tecnologias img {
+  width: 65px;
+  height: 65px;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.tecnologias img:hover {
+  transform: translateY(-6px);
+}
+
+/* BOTON */
+.btn {
+  display: block;
+  margin: 0 auto; 
+
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FLECHA */
+.flecha {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
