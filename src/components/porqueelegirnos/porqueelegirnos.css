@@ -3,12 +3,17 @@
   padding: 80px 20px;
 }
 
+/* CONTENEDOR */
 .container {
   max-width: 1400px;
   margin: auto;
 }
 
+/* TITULO */
 .titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 40px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -16,133 +21,125 @@
 }
 
 .flecha {
-  font-size: 50px;
+  font-size: 298px;
 }
 
+/* DESCRIPCIÓN */
 .descripcion {
-    
   max-width: 1100px;
   font-size: 18px;
   line-height: 1.7;
-  margin-bottom: 20px;
-  color: #000000;
+  margin-bottom: 40px;
+  color: #000;
 }
 
+/* GRID RESPONSIVE PRO */
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
   gap: 20px;
+  padding-bottom: 10px;
 }
-
+/* CARD */
 .card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
   text-align: center;
-  padding:27px 18px;
-  border: 2px solid #7b8186;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 10px 5px;
+
+  border: 1px solid #000000;
+  border-radius: 10px;
   background: #fff;
-  
+
+  height: 100%;
+
+  /* sombra base */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  transition: all 0.3s ease;
 }
 
+/* ICONO */
 .card-item img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 25px;
-  transition: transform 0.5s ease;
+  width: 90px;
+  height: 65px;
+  margin-bottom: 20px;
   object-fit: contain;
+  transition: transform 0.4s ease;
 }
 
+/* TITULO */
 .card-item h4 {
   background: #1e40af;
   color: #fff;
-  display: inline-block;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 6px;
-  margin-bottom: 20px;
-  font-size: 15px;
+  margin-bottom: 15px;
+
+  font-size: 14px;
   font-weight: 600;
-  white-space: nowrap;
+
+  text-align: center;
 }
 
+/* TEXTO */
 .card-item p {
-      text-align: left;
   font-size: 14px;
   line-height: 1.6;
-  color: #000000;
-  padding: 0 10px;
+  color: #374151;
+
+  flex-grow: 1;
 }
 
 /* HOVER */
 .card-item:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-
 .card-item:hover img {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-  .cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
+/* =========================
+   TABLET
+========================= */
 @media (max-width: 768px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
   .titulo {
-    font-size: 25px;
+    font-size: 28px;
   }
-  
+
   .descripcion {
     font-size: 16px;
   }
 }
+
 /* =========================
-CARDS MOBILE – CENTRADO TOTAL
+   MOBILE
 ========================= */
 @media (max-width: 480px) {
 
   .cards-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
 
   .card-item {
-    display: flex;
-    flex-direction: column;   /* todo hacia abajo */
-    align-items: center;      /* 🔥 CENTRADO */
-    text-align: center;       /* 🔥 TEXTO CENTRADO */
-    padding: 22px 18px;
+    padding: 24px 18px;
   }
 
-  /* ICONO */
   .card-item img {
     width: 50px;
     height: 50px;
-    margin-bottom: 14px;
   }
 
-  /* TITULO (botón azul) */
   .card-item h4 {
-    font-size: 14px;
-    padding: 8px 16px;
-    margin-bottom: 12px;
-    white-space: normal; /* permite saltos de línea */
-    text-align: center;
+    font-size: 13px;
+    padding: 8px 14px;
   }
 
-  /* TEXTO */
   .card-item p {
-    text-align: center;  /* 🔥 clave */
-    padding: 0;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 13px;
   }
 }

@@ -1,0 +1,134 @@
+/* CONTENEDOR */
+.dm-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* HERO */
+.dm-hero {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dm-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,191,255,0.6), rgba(30,42,120,0.85));
+}
+
+.dm-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.dm-badge {
+  border: 1px solid #fff;
+  padding: 10px 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.dm-title {
+  font-size: 55px;
+  font-weight: 800;
+}
+
+/* DIVIDER */
+.dm-divider {
+  height: 4px;
+  background: #fff;
+}
+
+/* INFO */
+.dm-info {
+  background: linear-gradient(to bottom, #0c4f66, #000);
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.dm-text {
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 50px;
+  font-size: 14px;
+}
+
+/* CARRUSEL */
+.dm-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* FLECHAS */
+.dm-arrow {
+  background: #fff;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dm-arrow:hover {
+  transform: scale(1.1);
+}
+
+/* ITEMS */
+.dm-items {
+  display: flex;
+  gap: 20px;
+}
+
+/* ITEM */
+.dm-item {
+  width: 90px;
+  height: 90px;
+  background: #eee;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* HOVER 🔥 */
+.dm-item:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #00bfff;
+}
+
+/* ACTIVO */
+.dm-active {
+  background: #111;
+  border: 2px solid #00bfff;
+  transform: scale(1.25);
+  box-shadow: 0 0 20px #00bfff;
+}
+
+/* IMAGEN */
+.dm-item img {
+  width: 50px;
+}
+
+/* TEXTO */
+.dm-item span {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #fff;
+}

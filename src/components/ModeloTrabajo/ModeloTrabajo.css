@@ -1,0 +1,103 @@
+.modelo {
+  width: 100%;
+  background: #000;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 80px 10%;
+  overflow: hidden;
+}
+
+/* TEXTO */
+.modelo-content {
+  max-width: 500px;
+  z-index: 2;
+}
+
+.modelo-content h2 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.modelo-content h2 span {
+  color: #00aaff;
+}
+
+/* LINEA */
+.line {
+  width: 120px;
+  height: 3px;
+  background: #00aaff;
+  margin: 20px 0;
+}
+
+/* PARRAFO */
+.modelo-content p {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.modelo-content p span {
+  color: #00aaff;
+  font-weight: 600;
+}
+
+/* BOTON */
+.btn-modelo {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-modelo:hover {
+  transform: scale(1.05);
+}
+
+/* IMAGEN DERECHA */
+.modelo-img {
+  position: relative;
+  right: -250px;
+  top: 300px;
+  transform: translateY(-50%);}
+
+.modelo-img img {
+  width: 700px;
+  right: -100px;
+  opacity: 0.4;
+
+  animation: mundo 20s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(0,150,255,0.3));
+
+
+}
+
+/* ANIMACIÓN */
+@keyframes mundo {
+  0% {
+    transform: rotate(0deg) translateY(0px) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) translateY(-10px) scale(1.03);
+  }
+  50% {
+    transform: rotate(180deg) translateY(0px) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) translateY(10px) scale(1.03);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0px) scale(1);
+  }
+}
+

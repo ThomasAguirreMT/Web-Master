@@ -1,0 +1,62 @@
+/* CONTENEDOR */
+.de-section {
+  background: #000;
+  color: #fff;
+  padding: 100px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* TEXTO */
+.de-content {
+  max-width: 520px;
+}
+
+/* TITULO */
+.de-title {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.de-title span {
+  color: #00bfff;
+}
+
+/* LINEA */
+.de-line {
+  width: 200px;
+  height: 2px;
+  background: #00bfff;
+  margin: 20px 0 30px;
+}
+
+/* TEXTO */
+.de-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+/* IMAGEN */
+.de-image img {
+  width: 550px;
+  opacity: 0.4; 
+  
+  right: 100px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .de-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .de-image img {
+    margin-top: 40px;
+    width: 80%;
+  }
+}

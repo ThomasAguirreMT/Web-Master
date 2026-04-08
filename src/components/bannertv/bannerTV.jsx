@@ -1,7 +1,7 @@
 import "./bannerTV.css";
 import gumball from "../../assets/television/gumball.webp";
 import escandalosos from "../../assets/television/escandalosos.webp";
-import logo from "../../assets/logo/logo.svg";
+import logo from "../../assets/television/logo.svg";
 
 const Banner = () => {
   return (
@@ -18,10 +18,9 @@ const Banner = () => {
             LO ENCUENTRAS EN
           </h1>
 
-          <div className="logo-container">
-            <div className="line"></div>
-            <img src={logo} alt="logo" />
-          </div>
+          <div className="line"></div>
+
+          <img src={logo} alt="logo" className="banner-logo" />
         </div>
 
         {/* Personaje derecha */}

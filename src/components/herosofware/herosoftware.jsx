@@ -3,7 +3,7 @@ import videoBg from "../../assets/desarrollo/software.mp4";
 
 const HeroSoftware = () => {
   return (
-    <section className="hero">
+    <section className="hero-software">
 
       <video 
         src={videoBg} 
@@ -11,9 +11,8 @@ const HeroSoftware = () => {
         loop 
         muted 
         playsInline 
-        className="hero-video"
+        className="hero-software-video"
       />
-
 
 
     </section>

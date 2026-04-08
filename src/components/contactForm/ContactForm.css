@@ -1,0 +1,58 @@
+.contacto {
+  background: #000;
+  padding: 80px 10%;
+  color: #fff;
+}
+
+/* CONTENEDOR */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* TITULO */
+.contacto h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.contacto h2 span {
+  color: #00bfff;
+}
+
+/* GRID FORM */
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* INPUTS */
+.formulario input,
+.formulario textarea {
+  background: #dcdcdc;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+/* TEXTAREA ocupa todo */
+.formulario textarea {
+  grid-column: span 2;
+  height: 150px;
+  resize: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario textarea {
+    grid-column: span 1;
+  }
+}

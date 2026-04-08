@@ -11,6 +11,7 @@ import Software from "./pages/software";
 import Trabaja from "./pages/trabaja";
 import Contacto from "./pages/contacto";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
+import DesarrolloMobile from "./pages/desarrollomobile";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,31 +31,20 @@ function App() {
       <Navbar />
 
       <Routes>
-
-
-
-        
         <Route path="/" element={<Home />} />
         <Route path="/internet" element={<Internet />} />
         <Route path="/television" element={<TelevisionPage />} />
         <Route path="/software" element={<Software />} />
         <Route path="/trabaja" element={<Trabaja />} />
         <Route path="/contacto" element={<Contacto />} />
-
-
-
-
-
-
-
-
+        <Route path="/desarrollomobile" element={<DesarrolloMobile />} />
       </Routes>
 
       <FloatingButtons />
       <Footer />
 
 
-      </BrowserRouter>
+    </BrowserRouter>
 
   );
 }

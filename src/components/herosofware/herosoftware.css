@@ -1,4 +1,4 @@
-.hero {
+.hero-software {
   position: relative;
   width: 100%;
   height: 90vh;
@@ -6,7 +6,7 @@
 }
 
 /* VIDEO */
-.hero-video {
+.hero-software-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -15,17 +15,17 @@
   object-fit: cover;
 }
 
-/* OVERLAY OSCURO */
-.overlay {
+/* OVERLAY */
+.hero-software-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 20, 40, 0.6); /* 🔥 tono azul oscuro */
+  background: rgba(0, 20, 40, 0.6);
   z-index: 1;
 }
 
 /* CONTENIDO */
-.hero-content {
+.hero-software-content {
   position: relative;
   z-index: 2;
   height: 100%;
@@ -41,20 +41,20 @@
 }
 
 /* TITULO */
-.hero-content h1 {
+.hero-software-content h1 {
   font-size: 60px;
   font-weight: 800;
   margin-bottom: 20px;
 }
 
 /* TEXTO */
-.hero-content p {
+.hero-software-content p {
   font-size: 28px;
   margin-bottom: 30px;
 }
 
-/* PLAY BUTTON */
-.play-btn {
+/* BOTÓN */
+.hero-software-play {
   width: 80px;
   height: 80px;
   border-radius: 50%;

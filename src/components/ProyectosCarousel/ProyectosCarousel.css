@@ -1,0 +1,59 @@
+.proyectos {
+  padding: 80px 5%;
+  background: #f5f5f5;
+}
+
+.proyectos h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* CONTENEDOR */
+.proyectos-carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* TRACK */
+.proyectos-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+
+  animation: scrollProyectos 30s linear infinite;
+}
+
+/* CARD */
+.proyectos-card {
+  min-width: 300px;
+  height: 150px;
+  background: white;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #ffffff;
+  transition: 0.3s;
+}
+
+/* IMAGEN */
+.proyectos-card img {
+  max-width: 80%;
+}
+
+/* HOVER (opcional) */
+.proyectos-card:hover {
+  transform: scale(1.01);
+}
+
+@keyframes scrollProyectos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}

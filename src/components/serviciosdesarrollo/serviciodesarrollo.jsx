@@ -1,4 +1,5 @@
 import "./serviciodesarrollo.css";
+import { useNavigate } from "react-router-dom";
 
 import movilVideo from "../../assets/desarrollo/desarrollomovile.mp4";
 import backendVideo from "../../assets/desarrollo/desarrolloback.mp4";
@@ -19,6 +20,9 @@ import next from "../../assets/desarrollo/logonext.webp";
 import laravel from "../../assets/desarrollo/logolaravel.webp";
 
 const Serviciodesarrollo = () => {
+
+  const navigate = useNavigate(); // 🔥 aquí se activa
+
   return (
     <section className="servicios">
 
@@ -37,20 +41,23 @@ const Serviciodesarrollo = () => {
           </p>
 
           <div className="tecnologias">
-            <img src={flutter} />
-            <img src={kotlin} />
-            <img src={react} />
-            <img src={firebase} />
+            <img src={flutter} alt="flutter" />
+            <img src={kotlin} alt="kotlin" />
+            <img src={react} alt="react" />
+            <img src={firebase} alt="firebase" />
           </div>
 
-          <button className="btn">Ver mas</button>
+          <button 
+            className="btn"
+            onClick={() => navigate("/desarrollomobile")}
+          >
+            Ver más
+          </button>
         </div>
       </div>
 
-      {/* 🔵 BACKEND */}
       <div className="servicio">
 
-        {/* TEXTO IZQUIERDA */}
         <div className="servicio-info">
           <h2>› DESARROLLO BACKEND</h2>
 
@@ -61,16 +68,20 @@ const Serviciodesarrollo = () => {
           </p>
 
           <div className="tecnologias">
-            <img src={mysql} />
-            <img src={php} />
-            <img src={mongo} />
-            <img src={node} />
+            <img src={mysql} alt="mysql" />
+            <img src={php} alt="php" />
+            <img src={mongo} alt="mongo" />
+            <img src={node} alt="node" />
           </div>
 
-          <button className="btn">Ver mas</button>
+          <button 
+            className="btn"
+            onClick={() => navigate("/desarrollo-backend")}
+          >
+            Ver más
+          </button>
         </div>
 
-        {/* IMAGEN DERECHA */}
         <div className="servicio-img">
           <video src={backendVideo} autoPlay loop muted playsInline />
         </div>
@@ -93,13 +104,18 @@ const Serviciodesarrollo = () => {
           </p>
 
           <div className="tecnologias">
-            <img src={ts} />
-            <img src={next} />
-            <img src={laravel} />
-            <img src={react} />
+            <img src={ts} alt="ts" />
+            <img src={next} alt="next" />
+            <img src={laravel} alt="laravel" />
+            <img src={react} alt="react" />
           </div>
 
-          <button className="btn">Ver mas</button>
+          <button 
+            className="btn"
+            onClick={() => navigate("/desarrollo-frontend")}
+          >
+            Ver más
+          </button>
         </div>
       </div>
 
