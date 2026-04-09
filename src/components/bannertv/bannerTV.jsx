@@ -18,7 +18,7 @@ const Banner = () => {
             LO ENCUENTRAS EN
           </h1>
 
-          <div className="line"></div>
+
 
           <img src={logo} alt="logo" className="banner-logo" />
         </div>

@@ -29,10 +29,20 @@
 
 /* LINEA */
 .line {
-  width: 120px;
-  height: 3px;
-  background: #00aaff;
-  margin: 20px 0;
+  height: 2px;
+  width: 160%;
+  margin: 19px auto 14px auto;
+  border-radius: 2px;
+
+  background: linear-gradient(90deg,
+      transparent,
+      #2e3192,
+      #38b6ff,
+
+      #2e3192,
+      transparent);
+
+
 }
 
 /* PARRAFO */
@@ -50,16 +60,16 @@
 
 /* BOTON */
 .btn-modelo {
-  padding: 12px 30px;
+  padding: 15px 100px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
   color: white;
-  font-weight: 600;
+  font-weight: 1000;
+  font-size: 18px; /* 🔥 aquí aumentas el tamaño */
   cursor: pointer;
   transition: 0.3s;
 }
-
 .btn-modelo:hover {
   transform: scale(1.05);
 }
