@@ -21,9 +21,7 @@ export default function ServiciosConsultoria() {
                 </div>
 
                 <div className="sc-text">
-                    <h2>
-                        SERVICIOS DE <span>CONSULTORÍA</span>
-                    </h2>
+                    
 
                     <p>
                         Nuestro servicio de consultoría para el desarrollo de aplicaciones móviles
@@ -48,9 +46,7 @@ export default function ServiciosConsultoria() {
                 </div>
 
                 <div className="sc-text">
-                    <h2>
-                        DESARROLLO <span>NATIVO E HÍBRIDO</span>
-                    </h2>
+                    
 
                     <p>
                         Entendemos que cada proyecto tiene prioridades distintas. Por eso,

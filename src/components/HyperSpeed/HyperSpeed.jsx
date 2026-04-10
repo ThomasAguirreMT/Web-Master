@@ -1148,10 +1148,7 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
           <h1>INTERNET DEDICADO DE ALTA VELOCIDAD</h1>
           <h2>PARA TU ISP O EMPRESA</h2>
 
-          <button className="hero-btn">
-            VER MÁS
-            <span className="hero-btn-arrow">→</span>
-          </button>
+          
         </div>
 
       </div>

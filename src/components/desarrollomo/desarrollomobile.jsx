@@ -20,11 +20,15 @@ export default function DesarrolloMobile() {
   const [index, setIndex] = useState(2);
 
   const prev = () => {
-    setIndex((prev) => (prev === 0 ? tecnologias.length - 1 : prev - 1));
+    setIndex((prev) =>
+      prev === 0 ? tecnologias.length - 1 : prev - 1
+    );
   };
 
   const next = () => {
-    setIndex((prev) => (prev === tecnologias.length - 1 ? 0 : prev + 1));
+    setIndex((prev) =>
+      prev === tecnologias.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
@@ -55,8 +59,7 @@ export default function DesarrolloMobile() {
         <p className="dm-text">
           Nos especializamos en soluciones empresariales, comprendemos las necesidades
           de su negocio y sus expectativas de externalización. Con equipos dedicados
-          y especializados asignados a cada proyecto, garantizando que el proceso
-          se ajuste a los plazos y al presupuesto.
+          y especializados asignados a cada proyecto.
         </p>
 
         {/* CARRUSEL */}
@@ -65,15 +68,22 @@ export default function DesarrolloMobile() {
           <button className="dm-arrow" onClick={prev}>‹</button>
 
           <div className="dm-items">
-            {tecnologias.map((tec, i) => (
-              <div
-                key={i}
-                className={`dm-item ${i === index ? "dm-active" : ""}`}
-              >
-                <img src={tec.img} alt={tec.nombre} />
-                <span>{tec.nombre}</span>
-              </div>
-            ))}
+            {tecnologias.map((tec, i) => {
+
+              let position = "";
+
+              if (i === index) position = "center";
+              else if (i === (index - 1 + tecnologias.length) % tecnologias.length) position = "left-1";
+              else if (i === (index + 1) % tecnologias.length) position = "right-1";
+              else position = "hidden";
+
+              return (
+                <div key={i} className={`dm-item ${position}`}>
+                  <img src={tec.img} alt={tec.nombre} />
+                  <span>{tec.nombre}</span>
+                </div>
+              );
+            })}
           </div>
 
           <button className="dm-arrow" onClick={next}>›</button>

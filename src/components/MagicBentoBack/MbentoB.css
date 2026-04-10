@@ -1,0 +1,194 @@
+/* CONTENEDOR */
+.fm-section {
+  background: #f4f4f4;
+  padding: 90px 8%;
+  text-align: center;
+}
+
+/* TITULO */
+.fm-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 60px;
+  line-height: 1.3;
+}
+
+.fm-title span {
+  color: #00bfff;
+}
+
+/* =========================
+   GRID (BENTO REAL 🔥)
+========================= */
+.fm-grid {
+  display: grid;
+  grid-template-columns: 220px 420px;
+  grid-template-rows: 170px 170px 170px;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* =========================
+   CARD BASE
+========================= */
+.fm-card {
+  background: linear-gradient(180deg, #2d2f7f, #000);
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+  border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+.fm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+}
+
+/* =========================
+   TITULOS
+========================= */
+.fm-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.fm-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* LINEA DEGRADADA */
+.fm-card h3::after,
+.fm-card h4::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 120px;
+  margin: 10px auto 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #2e3192,
+    #38b6ff,
+    #2e3192,
+    transparent
+  );
+
+  box-shadow: 0 0 10px rgba(56, 182, 255, 0.6);
+}
+
+/* =========================
+   ICONOS
+========================= */
+.fm-card img {
+  width: 55px;
+  margin-top: 15px;
+}
+
+/* =========================
+   POSICIONES (CLAVE 🔥)
+========================= */
+
+/* OPTIMIZACIÓN */
+.fm-top-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  width: 220px;
+  height: 170px;
+}
+
+/* INFRAESTRUCTURA */
+.fm-top-right {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+
+  width: 220px;
+  height: 170px;
+}
+
+/* CARD GRANDE DERECHA */
+.fm-big-right {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+
+  height: 360px;
+  padding: 40px;
+}
+
+.fm-big-right h3 {
+  font-size: 26px;
+}
+
+.fm-big-right img {
+  width: 140px;
+  margin: 25px 0;
+}
+
+.fm-big-right p {
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.9;
+  max-width: 300px;
+}
+
+/* CARD ABAJO IZQUIERDA */
+.fm-bottom-left {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+
+  width: 660px;
+  height: 170px;
+
+  flex-direction: row;
+  gap: 20px;
+}
+
+.fm-bottom-left img {
+  width: 80px;
+  margin: 0;
+}
+
+.fm-bottom-left h3 {
+  text-align: left;
+  font-size: 20px;
+}
+
+/* =========================
+   RESPONSIVE 
+========================= */
+@media (max-width: 900px) {
+  .fm-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .fm-top-left,
+  .fm-top-right,
+  .fm-big-right,
+  .fm-bottom-left {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .fm-bottom-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fm-bottom-left h3 {
+    text-align: center;
+  }
+}

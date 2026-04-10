@@ -16,21 +16,19 @@
 .sc-row {
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
-  margin-bottom: 100px;
+  justify-content: space-between; /* 🔥 clave */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
   gap: 50px;
 }
-
 /* FILA DERECHA */
 .sc-row.reverse {
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
 
-/* CONTENIDO LIMITADO */
-.sc-row > div {
-  max-width: 500px;
-}
+
 
 /* IMAGEN */
 .sc-img img {

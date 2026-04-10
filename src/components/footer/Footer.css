@@ -117,3 +117,21 @@
 }
 
 
+
+
+
+.footer-col.brand {
+  display: flex;
+  
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 140px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  opacity: 0.6;
+}

@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+
 import "./HeroSlider.css";
 
 // === COMPONENTES ===
@@ -16,6 +20,8 @@ import slidedesarrolloen from "../../assets/imageneshomecarrusel/slidedesarrollo
 /* ======================================================
    DEFINICIÓN DE SLIDES
 ====================================================== */
+
+
 const slides = [
   {
     type: "image",
@@ -24,11 +30,13 @@ const slides = [
     subtitle: "TRABAJA CON NOSOTROS",
     image: slidetrabaja,
     floating: true,
+    link: "/trabaja-con-nosotros"
   },
   {
     type: "fiber",
     title: "INTERNET DEDICADO DE ALTA VELOCIDAD",
     subtitle: "PARA TU ISP O EMPRESA",
+    link: "/internet"
   },
   {
     type: "image",
@@ -36,6 +44,7 @@ const slides = [
     title: "LA PARRILLA DE CANALES MÁS GRANDE DE BOGOTÁ",
     subtitle: "+150 CANALES DIGITALES",
     image: slidetv,
+    link: "/television"
   },
   {
     type: "image",
@@ -43,11 +52,13 @@ const slides = [
     title: "DESARROLLO DE SOFTWARE",
     subtitle: "SOLUCIONES A TU MEDIDA",
     image: desarrolloslide,
-  },
-  
+    link: "/software"
+  }
 ];
 
 export default function HeroSlider() {
+    const navigate = useNavigate(); 
+
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
   const slide = slides[current];
@@ -130,8 +141,10 @@ export default function HeroSlider() {
             <h2>{slide.subtitle}</h2>
           )}
 
-          <button className="hero-btn">
+          <button className="hero-btn" onClick={() => navigate(slide.link)} >
+            
             VER MÁS
+            
             <span className="hero-btn-arrow">→</span>
           </button>
         </div>

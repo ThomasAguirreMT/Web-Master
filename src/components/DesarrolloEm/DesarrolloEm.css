@@ -26,12 +26,22 @@
 
 /* LINEA */
 .de-line {
-  width: 200px;
   height: 2px;
-  background: #00bfff;
-  margin: 20px 0 30px;
-}
+  width: 130%;
+  margin: 12px 0 14px 0; /* 🔥 quita el auto */
+  border-radius: 2px;
 
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #2e3192,
+    #38b6ff,
+    #2e3192,
+    transparent
+  );
+    margin-left: -20%;
+
+}
 /* TEXTO */
 .de-text {
   font-size: 15px;

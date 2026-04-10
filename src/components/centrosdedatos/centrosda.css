@@ -1,0 +1,124 @@
+/* CONTENEDOR */
+.servidores {
+    margin-top: 50px;
+
+  margin-bottom: 50px;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* IMAGEN DERECHA */
+.servidores-img {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  height: 85%;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* CONTENIDO */
+.servidores-content {
+  color: #fff;
+  padding-left: 10%;
+  max-width: 650px;
+  z-index: 2;
+}
+
+/* TITULOS */
+.servidores-content h2 {
+  color: #00bfff;
+  font-size: 55px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.servidores-content h1 {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+/* LINEA */
+.linea {
+  height: 2px;
+  width: 180px;
+  margin-bottom: 20px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #2e3192,
+    #38b6ff,
+    #2e3192,
+    transparent
+  );
+
+  box-shadow: 0 0 10px rgba(56, 182, 255, 0.6);
+}
+
+/* TEXTO */
+.servidores-content p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.servidores-content span {
+  color: #00bfff;
+  font-weight: 600;
+}
+
+/* =========================
+   CARDS CONTENEDOR
+========================= */
+.servidores-cards {
+  display: flex;
+  gap: 25px;
+  margin-top: 50px;
+  max-width: 900px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  flex: 1; /* se expanden proporcionalmente */
+  min-height: 140px;
+
+  padding: 20px 90px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+
+  background: linear-gradient(135deg, #00bfff, #3a2fff);
+
+  box-shadow:
+    0 0 15px rgba(0, 191, 255, 0.6),
+    0 0 30px rgba(0, 191, 255, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER PRO */
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+
+  box-shadow:
+    0 0 25px rgba(0, 191, 255, 0.9),
+    0 0 50px rgba(0, 191, 255, 0.5);
+}

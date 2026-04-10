@@ -21,7 +21,7 @@ import laravel from "../../assets/desarrollo/logolaravel.webp";
 
 const Serviciodesarrollo = () => {
 
-  const navigate = useNavigate(); // 🔥 aquí se activa
+  const navigate = useNavigate();
 
   return (
     <section className="servicios">
@@ -76,7 +76,7 @@ const Serviciodesarrollo = () => {
 
           <button 
             className="btn"
-            onClick={() => navigate("/desarrollo-backend")}
+            onClick={() => navigate("/desarrollobackend")}
           >
             Ver más
           </button>
@@ -112,7 +112,7 @@ const Serviciodesarrollo = () => {
 
           <button 
             className="btn"
-            onClick={() => navigate("/desarrollo-frontend")}
+            onClick={() => navigate("/desarrollofrontend")}
           >
             Ver más
           </button>

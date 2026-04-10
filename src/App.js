@@ -12,7 +12,8 @@ import Trabaja from "./pages/trabaja";
 import Contacto from "./pages/contacto";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 import DesarrolloMobile from "./pages/desarrollomobile";
-
+import DesarrolloFrontend from "./pages/desarrollofrontend";
+import Desarrollobackend from "./pages/desarrollobackend";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -38,6 +39,8 @@ function App() {
         <Route path="/trabaja" element={<Trabaja />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/desarrollomobile" element={<DesarrolloMobile />} />
+        <Route path="/desarrollofrontend" element={<DesarrolloFrontend />} />
+        <Route path="/desarrollobackend" element={<Desarrollobackend />} />
       </Routes>
 
       <FloatingButtons />

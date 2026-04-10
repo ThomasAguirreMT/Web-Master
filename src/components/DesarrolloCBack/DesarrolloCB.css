@@ -1,0 +1,81 @@
+
+
+/* HEADER */
+.sc-header {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 80px;
+  color: #111;
+}
+
+/* FILAS */
+.sc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 120px auto;
+  gap: 60px;
+}
+
+/* ALTERNAR */
+.sc-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* =========================
+   IMAGEN (TU CARD)
+========================= */
+.sc-img img {
+  width: 320px;
+  border-radius: 25px;
+
+  transition: 0.3s ease;
+
+
+}
+
+/* HOVER SUAVE */
+.sc-img img:hover {
+  transform: translateY(-10px) scale(1.03);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.35),
+    0 0 40px rgba(0,191,255,0.4);
+}
+
+/* =========================
+   TEXTO
+========================= */
+.sc-text {
+  max-width: 500px;
+}
+
+.sc-text p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+
+  .sc-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sc-row.reverse {
+    flex-direction: column;
+  }
+
+  .sc-img img {
+    width: 260px;
+  }
+
+  .sc-text {
+    margin-top: 20px;
+  }
+}
