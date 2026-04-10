@@ -48,7 +48,7 @@
 /* LINEA */
 .linea {
   height: 2px;
-  width: 180px;
+  width: 400px;
   margin-bottom: 20px;
 
   background: linear-gradient(
@@ -107,9 +107,6 @@
 
   background: linear-gradient(135deg, #00bfff, #3a2fff);
 
-  box-shadow:
-    0 0 15px rgba(0, 191, 255, 0.6),
-    0 0 30px rgba(0, 191, 255, 0.3);
 
   transition: all 0.3s ease;
 }

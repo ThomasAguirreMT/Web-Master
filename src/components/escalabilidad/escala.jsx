@@ -13,14 +13,13 @@ export default function Beneficios() {
   const [direction, setDirection] = useState("next");
   const [paused, setPaused] = useState(false);
 
-  /* 🔥 AUTOPLAY MÁS RÁPIDO */
   useEffect(() => {
     if (paused) return;
 
     const interval = setInterval(() => {
       setDirection("next");
       setIndex((prev) => (prev + 1) % data.length);
-    }, 2500); // ⬅️ MÁS RÁPIDO
+    }, 450);
 
     return () => clearInterval(interval);
   }, [paused]);
@@ -35,35 +34,31 @@ export default function Beneficios() {
   };
 
   return (
-    <section className="beneficios">
-      <h2>BENEFICIOS</h2>
+    <section className="esca-section">
+      <h2 className="esca-title">BENEFICIOS</h2>
 
       <div
-        className="beneficios-box"
+        className="esca-box"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {/* IZQUIERDA */}
-        <button className="btn prev" onClick={() => changeSlide("prev")}>
+        <button className="esca-btn esca-prev" onClick={() => changeSlide("prev")}>
           ‹
         </button>
 
-        {/* TEXTO */}
-        <h1 key={index} className={`beneficio-text ${direction}`}>
+        <h1 key={index} className={`esca-text ${direction}`}>
           {data[index]}
         </h1>
 
-        {/* DERECHA */}
-        <button className="btn next" onClick={() => changeSlide("next")}>
+        <button className="esca-btn esca-next" onClick={() => changeSlide("next")}>
           ›
         </button>
 
-        {/* DOTS */}
-        <div className="dots">
+        <div className="esca-dots">
           {data.map((_, i) => (
             <span
               key={i}
-              className={`dot ${i === index ? "active" : ""}`}
+              className={`esca-dot ${i === index ? "active" : ""}`}
               onClick={() => {
                 setDirection(i > index ? "next" : "prev");
                 setIndex(i);

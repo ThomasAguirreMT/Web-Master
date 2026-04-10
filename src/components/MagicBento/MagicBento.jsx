@@ -5,7 +5,6 @@ import perfil from "../../assets/desarrollo/perfiles.svg";
 import noti from "../../assets/desarrollo/notificaciones.svg";
 import analytics from "../../assets/desarrollo/amalitics.svg";
 import mensajes from "../../assets/desarrollo/mensajes.svg";
-import google from "../../assets/desarrollo/google.svg";
 
 export default function MagicBento() {
   return (
@@ -52,10 +51,7 @@ export default function MagicBento() {
           <img src={mensajes} />
         </div>
 
-        <div className="fm-card fm-bottom-right">
-          <h3>INTEGRACIÓN DE SERVICIOS DE GOOGLE</h3>
-          <img src={google} />
-        </div>
+      
 
       </div>
     </section>

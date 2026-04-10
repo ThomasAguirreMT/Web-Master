@@ -159,6 +159,7 @@
 
 /* ABAJO */
 .fm-bottom-left {
+  margin-top: 20px;
   grid-column: 1 / 2;
   grid-row: 3 / 4;
 }
