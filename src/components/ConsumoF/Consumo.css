@@ -1,0 +1,95 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CONTENEDOR */
+.container {
+  background-color: #000;
+  color: #fff;
+  padding: 100px 60px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* TÍTULO */
+.title {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 70px;
+}
+
+.title span {
+  color: #00bfff;
+}
+
+/* CONTENEDOR CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(135deg, #1aa7ec 0%, #3f2b96 100%);
+  border-radius: 18px;
+  padding: 25px;
+  width: 300px;
+  min-height: 250px;
+
+  /* 🔥 ESTO ES LA CLAVE */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  text-align: left;
+
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+}
+
+/* TITULO CARD */
+.card h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* LINEA */
+.divider {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+/* TEXTO */
+.card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* LINEA INFERIOR */
+.bottom-line {
+  width: 80%;
+  height: 4px;
+  background-color: #fff;
+  margin: 80px auto 0;
+}

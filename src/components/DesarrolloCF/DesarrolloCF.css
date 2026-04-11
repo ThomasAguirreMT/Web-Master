@@ -1,0 +1,94 @@
+/* CONTENEDOR GENERAL */
+.sc-section {
+  background: #f4f4f4;
+  padding: 80px 5%;
+}
+
+/* HEADER */
+.sc-header {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #111;
+}
+
+/* FILAS */
+.sc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 🔥 clave */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
+  gap: 50px;
+}
+/* FILA DERECHA */
+.sc-row.reverse {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+
+
+/* IMAGEN */
+.sc-img img {
+  width: 350px;
+  border-radius: 20px;
+  display: block;
+}
+
+/* TEXTO */
+.sc-text {
+  max-width: 800px;
+}
+
+/* ESPACIADO NORMAL */
+.sc-row .sc-text {
+  margin-left: 40px;
+}
+
+/* ESPACIADO INVERTIDO */
+.sc-row.reverse .sc-text {
+  margin-left: 0;
+  margin-right: 40px;
+}
+
+/* TITULOS */
+.sc-text h2 {
+  font-size: 45px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.sc-text h2 span {
+  color: #2d2f7f;
+}
+
+/* PARRAFOS */
+.sc-text p {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .sc-row,
+  .sc-row.reverse {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sc-row .sc-text,
+  .sc-row.reverse .sc-text {
+    margin: 20px 0 0 0;
+  }
+
+  .sc-img img {
+    width: 100%;
+    max-width: 300px;
+  }
+}

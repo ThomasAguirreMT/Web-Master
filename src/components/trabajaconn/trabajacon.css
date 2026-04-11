@@ -1,0 +1,88 @@
+/* CONTENEDOR */
+.crs-container {
+  width: 100%;
+}
+
+/* HERO */
+.crs-hero {
+  position: relative;
+  height: 520px;
+}
+
+/* VIDEO */
+.crs-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* mejora visual */
+  filter: brightness(1.15) contrast(1.1) saturate(1.1);
+}
+
+/* OVERLAY */
+.crs-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   INFO
+========================= */
+.crs-info {
+  background: linear-gradient(
+    180deg,
+    #0f5c74 0%,
+    #000 100%
+  );
+
+  padding: 60px 10%;
+  color: white;
+}
+
+/* TITULO */
+.crs-info h2 {
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* FLECHA */
+.crs-arrow {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+/* TEXTO */
+.crs-info p {
+  max-width: 900px;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .crs-hero {
+    height: 400px;
+  }
+
+  .crs-info {
+    padding: 40px 6%;
+  }
+
+  .crs-info h2 {
+    font-size: 18px;
+  }
+
+  .crs-arrow {
+    font-size: 24px;
+  }
+
+  .crs-info p {
+    font-size: 13px;
+  }
+}

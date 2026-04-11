@@ -1,0 +1,185 @@
+/* CONTENEDOR */
+.ce-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  padding: 80px 8%;
+  background: #f4f4f4;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.ce-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ======================
+   LEFT
+====================== */
+.ce-title {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.ce-title span {
+  color: #38b6ff;
+}
+
+/* WHATSAPP (AISLADO) */
+.ce-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #000;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 40px;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  width: fit-content;
+}
+
+/* DOT AISLADO (NO AFECTA OTROS) */
+.ce-dot {
+  width: 10px;
+  height: 10px;
+  background: #25d366;
+  border-radius: 50%;
+
+  animation: cePulse 1.5s infinite;
+}
+
+/* BOTÓN */
+.ce-btn {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #38b6ff, #2e3192);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.ce-btn:hover {
+  box-shadow: 0 0 12px #38b6ff;
+}
+
+/* ITEMS */
+.ce-item {
+  margin-top: 20px;
+}
+
+.ce-item h4 {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ce-link {
+  color: #00bfff;
+}
+
+/* ======================
+   FORM
+====================== */
+.ce-form {
+  background: linear-gradient(180deg, #000, #0d1f2d);
+  border-radius: 15px;
+  padding: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glow seguro */
+.ce-form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, #38b6ff33, transparent);
+  pointer-events: none;
+}
+
+/* LOGO */
+.ce-logo {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 70px;
+  background: #1e90ff;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* FORM BOX */
+.ce-form-box {
+  position: relative;
+  z-index: 2;
+}
+
+/* INPUTS */
+.ce-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ce-form input,
+.ce-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+}
+
+.ce-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* SUBMIT */
+.ce-submit {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+
+  background: linear-gradient(90deg, #38b6ff, #2e3192);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ce-submit:hover {
+  box-shadow: 0 0 15px #38b6ff;
+}
+
+/* ======================
+   ANIMACIONES AISLADAS
+====================== */
+@keyframes cePulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 900px) {
+  .ce-container {
+    grid-template-columns: 1fr;
+  }
+
+  .ce-row {
+    flex-direction: column;
+  }
+}

@@ -29,7 +29,7 @@ export default function Navbar() {
     { name: "INTERNET", path: "/internet" },
     { name: "TELEVISIÓN", path: "/television" },
     { name: "DESARROLLO DE SOFTWARE", path: "/software" },
-    { name: "TRABAJA CON NOSOTROS", path: "/trabaja" },
+    { name: "TRABAJA CON NOSOTROS", path: "/trabajaconnosotros" },
     { name: "CONTACTO", path: "/contacto" },
   ];
 
