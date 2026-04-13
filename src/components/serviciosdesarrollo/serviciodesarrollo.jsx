@@ -1,6 +1,8 @@
 import "./serviciodesarrollo.css";
 import { useNavigate } from "react-router-dom";
 
+import movilVideoMobile from "../../assets/desarrollo/videodesarrollocelular.mp4";
+
 import movilVideo from "../../assets/desarrollo/desarrollomovile.mp4";
 import backendVideo from "../../assets/desarrollo/desarrolloback.mp4";
 import frontendImg from "../../assets/desarrollo/desarrollofront.mp4";

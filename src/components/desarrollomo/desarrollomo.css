@@ -185,3 +185,47 @@
     font-size: 18px;
   }
 }
+
+
+/* 🔥 EVITA SCROLL HORIZONTAL GLOBAL */
+body, html {
+  overflow-x: hidden;
+}
+
+/* CONTENEDOR */
+.dm-container {
+  width: 100%;
+  overflow-x: hidden; /* 🔥 clave */
+}
+
+/* HERO */
+.dm-hero {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* 🔥 evita que se salga */
+}
+
+/* CONTENIDO */
+.dm-content {
+  padding: 0 20px;
+}
+
+/* TEXTO GRANDE FIX MOBILE */
+@media (max-width: 600px) {
+
+  .dm-hero {
+    height: 50vh;
+  }
+
+  .dm-title {
+    font-size: 26px;   /* 🔥 antes era muy grande */
+    line-height: 1.2;
+  }
+
+  .dm-badge {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-top: 40px;
+  }
+
+}

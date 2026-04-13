@@ -39,8 +39,11 @@
   font-size: 54px;
   font-weight: 900;
   letter-spacing: 2px;
+  padding: 0 40px;
+  word-break: break-word; /* 🔥 evita desborde */
 }
 
+/* ANIMACIONES */
 .esca-text.next {
   animation: escaSlideRight 0.35s ease;
 }
@@ -75,6 +78,7 @@
   }
 }
 
+/* BOTONES */
 .esca-btn {
   position: absolute;
   width: 55px;
@@ -111,6 +115,7 @@
     0 0 25px rgba(14, 6, 126, 0.5);
 }
 
+/* DOTS */
 .esca-dots {
   position: absolute;
   bottom: 20px;
@@ -138,4 +143,82 @@
   inset: 0;
   border-radius: 30px;
   box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   📱 TABLET
+========================= */
+@media (max-width: 900px) {
+
+  .esca-section {
+    padding: 80px 6%;
+  }
+
+  .esca-title {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+
+  .esca-box {
+    height: 240px;
+  }
+
+  .esca-text {
+    font-size: 36px;
+  }
+
+  .esca-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   📱 MOBILE
+========================= */
+@media (max-width: 600px) {
+
+  .esca-section {
+    padding: 60px 15px;
+  }
+
+  .esca-title {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .esca-box {
+    height: 180px;
+    border-radius: 20px;
+  }
+
+  .esca-text {
+    font-size: 22px;
+    letter-spacing: 1px;
+    padding: 0 20px;
+  }
+
+  .esca-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .esca-prev {
+    left: 8px;
+  }
+
+  .esca-next {
+    right: 8px;
+  }
+
+  .esca-dots {
+    bottom: 10px;
+  }
+
+  .esca-dot {
+    width: 7px;
+    height: 7px;
+  }
 }

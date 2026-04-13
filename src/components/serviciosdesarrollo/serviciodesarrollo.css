@@ -1,67 +1,55 @@
 /* CONTENEDOR GENERAL */
 .servicios {
-  padding: 80px 0;
+  padding: 80px 20px;
   background: #ffffff;
 
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
-
+/* BLOQUE */
 .servicio {
   width: 100%;
-  max-width: 1100px; 
-  
+  max-width: 1100px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   margin-bottom: 120px;
   gap: 80px;
 }
 
-.servicio.reverse {
-  flex-direction: row-reverse;
-}
-
 /* IMAGEN / VIDEO */
 .servicio-img {
-  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .servicio-img video,
 .servicio-img img {
-  width: 300px; 
+  width: 320px;
   max-width: 100%;
-}
-
-/* TEXTO "ANIMACION" */
-.animacion {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #555;
+  border-radius: 12px;
 }
 
 /* TEXTO */
 .servicio-info {
-  max-width: 700px;
+  max-width: 600px;
 }
 
 .servicio-info h2 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   margin-bottom: 15px;
 }
 
 .servicio-info p {
-  font-size: 20px;
+  font-size: 18px;
   color: #555;
   margin-bottom: 25px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* TECNOLOGIAS */
@@ -72,10 +60,8 @@
 }
 
 .tecnologias img {
-  width: 65px;
-  height: 65px;
-
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  width: 60px;
+  height: 60px;
   transition: 0.3s;
 }
 
@@ -86,9 +72,9 @@
 /* BOTON */
 .btn {
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
 
-  padding: 10px 30px;
+  padding: 12px 30px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
@@ -97,10 +83,79 @@
   cursor: pointer;
 }
 
-/* FLECHA */
-.flecha {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 18px;
-  color: #333;
+/* =========================
+   📱 TABLET
+========================= */
+@media (max-width: 900px) {
+
+  .servicio {
+    gap: 40px;
+  }
+
+  .servicio-info h2 {
+    font-size: 20px;
+  }
+
+  .servicio-info p {
+    font-size: 16px;
+  }
+
+  .servicio-img video {
+    width: 260px;
+  }
+
+  .tecnologias img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* =========================
+   📱 MOBILE (CLAVE)
+========================= */
+@media (max-width: 600px) {
+
+  .servicio {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+
+  /* 🔥 TODOS en columna */
+  .servicio:nth-child(2) {
+    flex-direction: column;
+  }
+
+  .servicio-img video {
+    width: 220px;
+  }
+
+  .servicio-info {
+    max-width: 100%;
+  }
+
+  .servicio-info h2 {
+    font-size: 18px;
+  }
+
+  .servicio-info p {
+    font-size: 14px;
+  }
+
+  .tecnologias {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tecnologias img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+  }
 }

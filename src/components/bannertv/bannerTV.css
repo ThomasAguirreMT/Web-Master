@@ -98,3 +98,43 @@
 .img-right {
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
 }
+
+
+/* =========================
+   MOBILE SOLO GUMBALL
+========================= */
+@media (max-width: 600px) {
+
+  /* ocultar imagen izquierda */
+  .img-left {
+    display: none;
+  }
+
+  /* centrar y ajustar Gumball */
+  .img-right {
+    right: -1px;
+    top: -60px;
+    height: 140px;
+    z-index: 2;
+  }
+
+  /* ajustar texto para que no choque */
+  .banner-text {
+    position: relative;
+    right: auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .banner-text h1 {
+    font-size: 22px;
+  }
+
+  /* logo opcional ajuste */
+  .banner-logo {
+    right: auto;
+    position: relative;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+}

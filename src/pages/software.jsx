@@ -7,9 +7,9 @@ const SoftwarePage = () => {
   return (
     <>
       <HeroSoftware />
-
+    <ModeloTrabajo />
       <Serviciodesarrollo />
-      <ModeloTrabajo />
+  
 
       <ContactForm />
 

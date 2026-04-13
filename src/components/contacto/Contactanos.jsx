@@ -6,6 +6,8 @@ import logoElite from "../../assets/logo/logo.svg";
 export default function ContactElite() {
   const ref = useRef();
 
+
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -30,7 +30,7 @@ const slides = [
     subtitle: "TRABAJA CON NOSOTROS",
     image: slidetrabaja,
     floating: true,
-    link: "/trabaja-con-nosotros"
+    link: "/trabajaconnosotros"
   },
   {
     type: "fiber",
