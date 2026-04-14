@@ -135,3 +135,20 @@
   font-size: 12px;
   opacity: 0.6;
 }
+
+
+
+.footer a {
+  color: #cfd3dc;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer a:hover {
+  color: #4da3ff;
+}
+
+/* opcional: quitar el azul visitado */
+.footer a:visited {
+  color: #cfd3dc;
+}

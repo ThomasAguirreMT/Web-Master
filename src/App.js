@@ -15,17 +15,31 @@ import DesarrolloMobile from "./pages/desarrollomobile";
 import DesarrolloFrontend from "./pages/desarrollofrontend";
 import Desarrollobackend from "./pages/desarrollobackend";
 import WorkWithUs from "./pages/trabajaconnosot";
+import PQRPage from "./pages/pqr";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // 🔥 optimizado (solo elementos con overflow)
+    document.querySelectorAll("*").forEach(el => {
+      const style = getComputedStyle(el);
+      if (
+        (style.overflow === "auto" || style.overflowY === "auto") &&
+        el.scrollTop > 0
+      ) {
+        el.scrollTop = 0;
+      }
+    });
+
   }, [pathname]);
 
   return null;
 }
-
 function App() {
   return (
     <BrowserRouter>
@@ -43,7 +57,8 @@ function App() {
         <Route path="/desarrollomobile" element={<DesarrolloMobile />} />
         <Route path="/desarrollofrontend" element={<DesarrolloFrontend />} />
         <Route path="/desarrollobackend" element={<Desarrollobackend />} />
-<Route path="/trabajaconnosotros" element={<WorkWithUs />} />
+        <Route path="/trabajaconnosotros" element={<WorkWithUs />} />
+        <Route path="/pqr" element={<PQRPage />} />
       </Routes>
 
       <FloatingButtons />

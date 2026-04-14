@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../assets/navbar/logo.svg";
@@ -8,21 +8,45 @@ export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(true);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setShowNavbar(false); // se oculta
-      } else {
-        setShowNavbar(true); // aparece
-      }
-    };
+  const lastScroll = useRef(0); // 🔥 clave
 
-    window.addEventListener("scroll", handleScroll);
+useEffect(() => {
+  const getScroll = () => {
+    return (
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop
+    );
+  };
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleScroll = () => {
+    const currentScroll = getScroll();
+
+    if (currentScroll > lastScroll.current && currentScroll > 80) {
+      setShowNavbar(false);
+    } else {
+      setShowNavbar(true);
+    }
+
+    lastScroll.current = currentScroll;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  // 🔥 detecta scroll en TODOS los contenedores
+  const elements = document.querySelectorAll("*");
+
+  elements.forEach((el) => {
+    el.addEventListener("scroll", handleScroll);
+  });
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    elements.forEach((el) => {
+      el.removeEventListener("scroll", handleScroll);
+    });
+  };
+}, []);
 
   const menuItems = [
     { name: "INICIO", path: "/" },

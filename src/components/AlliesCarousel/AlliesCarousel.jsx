@@ -5,6 +5,9 @@ import logoodatamorado from "../../assets/aliados/logoodatamorado.svg";
 import pit from "../../assets/aliados/pits.svg";
 import vectoredgeuno from "../../assets/aliados/vectoredgeuno.svg";
 import vectorhurricane from "../../assets/aliados/vectorhurricane.svg";
+import cougent from "../../assets/aliados/cougent.webp";
+import equinix from "../../assets/aliados/equinix.webp";
+
 
 export default function AlliesCarousel() {
   const logos = [
@@ -13,6 +16,9 @@ export default function AlliesCarousel() {
     pit,
     vectoredgeuno,
     vectorhurricane,
+    cougent,
+    equinix,
+    
   ];
 
   return (

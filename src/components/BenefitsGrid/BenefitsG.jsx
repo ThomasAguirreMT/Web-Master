@@ -1,13 +1,13 @@
 import "./Benefits.css";
 
-import soporte from "../../assets/desarrollo/Geo.svg";
-import seguridad from "../../assets/desarrollo/Geo.svg";
-import mikrotik from "../../assets/desarrollo/Geo.svg";
-import monitoreo from "../../assets/desarrollo/Geo.svg";
-import cisco from "../../assets/desarrollo/Geo.svg";
-import wifi from "../../assets/desarrollo/Geo.svg";
-import crecimiento from "../../assets/desarrollo/Geo.svg";
-import infraestructura from "../../assets/desarrollo/Geo.svg";
+import soporte from "../../assets/porqueelegirnos/soporte.svg";
+import seguridad from "../../assets/porqueelegirnos/seguridad.svg";
+import mikrotik from "../../assets/porqueelegirnos/mikrotik.svg";
+import monitoreo from "../../assets/porqueelegirnos/monitoreo.svg";
+import cisco from "../../assets/porqueelegirnos/cisco.svg";
+import wifi from "../../assets/porqueelegirnos/wifi.svg";
+import crecimiento from "../../assets/porqueelegirnos/crecimiento.svg";
+import infraestructura from "../../assets/porqueelegirnos/infraestructura.svg";
 
 
 

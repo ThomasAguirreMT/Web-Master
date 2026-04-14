@@ -1,0 +1,116 @@
+.pqr {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  background: #05080f;
+  display: flex;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.pqr-box {
+  width: 100%;
+  max-width: 480px;
+  background: #0b1220;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* HEADER */
+.pqr-header h2 {
+  color: #fff;
+  font-size: 20px;
+}
+
+.pqr-header p {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* STEPS */
+.pqr-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.pqr-steps span {
+  flex: 1;
+  text-align: center;
+  color: #666;
+}
+
+.pqr-steps span.active {
+  color: #4da3ff;
+  font-weight: 600;
+}
+
+/* INPUTS */
+.pqr input,
+.pqr select,
+.pqr textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #05080f;
+  color: #fff;
+  font-size: 14px;
+}
+
+.pqr textarea {
+  min-height: 100px;
+}
+
+.pqr input:focus,
+.pqr select:focus,
+.pqr textarea:focus {
+  border-color: #4da3ff;
+}
+
+/* BUTTONS */
+.pqr button {
+  width: 100%;
+  padding: 11px;
+  border-radius: 6px;
+  border: none;
+  background: #4da3ff;
+  color: white;
+  cursor: pointer;
+}
+
+.pqr-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.pqr-secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ERROR */
+.pqr .error {
+  border-color: #ff4d4d;
+}
+
+/* RESUME */
+.pqr-resume {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* SUCCESS */
+.pqr-success {
+  text-align: center;
+}
+
+.pqr-radicado {
+  font-size: 22px;
+  color: #4da3ff;
+  font-weight: 600;
+}

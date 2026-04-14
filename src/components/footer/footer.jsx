@@ -1,13 +1,11 @@
 import "./Footer.css";
-import logo from "../../assets/navbar/logo.svg"; // ajusta si es png
-
+import logo from "../../assets/navbar/logo.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
         <footer className="footer">
-            {/* Línea animada superior */}
             <div className="footer-wave" />
-
 
             <div className="footer-container">
                 {/* BRAND */}
@@ -23,43 +21,46 @@ export default function Footer() {
                     </span>
                 </div>
 
-                {/* LINKS */}
+                {/* SERVICIOS */}
                 <div className="footer-col">
                     <h4>Servicios</h4>
                     <ul>
-                        <li>Internet Fibra</li>
-                        <li>Televisión</li>
-                        <li>Soluciones Empresariales</li>
-                        <li>Desarrollo de Software</li>
+                        <li><Link to="/internet">Internet Fibra</Link></li>
+                        <li><Link to="/television">Televisión</Link></li>
+                        <li><Link to="/trabajaconnosotros">Soluciones Empresariales</Link></li>
+                        <li><Link to="/software">Desarrollo de Software</Link></li>
                     </ul>
                 </div>
-
 
                 {/* EMPRESA */}
                 <div className="footer-col">
                     <h4>Empresa</h4>
                     <ul>
-                        <li>Quiénes somos</li>
-                        <li>Trabaja con nosotros</li>
-                        <li>Soporte</li>
-                        <li>Contacto</li>
+                        <li><Link to="/trabajaconnosotros">Quiénes somos</Link></li>
+                        <li><Link to="/trabajaconnosotros">Trabaja con nosotros</Link></li>
+                        <li><Link to="/contacto">Soporte</Link></li>
+                        <li><Link to="/contacto">Contacto</Link></li>
                     </ul>
                 </div>
-
 
                 {/* CONTACTO */}
                 <div className="footer-col">
                     <h4>Contacto</h4>
                     <ul>
                         <li>Colombia</li>
-                        <li> +57 317 6683567 </li>
-                        <li>nicolasaguirre@webmaster.com</li>
+                        <li>
+                            <a href="tel:+573176683567">+57 317 6683567</a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@webmaster.com">
+                                info@webmaster.com
+                            </a>
+                        </li>
+                        <li><Link to="/pqr">PQR</Link></li>
+
                     </ul>
                 </div>
             </div>
-
-
-
         </footer>
     );
 }

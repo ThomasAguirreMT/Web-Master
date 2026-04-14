@@ -2,8 +2,7 @@ import "./cobertura.css";
 
 import mapa from "../../assets/cobertura/mapacolombia.svg";
 import world from "../../assets/cobertura/mundogirando.svg";
-import napcolombia from "../../assets/cobertura/napcolombia.svg";
-
+ 
 import equinix from "../../assets/cobertura/equinox.svg";
 import odata from "../../assets/cobertura/odata.svg";
 
@@ -30,7 +29,6 @@ function Cobertura() {
          <div className="logos">
   <img src={odata} alt="Odata" className="logo-odata" />
   <img src={equinix} alt="Equinix" className="logo-equinix" />
-  <img src={napcolombia} alt="Nap Colombia" className="logo-napcolombia" />
 </div>
 
 
