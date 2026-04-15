@@ -110,6 +110,7 @@ import CANAL_PASIONES from "./VARIEDADES/CANAL_PASIONES.png";
 import CANAL_TLN_NOVELAS from "./VARIEDADES/CANAL_TLN_NOVELAS.png";
 import CANAL_BIT from "./VARIEDADES/CANAL_BIT.png";
 import CANAL_TNT_NOVELAS from "./VARIEDADES/CANAL_TNT_NOVELAS.png";
+import CANAL_UNIVISION from "./VARIEDADES/CANAL_UNIVISION.png";
 
 
 
@@ -277,7 +278,10 @@ export const variedades = [
   { nombre: "TLN NOVELAS", canal: "Canal 89", logo: CANAL_TLN_NOVELAS },
   { nombre: "BIT", canal: "Canal 90", logo: CANAL_BIT },
 
-  { nombre: "TNT NOVELAS", canal: "Canal 91", logo: CANAL_TNT_NOVELAS }
+  { nombre: "TNT NOVELAS", canal: "Canal 91", logo: CANAL_TNT_NOVELAS },
+  { nombre: "CANAL_UNIVISION", canal: "Canal 91", logo: CANAL_UNIVISION }
+
+
 
 
 ];

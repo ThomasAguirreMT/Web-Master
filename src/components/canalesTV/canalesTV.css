@@ -1,0 +1,159 @@
+/* CONTENEDOR */
+
+.tv {
+  background: #f6f7fb;
+  padding: 60px 0;
+}
+
+/* HEADER */
+
+.tv-header {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto 40px auto;
+}
+
+.tv-header h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #111;
+}
+
+.tv-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* LAYOUT */
+
+.tv-container {
+  width: 92%;
+  max-width: 1400px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+}
+
+/* SIDEBAR */
+
+.tv-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tv-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  border: 1px solid #e6e8ee;
+  font-size: 13px;
+
+  transition: all 0.2s ease;
+}
+
+.tv-item small {
+  font-size: 11px;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.tv-item:hover {
+  background: #f4f7ff;
+}
+
+.tv-item.active {
+  background: #eef3ff;
+  border-color: #4da3ff;
+  color: #1a3cff;
+  font-weight: 600;
+}
+
+/* CONTENIDO */
+
+.tv-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.tv-top h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.tv-top input {
+  margin-left: auto;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6e8ee;
+  width: 220px;
+}
+
+/* ========================= */
+/* 📱 MÓVIL */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .tv-container {
+    display: block;
+  }
+
+  /* 🔥 GRID DE CATEGORÍAS */
+  .tv-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tv-item {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  /* HEADER */
+
+  .tv-header h1 {
+    font-size: 26px;
+  }
+
+  .tv-header p {
+    font-size: 13px;
+  }
+
+  /* BUSCADOR */
+
+  .tv-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tv-top input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+}
+
+/* 📱 MÓVIL PEQUEÑO */
+
+@media (max-width: 480px) {
+
+  .tv-sidebar {
+    grid-template-rows: repeat(2, 1fr); /* 🔥 ahora 2 filas */
+  }
+
+}

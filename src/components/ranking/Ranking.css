@@ -1,0 +1,165 @@
+/* CONTENEDOR */
+.ranking {
+  width: 100%;
+  height: 420px;
+  background: #000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-left: 8%;
+  overflow: hidden;
+}
+
+/* TEXTO IZQUIERDA */
+.ranking-left h2 {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: white;
+}
+
+.ranking-left span {
+  color: #1aa7d7;
+}
+
+/* DERECHA */
+.ranking-right {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* FORMA (NO ES CÍRCULO COMPLETO) */
+.ranking-shape {
+  width: 620px;
+  height: 620px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #1aa7d7 0%,
+    #2e3c8f 60%,
+    #1b1f6b 100%
+  );
+
+  position: relative;
+  right: -80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTENIDO */
+.ranking-content {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: white;
+}
+
+/* NUMERO */
+.ranking-number h1 {
+  font-size: 140px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.ranking-number span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* DIVISOR */
+.ranking-divider {
+  width: 2px;
+  height: 130px;
+  background: rgba(255,255,255,0.7);
+}
+
+/* TEXTO */
+.ranking-text h3 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* OUTLINE */
+.ranking-text .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+}
+
+/* BOTON */
+.ranking-btn {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+
+  background: #e6e6e6;
+  color: #000;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ICONO */
+.btn-icon {
+  width: 28px;
+  height: 28px;
+
+  background: #2e3c8f;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
+
+
+.ranking-text .outline {
+  color: rgba(255, 255, 255, 0.952);
+  -webkit-text-stroke: 1px white;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .ranking {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .ranking-left h2 {
+    font-size: 26px;
+  }
+
+  .ranking-shape {
+    width: 350px;
+    height: 350px;
+    right: 0;
+    margin-top: 40px;
+  }
+
+  .ranking-number h1 {
+    font-size: 90px;
+  }
+
+  .ranking-text h3 {
+    font-size: 28px;
+  }
+}

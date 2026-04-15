@@ -1,286 +1,306 @@
-/* CONTENEDOR GENERAL DE LA PARRILLA */
+/* ============================= */
+/* CONTENEDOR GENERAL */
+/* ============================= */
 
-.parrilla-tv{
-  width:100%;
-  background:#f3f3f3;
-  padding:60px 0;
+.parrilla-tv {
+  width: 100%;
+  background: #f3f3f3;
+  padding: 60px 0;
 }
 
-.parrilla-container{
-  width:90%;align-self: start;
-  max-width:1400px;
-  margin:auto;
-}
-/* SECCION DE CADA CARRUSEL */
-
-.canales-section{
-  width:100%;
-  margin-bottom:60px;
+.parrilla-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
 }
 
-/* HEADER */
+/* ============================= */
+/* HEADER SUPERIOR */
+/* ============================= */
 
-.canales-header{
-  margin-bottom:25px;
+.tv-header {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto 40px auto;
 }
 
+.tv-header h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 6px;
+}
 
+.tv-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ============================= */
+/* SECCIÓN */
+/* ============================= */
+
+.canales-section {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.canales-header {
+  margin-bottom: 20px;
+}
+
+.canales-pill {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* ============================= */
 /* CARRUSEL */
-.canales-slider{
-  width:100%;
-  overflow:hidden;
-  position:relative;
-  padding:10px 0;
+/* ============================= */
+
+.canales-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
 }
-.canales-track{
-  display:flex;
-  gap:22px;
-  width:max-content;
+
+/* TRACK */
+
+.canales-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr); /* desktop */
+  gap: 20px;
+  width: max-content;
 
   animation: scrollCanales 40s linear infinite;
 }
 
+/* PAUSA EN HOVER */
 
-
-/* TARJETAS */
-
-.canal-card{
-
-  min-width:170px;
-  height:180px;
-
-  background:white;
-
-  border-radius:15px;
-
-  border:2px solid #3ea2ff;
-
-  box-shadow:0 6px 15px rgba(0,0,0,0.08);
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-
-  padding:10px;
-
-  transition: all .25s ease;
+.canales-slider:hover .canales-track {
+  animation-play-state: paused;
 }
 
-.canal-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+/* ============================= */
+/* TARJETAS */
+/* ============================= */
+
+.canal-card {
+  width: clamp(120px, 10vw, 150px);
+  height: clamp(110px, 10vw, 140px);
+
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e6e8ee;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 10px;
+
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+/* HOVER PRO */
+
+.canal-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* LOGO */
 
-.canal-card img{
-  width:85px;
-  margin-bottom:10px;
+.canal-card img {
+  width: clamp(50px, 6vw, 70px);
+  margin-bottom: 8px;
 }
 
-/* TITULO */
+/* TEXTO */
 
-.canal-card h3{
-  font-size:14px;
-  font-weight:600;
-  margin-bottom:6px;
+.canal-card h3 {
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1f2937;
 }
 
-/* NUMERO CANAL */
+/* CHIP */
 
-.canal-numero{
-  background:black;
-  color:white;
-
-  font-size:12px;
-
-  padding:4px 12px;
-
-  border-radius:20px;
+.canal-numero {
+  background: #111;
+  color: white;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
 }
 
-/* ANIMACION INFINITA */
+/* ============================= */
+/* ANIMACIÓN */
+/* ============================= */
 
-@keyframes scrollCanales{
-
-  0%{
-    transform: translateX(0);
-  }
-
-  100%{
-    transform: translateX(-50%);
-  }
-
+@keyframes scrollCanales {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* ----------------------------- */
-/* RESPONSIVE */
-/* ----------------------------- */
-
-@media (max-width:1024px){
-
-  .canal-card{
-    min-width:150px;
-    height:170px;
-  }
-
-  .canal-card img{
-    width:70px;
-  }
-
-}
-
-@media (max-width:768px){
-
-  .canales-pill{
-    font-size:16px;
-  }
-
-  .canal-card{
-    min-width:140px;
-    height:160px;
-  }
-
-  .canal-card img{
-    width:65px;
-  }
-
-}
-
-@media (max-width:480px){
-
-  .parrilla-container{
-    width:92%;
-  }
-
-  .canal-card{
-    min-width:130px;
-    height:150px;
-  }
-
-  .canal-card img{
-    width:60px;
-  }
-
-}
+/* ============================= */
+/* GRADIENTES LATERALES */
+/* ============================= */
 
 .canales-slider::before,
-.canales-slider::after{
-  content:"";
-  position:absolute;
-  top:0;
-  width:80px;
-  height:100%;
-  z-index:2;
+.canales-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
 }
 
-.canales-slider::before{
-  left:0;
-  background:linear-gradient(to right,#f3f3f3,transparent);
+.canales-slider::before {
+  left: 0;
+  background: linear-gradient(to right, #f3f3f3, transparent);
 }
 
-
-.parrilla-titulo{
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:40px;
+.canales-slider::after {
+  right: 0;
+  background: linear-gradient(to left, #f3f3f3, transparent);
 }
 
+/* ============================= */
+/* RESPONSIVE TABLET */
+/* ============================= */
 
-.acordeon-item{
+@media (max-width: 1024px) {
 
-  margin-bottom:25px;
+  .canales-track {
+    grid-template-rows: repeat(2, 1fr);
+  }
 
-}
-
-.acordeon-header{
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:10px 16px;
-
-  border-radius:20px;
-
-  background:linear-gradient(90deg,#1ea7ff,#2c2f87);
-
-  color:white;
-
-  font-weight:700;
+  .tv-header h1 {
+    font-size: 28px;
+  }
 
 }
 
-.acordeon-flecha{
+/* ============================= */
+/* RESPONSIVE MÓVIL */
+/* ============================= */
 
-  cursor:pointer;
+@media (max-width: 768px) {
 
-  font-size:14px;
+  .parrilla-container {
+    width: 94%;
+  }
 
-}
+  /* HEADER */
 
-.acordeon-header{
+  .tv-header h1 {
+    font-size: 26px;
+  }
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  .tv-header p {
+    font-size: 13px;
+  }
 
-  padding:10px 16px;
+  /* CARRUSEL */
 
-  border-radius:20px;
+  .canales-track {
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 16px;
+  }
 
-  background:linear-gradient(90deg,#1ea7ff,#2c2f87);
+  /* QUITAR GRADIENTES */
 
-  color:white;
+  .canales-slider::before,
+  .canales-slider::after {
+    display: none;
+  }
 
-  font-weight:700;
+  /* TARJETAS */
 
-  cursor:pointer;
+  .canal-card {
+    width: 110px;
+    height: 100px;
+  }
 
-  transition:all .25s ease;
+  .canal-card img {
+    width: 50px;
+  }
 
-}
-
-.acordeon-header:hover{
-  transform:scale(1.02);
-}
-
-
-.acordeon-indicador{
-
-  display:flex;
-  align-items:center;
-
-  gap:10px;
-
-}
-
-
-.texto-ver{
-
-  font-size:12px;
-
-  opacity:.9;
+  .canal-card h3 {
+    font-size: 11px;
+  }
 
 }
 
+/* ============================= */
+/* MÓVIL PEQUEÑO */
+/* ============================= */
 
-.acordeon-flecha{
+@media (max-width: 480px) {
 
-  transition:transform .3s ease;
+  .canal-card {
+    width: 100px;
+    height: 95px;
+    
+  }
 
-  font-size:14px;
+  .canal-card img {
+    width: 45px;
+  }
+
+  .canal-card h3 {
+    font-size: 10px;
+  }
 
 }
+@media (max-width: 768px) {
+  .tv-sidebar {
+    display: flex;
+    flex-direction: row;
 
+    overflow-x: auto;   /* 🔥 clave */
+    overflow-y: hidden;
 
-/* flecha girada */
+    gap: 10px;
 
-.acordeon-flecha.abierta{
+    padding: 10px 5px;
 
-  transform:rotate(90deg);
+    scroll-behavior: smooth;
+  }
+
+  /* quitar scrollbar */
+  .tv-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+
+  .tv-container {
+    display: block; /* quitamos grid lateral */
+  }
+
+  .tv-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🔥 2 columnas */
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tv-item {
+    width: 100%;
+    justify-content: space-between;
+
+    padding: 10px 12px;
+    font-size: 12px;
+  }
 
 }

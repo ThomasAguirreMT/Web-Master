@@ -1,7 +1,8 @@
 import "./trabajacon.css";
 
-// VIDEO
-import careersVideo from "../../assets/desarrollo/trabajaconnosotros.mp4";
+// VIDEOS
+import videoDesktop from "../../assets/desarrollo/trabajaconnosotros.mp4";
+import videoMobile from "../../assets/desarrollo/trabajaconnosotros-mobile.mp4";
 
 export default function WorkWithUs() {
   return (
@@ -9,16 +10,33 @@ export default function WorkWithUs() {
 
       {/* HERO VIDEO */}
       <div className="crs-hero">
+
+        {/* VIDEO DESKTOP */}
         <video
-          className="crs-video"
-          src={careersVideo}
+          className="crs-video crs-video-desktop"
+          src={videoDesktop}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
+        />
+
+        {/* VIDEO MOBILE */}
+        <video
+          className="crs-video crs-video-mobile"
+          src={videoMobile}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
         />
 
         <div className="crs-overlay" />
+
+   
+
       </div>
 
       {/* INFO */}
@@ -31,10 +49,7 @@ export default function WorkWithUs() {
         <p>
           En Web Master somos el aliado tecnológico de los ISPs. Ofrecemos
           acompañamiento técnico especializado, soporte en infraestructura y
-          asesoría en redes para optimizar y escalar tus operaciones. Contamos
-          con amplia experiencia en soluciones basadas en MikroTik y Cisco,
-          ayudando a nuestros aliados a mejorar la estabilidad, seguridad y
-          rendimiento de sus redes.
+          asesoría en redes para optimizar y escalar tus operaciones.
         </p>
       </div>
 

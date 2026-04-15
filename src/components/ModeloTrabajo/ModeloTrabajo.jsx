@@ -21,7 +21,6 @@ const ModeloTrabajo = () => {
           <span> planificación detallada</span>
         </p>
 
-        <button className="btn-modelo">Ver mas</button>
 
       </div>
 

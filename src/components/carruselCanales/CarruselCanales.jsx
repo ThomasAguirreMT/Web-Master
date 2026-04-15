@@ -8,6 +8,7 @@ export default function CarruselCanales({ titulo, canales }) {
 
         
     <section className="canales-section" >
+      
 
       <div className="canales-header">
         <span className="canales-pill">{titulo}</span>

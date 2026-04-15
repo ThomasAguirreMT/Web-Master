@@ -1,46 +1,72 @@
 /* CONTENEDOR */
 .crs-container {
   width: 100%;
+  overflow: hidden;
 }
 
 /* HERO */
 .crs-hero {
   position: relative;
+  width: 100%;
   height: 520px;
+  overflow: hidden;
 }
 
-/* VIDEO */
+/* VIDEO BASE */
 .crs-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
   width: 100%;
   height: 100%;
-  object-fit: cover;
 
-  /* mejora visual */
-  filter: brightness(1.15) contrast(1.1) saturate(1.1);
+  object-fit: cover;
+  transform: translate(-50%, -50%);
 }
 
-/* OVERLAY */
-.crs-overlay {
+/* MOSTRAR SOLO DESKTOP POR DEFECTO */
+.crs-video-desktop {
+  display: block;
+}
+
+.crs-video-mobile {
+  display: none;
+}
+
+
+
+/* TEXTO */
+.crs-hero-content {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+  padding: 0 20px;
 }
 
-/* =========================
-   INFO
-========================= */
-.crs-info {
-  background: linear-gradient(
-    180deg,
-    #0f5c74 0%,
-    #000 100%
-  );
+.crs-hero-content h1 {
+  font-size: 42px;
+  font-weight: 900;
+}
 
+.crs-hero-content p {
+  font-size: 16px;
+}
+
+/* INFO */
+.crs-info {
+  background: linear-gradient(180deg, #0f5c74 0%, #000 100%);
   padding: 60px 10%;
   color: white;
 }
 
-/* TITULO */
 .crs-info h2 {
   font-size: 22px;
   font-weight: 800;
@@ -50,24 +76,46 @@
   margin-bottom: 20px;
 }
 
-/* FLECHA */
 .crs-arrow {
   font-size: 30px;
-  color: #ffffff;
 }
 
-/* TEXTO */
 .crs-info p {
   max-width: 900px;
   font-size: 14px;
   line-height: 1.6;
-  opacity: 0.9;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE (CAMBIO CLAVE)
+========================= */
 @media (max-width: 768px) {
+
   .crs-hero {
-    height: 400px;
+    height: 65vh;
+    min-height: 320px;
+    max-height: 500px;
+  }
+
+  /* OCULTAR DESKTOP */
+  .crs-video-desktop {
+    display: none;
+  }
+
+  /* MOSTRAR MOBILE */
+  .crs-video-mobile {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .crs-hero-content h1 {
+    font-size: 26px;
+  }
+
+  .crs-hero-content p {
+    font-size: 14px;
   }
 
   .crs-info {
@@ -79,7 +127,7 @@
   }
 
   .crs-arrow {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .crs-info p {

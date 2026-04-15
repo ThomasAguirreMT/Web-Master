@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import CarruselCanales from "../carruselCanales/CarruselCanales";
 
 import {
@@ -14,6 +13,8 @@ import {
   noticias,
   religiosos
 } from "../../assets/television/canales/canalesData";
+
+import "./canalesTV.css";
 
 export default function CanalesTV() {
 
@@ -30,81 +31,62 @@ export default function CanalesTV() {
     { titulo: "RELIGIOSOS", data: religiosos }
   ];
 
-  // nacionales abierto por defecto
-  const [abierto, setAbierto] = useState("NACIONALES");
+  const [categoriaActiva, setCategoriaActiva] = useState("NACIONALES");
+  const [busqueda, setBusqueda] = useState("");
 
-  const toggle = (titulo) => {
+  const categoriaSeleccionada = categorias.find(
+    (c) => c.titulo === categoriaActiva
+  );
 
-    if (abierto === titulo) {
-      setAbierto(null);
-    } else {
-      setAbierto(titulo);
-    }
-
-  };
+  const canalesFiltrados = categoriaSeleccionada.data.filter((canal) =>
+    canal.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
 
   return (
+    <section className="tv">
 
-    <section className="parrilla-tv">
+      {/* HEADER */}
+      <div className="tv-header">
+        <h1>Nuestros canales</h1>
+        <p>Explora toda nuestra parrilla de televisión organizada por categorías</p>
+      </div>
 
-      <div className="parrilla-container">
+      <div className="tv-container">
 
-        <h2 className="parrilla-titulo">
-          CONOCE NUESTRA PARRILLA
-        </h2>
-
-
-        {categorias.map((cat) => (
-
-          <div key={cat.titulo} className="acordeon-item">
-
-
-            {/* HEADER */}
-
+        {/* SIDEBAR / GRID */}
+        <div className="tv-sidebar">
+          {categorias.map((cat) => (
             <div
-              className="acordeon-header"
-              onClick={() => toggle(cat.titulo)}
+              key={cat.titulo}
+              className={`tv-item ${categoriaActiva === cat.titulo ? "active" : ""}`}
+              onClick={() => setCategoriaActiva(cat.titulo)}
             >
-
               <span>{cat.titulo}</span>
-
-              <div className="acordeon-indicador">
-
-                <span className="texto-ver">
-                  {abierto === cat.titulo ? "Ocultar canales" : "Ver canales"}
-                </span>
-
-                <span
-                  className={`acordeon-flecha ${abierto === cat.titulo ? "abierta" : ""}`}
-                >
-                  ▶
-                </span>
-
-              </div>
-
+              <small>{cat.data.length}</small>
             </div>
+          ))}
+        </div>
 
+        {/* CONTENIDO */}
+        <div className="tv-content">
 
-            {/* CONTENIDO */}
+          <div className="tv-top">
+            <h2>{categoriaActiva}</h2>
 
-            {abierto === cat.titulo && (
-
-              <CarruselCanales
-                canales={cat.data}
-                ocultarTitulo
-              />
-
-            )}
-
+            <input
+              type="text"
+              placeholder="Buscar canal..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+            />
           </div>
 
-        ))}
+          <CarruselCanales canales={canalesFiltrados} />
 
+        </div>
 
       </div>
 
     </section>
-
   );
-
 }

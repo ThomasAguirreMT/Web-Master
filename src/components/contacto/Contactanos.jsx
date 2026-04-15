@@ -56,7 +56,6 @@ export default function ContactElite() {
 
       {/* FORM */}
       <div className="ce-form">
-        <img src={logoElite} alt="" className="ce-logo" />
 
         <h3>NOSOTROS TE LLAMAMOS</h3>
         <p>Déjanos tus datos y te contactamos rápidamente.</p>

@@ -1,11 +1,9 @@
 import "./serviciodesarrollo.css";
 import { useNavigate } from "react-router-dom";
 
-import movilVideoMobile from "../../assets/desarrollo/videodesarrollocelular.mp4";
-
 import movilVideo from "../../assets/desarrollo/desarrollomovile.mp4";
 import backendVideo from "../../assets/desarrollo/desarrolloback.mp4";
-import frontendImg from "../../assets/desarrollo/desarrollofront.mp4";
+import frontendVideo from "../../assets/desarrollo/desarrollofront.mp4";
 
 import flutter from "../../assets/desarrollo/logoflutter.webp";
 import kotlin from "../../assets/desarrollo/logokotlin.webp";
@@ -22,7 +20,6 @@ import next from "../../assets/desarrollo/logonext.webp";
 import laravel from "../../assets/desarrollo/logolaravel.webp";
 
 const Serviciodesarrollo = () => {
-
   const navigate = useNavigate();
 
   return (
@@ -36,7 +33,6 @@ const Serviciodesarrollo = () => {
 
         <div className="servicio-info">
           <h2>› DESARROLLO DE APLICACIONES MÓVILES</h2>
-
           <p>
             Creación de aplicaciones intuitivas y aumentar la participación del
             usuario con nuestros servicios de desarrollo móvil multiplataforma y nativo.
@@ -49,24 +45,23 @@ const Serviciodesarrollo = () => {
             <img src={firebase} alt="firebase" />
           </div>
 
-          <button 
-            className="btn"
-            onClick={() => navigate("/desarrollomobile")}
-          >
+          <button className="btn" onClick={() => navigate("/desarrollomobile")}>
             Ver más
           </button>
         </div>
       </div>
 
+      {/* 🔵 BACKEND */}
       <div className="servicio">
+        <div className="servicio-img">
+          <video src={backendVideo} autoPlay loop muted playsInline />
+        </div>
 
         <div className="servicio-info">
           <h2>› DESARROLLO BACKEND</h2>
-
           <p>
             Construya una base sólida para su producto con API seguras, gestión
-            de datos eficiente, servicios de migración a la nube con infraestructura
-            propia e ingenieros de desarrollo experimentados.
+            de datos eficiente y servicios de migración a la nube.
           </p>
 
           <div className="tecnologias">
@@ -76,33 +71,23 @@ const Serviciodesarrollo = () => {
             <img src={node} alt="node" />
           </div>
 
-          <button 
-            className="btn"
-            onClick={() => navigate("/desarrollobackend")}
-          >
+          <button className="btn" onClick={() => navigate("/desarrollobackend")}>
             Ver más
           </button>
         </div>
-
-        <div className="servicio-img">
-          <video src={backendVideo} autoPlay loop muted playsInline />
-        </div>
-
       </div>
 
       {/* 🔵 FRONTEND */}
       <div className="servicio">
         <div className="servicio-img">
-          <video src={frontendImg} autoPlay loop muted playsInline />
+          <video src={frontendVideo} autoPlay loop muted playsInline />
         </div>
 
         <div className="servicio-info">
           <h2>› DESARROLLO DE FRONTEND</h2>
-
           <p>
-            Lleva las mejores prácticas de desarrollo de software a su proyecto
-            con interfaces modernas e intuitivas que mejoran las experiencias
-            diarias de sus clientes.
+            Interfaces modernas e intuitivas que mejoran la experiencia del usuario
+            y optimizan la interacción con tus productos digitales.
           </p>
 
           <div className="tecnologias">
@@ -112,10 +97,7 @@ const Serviciodesarrollo = () => {
             <img src={react} alt="react" />
           </div>
 
-          <button 
-            className="btn"
-            onClick={() => navigate("/desarrollofrontend")}
-          >
+          <button className="btn" onClick={() => navigate("/desarrollofrontend")}>
             Ver más
           </button>
         </div>

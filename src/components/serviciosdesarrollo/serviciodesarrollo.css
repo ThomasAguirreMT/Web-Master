@@ -1,4 +1,4 @@
-/* CONTENEDOR GENERAL */
+/* CONTENEDOR */
 .servicios {
   padding: 80px 20px;
   background: #ffffff;
@@ -15,27 +15,28 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  margin-bottom: 120px;
-  gap: 80px;
+  margin-bottom: 100px;
+  gap: 60px;
 }
 
-/* IMAGEN / VIDEO */
+/* VIDEO */
 .servicio-img {
+  flex: 0 0 320px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.servicio-img video,
-.servicio-img img {
-  width: 320px;
-  max-width: 100%;
+.servicio-img video {
+  width: 100%;
   border-radius: 12px;
+  object-fit: cover;
 }
 
-/* TEXTO */
+/* INFO */
 .servicio-info {
+  flex: 1;
   max-width: 600px;
 }
 
@@ -46,7 +47,7 @@
 }
 
 .servicio-info p {
-  font-size: 18px;
+  font-size: 17px;
   color: #555;
   margin-bottom: 25px;
   line-height: 1.6;
@@ -55,26 +56,23 @@
 /* TECNOLOGIAS */
 .tecnologias {
   display: flex;
-  gap: 18px;
+  gap: 15px;
   margin-bottom: 25px;
 }
 
 .tecnologias img {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   transition: 0.3s;
 }
 
 .tecnologias img:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 }
 
 /* BOTON */
 .btn {
-  display: block;
-  margin: 0 auto;
-
-  padding: 12px 30px;
+  padding: 12px 28px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
@@ -84,12 +82,15 @@
 }
 
 /* =========================
-   📱 TABLET
+   TABLET
 ========================= */
 @media (max-width: 900px) {
-
   .servicio {
     gap: 40px;
+  }
+
+  .servicio-img {
+    flex: 0 0 260px;
   }
 
   .servicio-info h2 {
@@ -97,38 +98,31 @@
   }
 
   .servicio-info p {
-    font-size: 16px;
-  }
-
-  .servicio-img video {
-    width: 260px;
+    font-size: 15px;
   }
 
   .tecnologias img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 }
 
 /* =========================
-   📱 MOBILE (CLAVE)
+   MOBILE
 ========================= */
 @media (max-width: 600px) {
 
   .servicio {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 30px;
-    margin-bottom: 80px;
+    gap: 25px;
+    margin-bottom: 70px;
   }
 
-  /* 🔥 TODOS en columna */
-  .servicio:nth-child(2) {
-    flex-direction: column;
-  }
-
-  .servicio-img video {
-    width: 220px;
+  .servicio-img {
+    width: 100%;
+    max-width: 240px;
   }
 
   .servicio-info {
@@ -146,12 +140,11 @@
   .tecnologias {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
   }
 
   .tecnologias img {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
   }
 
   .btn {

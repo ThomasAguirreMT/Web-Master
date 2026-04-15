@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import HyperSpeed from "../components/HyperSpeed/HyperSpeed";
-import FloatingButtons from "../components/FloatingButtons/FloatingButtons";
-import About from "../components/about/about";
+
 import Animations from "../components/animations/animations";
 import NuestrosPlanes from "../components/NuestrosPlanes/NuestrosPlanes";
+import RankingSection from "../components/ranking/Ranking";
+import CTAWhatsapp from "../components/planes/planes";
 
 const Internet = () => {
 
@@ -14,6 +14,8 @@ const Internet = () => {
         <HyperSpeed />
         <Animations />
         <NuestrosPlanes />
+        <RankingSection />
+        <CTAWhatsapp />
 
       </>
     );
