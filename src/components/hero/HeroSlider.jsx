@@ -148,6 +148,7 @@ export default function HeroSlider() {
             <span className="hero-btn-arrow">→</span>
           </button>
         </div>
+        {/* prueba */}
 
         {/* FLECHAS */}
         <button className="arrow left" onClick={prevSlide}>❮</button>
