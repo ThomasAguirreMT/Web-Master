@@ -52,8 +52,8 @@ export default function Footer() {
                             <a href="tel:+573176683567">+57 317 6683567</a>
                         </li>
                         <li>
-                            <a href="mailto:info@webmaster.com">
-                                info@webmaster.com
+                            <a href="mailto:info@webmastercolombia.net">
+                                info@webmastercolombia.net
                             </a>
                         </li>
                         <li><Link to="/pqr">PQR</Link></li>
