@@ -1,68 +1,91 @@
-.allies-section {
-  padding: 80px 5%;
-  background: #f5f5f5;
+.allies-section{
+padding:80px 5%;
+background:#f5f5f5;
+position:relative;
 }
 
-.allies-section h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 15px;
+
+/* FLECHA */
+.crs-arroww{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:58px;
+height:58px;
+border-radius:50%;
+border:2px solid #2434a4;
+margin-bottom:25px;
+position:relative;
 }
 
-.allies-section p {
-  max-width: 700px;
-  color: #555;
-  margin-bottom: 50px;
+/* dibuja la flecha */
+.crs-arroww::before{
+content:"";
+width:14px;
+height:14px;
+border-right:3px solid #2434a4;
+border-bottom:3px solid #2434a4;
+transform:rotate(-45deg);
+margin-right:4px;
 }
 
-/* ============================= */
-/* CARRUSEL */
-/* ============================= */
 
-.carousel {
-  overflow: hidden;
-  position: relative;
+/* TITULO */
+.allies-section h2{
+font-size:32px;
+font-weight:700;
+margin-bottom:15px;
+color:#111;
 }
 
-.carousel-track {
-  display: flex;
-  gap: 30px;
-  width: max-content;
-  animation: scroll 25s linear infinite;
+.allies-section p{
+max-width:700px;
+color:#555;
+margin-bottom:50px;
+line-height:1.6;
 }
 
-.carousel-item {
-  min-width: 250px;
-  height: 110px;
-  background: #ffffff;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  transition: transform 0.3s ease;
+
+
+/* =============================
+CARRUSEL
+============================= */
+
+.carousel{
+overflow:hidden;
+position:relative;
 }
 
-.carousel-item:hover {
-  transform: translateY(-5px);
+.carousel-track{
+display:flex;
+gap:30px;
+width:max-content;
+animation:scroll 25s linear infinite;
 }
 
-.carousel-item img {
-  max-width: 80%;
-  max-height: 60px;
-  object-fit: contain;
+.carousel-item{
+min-width:250px;
+height:110px;
+background:#fff;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+padding:20px;
+transition:transform .3s ease;
 }
 
-/* Animación infinita */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.carousel-item:hover{
+transform:translateY(-5px);
 }
+
+.carousel-item img{
+max-width:80%;
+max-height:60px;
+object-fit:contain;
+}
+
 
 /* ============================= */
 /* RESPONSIVE */

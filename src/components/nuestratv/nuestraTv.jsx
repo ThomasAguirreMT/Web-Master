@@ -1,38 +1,40 @@
 import "./nuestraTv.css";
 import avatar from "../../assets/television/avatar.webp";
-import fondo from "../../assets/television/fondo.webp";
 
 export default function NuestraTV() {
-  return (
-    <section className="tv-section">
+return (
+<section className="tv-section">
 
-      {/* FONDO */}
-      <img
-        src={fondo}
-        className="tv-fondo"
-        alt=""
-      />
+<div className="tv-overlay"></div>
 
-      {/* TEXTO */}
-      <div className="tv-text">
-        <h2>NUESTRA TV</h2>
+<div className="tv-content">
 
-        <p>
-          En Web Master contamos con una parrilla de televisión digital compuesta
-          por más de 150 canales, distribuidos a través de una infraestructura
-          robusta y estable. Nuestro servicio garantiza una señal continua y de
-          alta calidad, ideal para hogares, conjuntos residenciales y proyectos
-          que requieren una oferta amplia y confiable de contenido televisivo.
-        </p>
-      </div>
+<div className="tv-text">
+<h2>NUESTRA TV</h2>
 
-      {/* PERSONAJE */}
-      <img
-        src={avatar}
-        className="tv-personaje"
-        alt=""
-      />
+<p>
+En Web Master contamos con una parrilla de televisión digital
+compuesta por más de 150 canales, distribuidos a través de una
+infraestructura robusta y estable.
 
-    </section>
-  );
+Nuestro servicio garantiza una señal continua y de alta calidad,
+ideal para hogares, conjuntos residenciales y proyectos que
+requieren una oferta amplia y confiable de contenido televisivo.
+</p>
+</div>
+
+
+<img
+src={avatar}
+loading="lazy"
+decoding="async"
+fetchpriority="low"
+className="tv-personaje"
+alt="Televisión digital Web Master"
+/>
+
+</div>
+
+</section>
+);
 }

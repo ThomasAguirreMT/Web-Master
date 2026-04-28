@@ -6,6 +6,7 @@ import logo from "../../assets/television/logo.svg";
 const Banner = () => {
   return (
     <section className="banner">
+      
       <div className="banner-container">
 
         {/* Personajes izquierda */}

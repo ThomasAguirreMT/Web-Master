@@ -10,6 +10,7 @@ import equinix from "../../assets/aliados/equinix.webp";
 
 
 export default function AlliesCarousel() {
+  
   const logos = [
     inttelgo,
     logoodatamorado,
@@ -18,11 +19,12 @@ export default function AlliesCarousel() {
     vectorhurricane,
     cougent,
     equinix,
-    
+
   ];
 
   return (
     <div className="allies-section">
+
       <h2>NUESTROS ALIADOS</h2>
       <p>
         Nuestros servicios están respaldados por aliados tecnológicos de clase
