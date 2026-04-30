@@ -15,20 +15,18 @@ return (
 <p>
 En Web Master contamos con una parrilla de televisión digital
 compuesta por más de 150 canales, distribuidos a través de una
-infraestructura robusta y estable.
-
-Nuestro servicio garantiza una señal continua y de alta calidad,
-ideal para hogares, conjuntos residenciales y proyectos que
-requieren una oferta amplia y confiable de contenido televisivo.
+infraestructura robusta y estable. Nuestro servicio garantiza una señal
+continua y de alta calidad, ideal para hogares, conjuntos residenciales
+y proyectos que requieren una oferta amplia y confiable de contenido
+televisivo.
 </p>
 </div>
 
 
 <img
 src={avatar}
-loading="lazy"
-decoding="async"
-fetchpriority="low"
+fetchpriority="high"
+decoding="sync"
 className="tv-personaje"
 alt="Televisión digital Web Master"
 />

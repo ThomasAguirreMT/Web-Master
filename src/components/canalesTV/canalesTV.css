@@ -1,159 +1,379 @@
-/* CONTENEDOR */
+/*========================
+SECTION
+========================*/
 
-.tv {
-  background: #f6f7fb;
-  padding: 60px 0;
+.tv{
+background:#f7f8fb;
+padding:70px 0 90px;
+overflow:hidden;
 }
 
-/* HEADER */
 
-.tv-header {
-  width: 92%;
-  max-width: 1400px;
-  margin: 0 auto 40px auto;
+
+/*========================
+HEADER
+========================*/
+
+.tv-header{
+width:92%;
+max-width:1500px;
+margin:0 auto 45px;
 }
 
-.tv-header h1 {
-  font-size: 34px;
-  font-weight: 800;
-  color: #111;
+.tv-title-row{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:10px;
 }
 
-.tv-header p {
-  font-size: 14px;
-  color: #6b7280;
+.tv-arrow{
+width:24px;
+height:24px;
+position:relative;
 }
 
-/* LAYOUT */
-
-.tv-container {
-  width: 92%;
-  max-width: 1400px;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 40px;
+.tv-arrow::before,
+.tv-arrow::after{
+content:"";
+position:absolute;
+left:0;
+width:16px;
+height:3px;
+background:#111;
+border-radius:4px;
+transform-origin:left center;
 }
 
-/* SIDEBAR */
+.tv-arrow::before{
+top:5px;
+transform:rotate(45deg);
+}
 
-.tv-sidebar {
+.tv-arrow::after{
+top:16px;
+transform:rotate(-45deg);
+}
+
+.tv-header h1{
+font-size:52px;
+font-weight:900;
+letter-spacing:-1px;
+line-height:1;
+margin:0;
+color:#111;
+}
+
+.tv-header p{
+font-size:17px;
+color:#667085;
+max-width:760px;
+}
+
+
+
+/*========================
+LAYOUT
+========================*/
+
+.tv-container{
+width:92%;
+max-width:1500px;
+margin:auto;
+
+display:grid;
+grid-template-columns:220px minmax(0,1fr);
+gap:32px;
+align-items:start;
+}
+
+
+
+/*========================
+SIDEBAR
+========================*/
+
+.tv-sidebar{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.tv-item{
+height:50px;
+padding:0 16px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:#fff;
+border:1px solid #dce4f0;
+border-radius:12px;
+
+cursor:pointer;
+
+box-shadow:
+0 4px 8px rgba(0,0,0,.025);
+
+transition:.25s ease;
+}
+
+.tv-item:hover{
+transform:translateX(5px);
+border-color:#4f77ff;
+}
+
+.tv-item span{
+font-size:16px;
+font-weight:500;
+letter-spacing:.3px;
+}
+
+.tv-badge-wrap{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.tv-item small{
+width:25px;
+height:25px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:#eef2f7;
+
+font-size:11px;
+font-weight:700;
+}
+
+.item-arrow{
+font-size:16px;
+}
+
+.tv-item.active{
+background:linear-gradient(
+90deg,
+#2f36a8,
+#3543d8
+);
+
+color:#fff;
+border:none;
+
+box-shadow:
+0 8px 20px rgba(46,60,191,.22);
+}
+
+.tv-item.active small{
+background:#fff;
+color:#2d3cbf;
+}
+
+
+
+/*========================
+CONTENT
+========================*/
+
+.tv-content{
+padding-top:10px;
+}
+
+.channels-panel{
+width:100%;
+max-width:1120px;
+
+background:#fff;
+
+padding:26px 30px;
+
+border-radius:28px;
+
+box-shadow:
+0 10px 28px rgba(0,0,0,.05);
+}
+
+
+
+/*========================
+NOTE
+========================*/
+
+.tv-note{
+margin-top:18px;
+text-align:center;
+font-size:13px;
+color:#667085;
+}
+
+
+
+/*========================
+CARD fallback
+(si algún card usa estos estilos)
+========================*/
+
+.canal-card{
+background:#fff;
+border:1px solid #dde5f0;
+border-radius:16px;
+padding:18px;
+text-align:center;
+}
+
+.canal-card img{
+max-width:70px;
+height:55px;
+object-fit:contain;
+margin-bottom:10px;
+}
+
+.canal-card h4{
+font-size:15px;
+margin:8px 0;
+}
+
+.canal-card span{
+display:inline-block;
+background:#111;
+color:#fff;
+font-size:11px;
+padding:4px 12px;
+border-radius:30px;
+}
+
+
+
+/*========================
+TABLET
+========================*/
+
+@media(max-width:1100px){
+
+.tv-header h1{
+font-size:44px;
+}
+
+.tv-container{
+grid-template-columns:190px 1fr;
+gap:24px;
+}
+
+.tv-item span{
+font-size:14px;
+}
+
+.channels-panel{
+padding:20px;
+}
+
+}
+
+
+
+/*========================
+MOBILE
+========================*/
+
+@media(max-width:768px){
+
+.tv{
+padding:60px 0;
+}
+
+.tv-header{
+width:94%;
+}
+
+.tv-header h1{
+font-size:34px;
+}
+
+.tv-header p{
+font-size:14px;
+}
+
+.tv-container{
+display:block;
+width:94%;
+}
+
+.tv-sidebar{
+margin-bottom:28px;
+gap:10px;
+}
+
+.tv-item{
+height:52px;
+}
+
+.tv-item span{
+font-size:15px;
+}
+
+.item-arrow{
+display:none;
+}
+
+.channels-panel{
+padding:18px;
+border-radius:20px;
+}
+
+.tv-note{
+font-size:12px;
+}
+
+}
+
+
+
+/*========================
+SMALL MOBILE
+========================*/
+
+@media(max-width:480px){
+
+.tv-header h1{
+font-size:30px;
+}
+
+.tv-item span{
+font-size:14px;
+}
+
+}
+
+
+/* ========================
+   LOADER
+======================== */
+.tv-loader {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.tv-item {
-  background: #fff;
-  border-radius: 12px;
-  padding: 10px 14px;
-
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  cursor: pointer;
-
-  border: 1px solid #e6e8ee;
-  font-size: 13px;
-
-  transition: all 0.2s ease;
+  justify-content: center;
+  min-height: 200px;
+  gap: 16px;
+  color: #667085;
+  font-size: 14px;
 }
 
-.tv-item small {
-  font-size: 11px;
-  background: #f1f5f9;
-  padding: 2px 8px;
-  border-radius: 20px;
+.tv-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #dce4f0;
+  border-top-color: #3543d8;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
 }
 
-.tv-item:hover {
-  background: #f4f7ff;
-}
-
-.tv-item.active {
-  background: #eef3ff;
-  border-color: #4da3ff;
-  color: #1a3cff;
-  font-weight: 600;
-}
-
-/* CONTENIDO */
-
-.tv-top {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.tv-top h2 {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.tv-top input {
-  margin-left: auto;
-  padding: 9px 12px;
-  border-radius: 10px;
-  border: 1px solid #e6e8ee;
-  width: 220px;
-}
-
-/* ========================= */
-/* 📱 MÓVIL */
-/* ========================= */
-
-@media (max-width: 768px) {
-
-  .tv-container {
-    display: block;
-  }
-
-  /* 🔥 GRID DE CATEGORÍAS */
-  .tv-sidebar {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .tv-item {
-    font-size: 12px;
-    padding: 10px;
-  }
-
-  /* HEADER */
-
-  .tv-header h1 {
-    font-size: 26px;
-  }
-
-  .tv-header p {
-    font-size: 13px;
-  }
-
-  /* BUSCADOR */
-
-  .tv-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .tv-top input {
-    width: 100%;
-    margin-left: 0;
-  }
-
-}
-
-/* 📱 MÓVIL PEQUEÑO */
-
-@media (max-width: 480px) {
-
-  .tv-sidebar {
-    grid-template-rows: repeat(2, 1fr); /* 🔥 ahora 2 filas */
-  }
-
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

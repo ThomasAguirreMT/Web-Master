@@ -1,72 +1,70 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-
+import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
-
-import Home from "./pages/Home";
-import Internet from "./pages/internet";
-import TelevisionPage from "./pages/television";
-import Software from "./pages/software";
-import Trabaja from "./pages/trabaja";
-import Contacto from "./pages/contacto";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
-import DesarrolloMobile from "./pages/desarrollomobile";
-import DesarrolloFrontend from "./pages/desarrollofrontend";
-import Desarrollobackend from "./pages/desarrollobackend";
-import WorkWithUs from "./pages/trabajaconnosot";
-import PQRPage from "./pages/pqr";
 
+// ✅ Lazy loading de todas las páginas
+const Home = lazy(() => import("./pages/Home"));
+const Internet = lazy(() => import("./pages/internet"));
+const TelevisionPage = lazy(() => import("./pages/television"));
+const Software = lazy(() => import("./pages/software"));
+const Trabaja = lazy(() => import("./pages/trabaja"));
+const Contacto = lazy(() => import("./pages/contacto"));
+const DesarrolloMobile = lazy(() => import("./pages/desarrollomobile"));
+const DesarrolloFrontend = lazy(() => import("./pages/desarrollofrontend"));
+const Desarrollobackend = lazy(() => import("./pages/desarrollobackend"));
+const WorkWithUs = lazy(() => import("./pages/trabajaconnosot"));
+const PQRPage = lazy(() => import("./pages/pqr"));
+
+// ✅ ScrollToTop simplificado — sin recorrer todo el DOM
 function ScrollToTop() {
   const { pathname } = useLocation();
-
   useEffect(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-
-    // 🔥 optimizado (solo elementos con overflow)
-    document.querySelectorAll("*").forEach(el => {
-      const style = getComputedStyle(el);
-      if (
-        (style.overflow === "auto" || style.overflowY === "auto") &&
-        el.scrollTop > 0
-      ) {
-        el.scrollTop = 0;
-      }
-    });
-
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
-
   return null;
 }
+
+// ✅ Loader minimalista mientras se carga la página
+function PageLoader() {
+  return (
+    <div style={{
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "16px",
+      color: "#667085"
+    }}>
+      Cargando...
+    </div>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-
       <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/internet" element={<Internet />} />
-        <Route path="/television" element={<TelevisionPage />} />
-        <Route path="/software" element={<Software />} />
-        <Route path="/trabaja" element={<Trabaja />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/desarrollomobile" element={<DesarrolloMobile />} />
-        <Route path="/desarrollofrontend" element={<DesarrolloFrontend />} />
-        <Route path="/desarrollobackend" element={<Desarrollobackend />} />
-        <Route path="/trabajaconnosotros" element={<WorkWithUs />} />
-        <Route path="/pqr" element={<PQRPage />} />
-      </Routes>
-
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/internet" element={<Internet />} />
+          <Route path="/television" element={<TelevisionPage />} />
+          <Route path="/software" element={<Software />} />
+          <Route path="/trabaja" element={<Trabaja />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/desarrollomobile" element={<DesarrolloMobile />} />
+          <Route path="/desarrollofrontend" element={<DesarrolloFrontend />} />
+          <Route path="/desarrollobackend" element={<Desarrollobackend />} />
+          <Route path="/trabajaconnosotros" element={<WorkWithUs />} />
+          <Route path="/pqr" element={<PQRPage />} />
+        </Routes>
+      </Suspense>
       <FloatingButtons />
       <Footer />
-
-
     </BrowserRouter>
-
   );
 }
 
