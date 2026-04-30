@@ -100,28 +100,26 @@ gap:12px;
 }
 
 .tv-item{
-height:50px;
-padding:0 16px;
+  height:52px;
+  padding:0 16px;
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-background:#fff;
-border:1px solid #dce4f0;
-border-radius:12px;
+  background:#fff;
+  border:1px solid #e5eaf3;
+  border-radius:14px;
 
-cursor:pointer;
+  cursor:pointer;
 
-box-shadow:
-0 4px 8px rgba(0,0,0,.025);
-
-transition:.25s ease;
+  transition:all .25s ease;
 }
 
 .tv-item:hover{
-transform:translateX(5px);
-border-color:#4f77ff;
+  transform:translateX(6px);
+  border-color:#4f77ff;
+  background:#f9fbff;
 }
 
 .tv-item span{
@@ -137,44 +135,55 @@ gap:12px;
 }
 
 .tv-item small{
-width:25px;
-height:25px;
+  min-width:28px;
+  height:28px;
 
-display:flex;
-align-items:center;
-justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-border-radius:50%;
+  border-radius:999px;
 
-background:#eef2f7;
+  background:#eef2ff;
+  color:#3543d8;
 
-font-size:11px;
-font-weight:700;
+  font-size:12px;
+  font-weight:700;
+
+  transition:.3s;
+}
+.item-arrow{
+  width:10px;
+  height:10px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(-45deg) translateX(-5px);
+  opacity:0;
+
+  transition:.3s ease;
 }
 
-.item-arrow{
-font-size:16px;
+.item-arrow.show{
+  opacity:1;
+  transform:rotate(-45deg) translateX(0);
 }
 
 .tv-item.active{
-background:linear-gradient(
-90deg,
-#2f36a8,
-#3543d8
-);
+  background:linear-gradient(90deg,#2f36a8,#3543d8);
+  color:#fff;
+  border:none;
 
+  box-shadow:0 10px 25px rgba(53,67,216,.25);
 color:#fff;
 border:none;
 
 box-shadow:
 0 8px 20px rgba(46,60,191,.22);
 }
-
 .tv-item.active small{
-background:#fff;
-color:#2d3cbf;
+  background:#fff;
+  color:#2d3cbf;
 }
-
 
 
 /*========================
@@ -247,9 +256,39 @@ font-size:11px;
 padding:4px 12px;
 border-radius:30px;
 }
+.tv-current{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:20px;
+  color:#111;
+}
 
+.tv-current span{
+  color:#667085;
+  font-weight:500;
+  font-size:14px;
+}
 
+.channels-panel{
+  animation:fadeIn .35s ease;
+}
 
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.tv-empty{
+  text-align:center;
+  color:#667085;
+  font-size:14px;
+  padding:40px 0;
+}
 /*========================
 TABLET
 ========================*/
