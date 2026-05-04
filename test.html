@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba PQR</title>
+</head>
+<body>
+
+  <h2>Prueba de envío PQR</h2>
+
+  <button onclick="probar()">Probar envío</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function probar() {
+      fetch("http://localhost:3000/pqr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nombre: "Usuario Prueba",
+          documento: "123456",
+          correo: "test@gmail.com",
+          telefono: "3001234567",
+          tipo: "peticion",
+          area: "soporte",
+          asunto: "Prueba de sistema",
+          descripcion: "Esto es una prueba de envío desde test.html"
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("resultado").innerText =
+          "✅ Radicado generado: " + data.radicado;
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+        document.getElementById("resultado").innerText =
+          "❌ Error enviando la solicitud";
+      });
+    }
+  </script>
+
+</body>
+</html>

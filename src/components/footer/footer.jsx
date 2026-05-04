@@ -56,7 +56,7 @@ export default function Footer() {
                                 info@webmastercolombia.net
                             </a>
                         </li>
-                        <li><Link to="/pqr">PQR</Link></li>
+                        <li><Link to="/pqr">Radica aqui tu PQR</Link></li>
 
                     </ul>
                 </div>

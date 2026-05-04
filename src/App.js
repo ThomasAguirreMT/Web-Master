@@ -4,7 +4,6 @@ import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
-// ✅ Lazy loading de todas las páginas
 const Home = lazy(() => import("./pages/Home"));
 const Internet = lazy(() => import("./pages/internet"));
 const TelevisionPage = lazy(() => import("./pages/television"));
@@ -17,7 +16,6 @@ const Desarrollobackend = lazy(() => import("./pages/desarrollobackend"));
 const WorkWithUs = lazy(() => import("./pages/trabajaconnosot"));
 const PQRPage = lazy(() => import("./pages/pqr"));
 
-// ✅ ScrollToTop simplificado — sin recorrer todo el DOM
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -26,7 +24,6 @@ function ScrollToTop() {
   return null;
 }
 
-// ✅ Loader minimalista mientras se carga la página
 function PageLoader() {
   return (
     <div style={{

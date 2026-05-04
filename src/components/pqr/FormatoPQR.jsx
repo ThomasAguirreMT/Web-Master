@@ -1,63 +1,72 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Formatopqr.css";
 
-const initialForm = {
-  nombre: "",
-  documento: "",
-  correo: "",
-  telefono: "",
-  tipo: "",
-  area: "",
-  asunto: "",
-  descripcion: "",
-};
-
 export default function PQR() {
+
   const [step, setStep] = useState(1);
-  const [form, setForm] = useState(initialForm);
-  const [errors, setErrors] = useState({});
+
+  const [form, setForm] = useState({
+    nombre: "",
+    tipo_identificacion: "",
+    documento: "",
+    correo: "",
+    telefono: "",
+    tipo: "",
+    area: "",
+    motivo: "",
+    asunto: "",
+    descripcion: ""
+  });
+
+  const [tipos, setTipos] = useState([]);
+  const [solicitudes, setSolicitudes] = useState([]);
+  const [motivos, setMotivos] = useState([]);
   const [radicado, setRadicado] = useState("");
 
-  const set = (k, v) => setForm({ ...form, [k]: v });
+  const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
-  const generarRadicado = () => {
-    return `PQR-${new Date().getFullYear()}-${Math.floor(Math.random() * 999999)}`;
+  useEffect(() => {
+    fetch("http://localhost:4000/tipos-pqr")
+      .then(res => res.json())
+      .then(setTipos);
+  }, []);
+
+  const handleTipo = async (value) => {
+    set("tipo", value);
+
+    const res = await fetch(`http://localhost:4000/solicitudes/${value}`);
+    const data = await res.json();
+
+    setSolicitudes(data);
+    setMotivos([]);
+    set("area", "");
+    set("motivo", "");
   };
 
-  const validarPaso1 = () => {
-    let e = {};
-    if (!form.nombre) e.nombre = true;
-    if (!form.documento) e.documento = true;
-    if (!form.correo.includes("@")) e.correo = true;
-    if (!form.telefono) e.telefono = true;
-    setErrors(e);
-    return Object.keys(e).length === 0;
+  const handleSolicitud = async (value) => {
+    set("area", value);
+
+    const res = await fetch(`http://localhost:4000/motivos/${value}`);
+    const data = await res.json();
+
+    setMotivos(data);
+    set("motivo", "");
   };
 
-  const validarPaso2 = () => {
-    let e = {};
-    if (!form.tipo) e.tipo = true;
-    if (!form.area) e.area = true;
-    if (!form.asunto) e.asunto = true;
-    if (form.descripcion.length < 20) e.descripcion = true;
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
+  const getNombre = (list, id) =>
+    list.find(i => i.id == id)?.nombre || "";
 
-  const next = () => {
-    if (step === 1 && !validarPaso1()) return;
-    if (step === 2 && !validarPaso2()) return;
-    setStep(step + 1);
-  };
+  const submit = async () => {
+    const res = await fetch("http://localhost:4000/pqr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(form)
+    });
 
-  const back = () => setStep(step - 1);
-
-  const submit = () => {
-    const rad = generarRadicado();
-    setRadicado(rad);
-
-    console.log("Enviar a backend:", form);
-
+    const data = await res.json();
+    setRadicado(data.radicado);
     setStep(4);
   };
 
@@ -65,128 +74,94 @@ export default function PQR() {
     <div className="pqr">
       <div className="pqr-box">
 
-        {/* HEADER */}
-        <div className="pqr-header">
-          <h2>Radicación de PQR</h2>
-          <p>Registra tu petición, queja, reclamo o sugerencia</p>
-        </div>
+        <h2>Radicación PQR</h2>
 
-        {/* STEPS */}
-        <div className="pqr-steps">
-          <span className={step >= 1 ? "active" : ""}>Datos</span>
-          <span className={step >= 2 ? "active" : ""}>Solicitud</span>
-          <span className={step >= 3 ? "active" : ""}>Confirmar</span>
-        </div>
-
-        {/* PASO 1 */}
         {step === 1 && (
           <>
-            <input
-              placeholder="Nombre completo"
+            <input placeholder="Nombre"
               value={form.nombre}
               onChange={e => set("nombre", e.target.value)}
-              className={errors.nombre ? "error" : ""}
             />
 
-            <input
-              placeholder="Documento"
+            <select
+              value={form.tipo_identificacion}
+              onChange={e => set("tipo_identificacion", e.target.value)}
+            >
+              <option value="">Tipo identificación</option>
+              <option value="1">Cédula</option>
+              <option value="2">NIT</option>
+            </select>
+
+            <input placeholder="Documento"
               value={form.documento}
               onChange={e => set("documento", e.target.value)}
-              className={errors.documento ? "error" : ""}
             />
 
-            <input
-              placeholder="Correo electrónico"
+            <input placeholder="Correo"
               value={form.correo}
               onChange={e => set("correo", e.target.value)}
-              className={errors.correo ? "error" : ""}
             />
 
-            <input
-              placeholder="Teléfono"
+            <input placeholder="Teléfono"
               value={form.telefono}
               onChange={e => set("telefono", e.target.value)}
-              className={errors.telefono ? "error" : ""}
             />
 
-            <button onClick={next}>Continuar</button>
+            <button onClick={() => setStep(2)}>Continuar</button>
           </>
         )}
 
-        {/* PASO 2 */}
         {step === 2 && (
           <>
-            <select
-              value={form.tipo}
-              onChange={e => set("tipo", e.target.value)}
-              className={errors.tipo ? "error" : ""}
-            >
-              <option value="">Tipo de solicitud</option>
-              <option value="peticion">Petición</option>
-              <option value="queja">Queja</option>
-              <option value="reclamo">Reclamo</option>
-              <option value="sugerencia">Sugerencia</option>
+            <select onChange={e => handleTipo(e.target.value)}>
+              <option value="">Tipo</option>
+              {tipos.map(t => (
+                <option key={t.id} value={t.id}>{t.nombre}</option>
+              ))}
             </select>
 
-            <select
-              value={form.area}
-              onChange={e => set("area", e.target.value)}
-              className={errors.area ? "error" : ""}
-            >
-              <option value="">Área</option>
-              <option>Internet</option>
-              <option>Televisión</option>
-              <option>Soporte</option>
-              <option>Facturación</option>
+            <select onChange={e => handleSolicitud(e.target.value)}>
+              <option value="">Solicitud</option>
+              {solicitudes.map(s => (
+                <option key={s.id} value={s.id}>{s.nombre}</option>
+              ))}
             </select>
 
-            <input
-              placeholder="Asunto"
-              value={form.asunto}
+            <select onChange={e => set("motivo", e.target.value)}>
+              <option value="">Motivo</option>
+              {motivos.map(m => (
+                <option key={m.id} value={m.id}>{m.nombre}</option>
+              ))}
+            </select>
+
+            <input placeholder="Asunto"
               onChange={e => set("asunto", e.target.value)}
-              className={errors.asunto ? "error" : ""}
             />
 
-            <textarea
-              placeholder="Describe detalladamente tu solicitud"
-              value={form.descripcion}
+            <textarea placeholder="Descripción"
               onChange={e => set("descripcion", e.target.value)}
-              className={errors.descripcion ? "error" : ""}
             />
 
-            <div className="pqr-actions">
-              <button className="pqr-secondary" onClick={back}>Atrás</button>
-              <button onClick={next}>Continuar</button>
-            </div>
+            <button onClick={() => setStep(3)}>Continuar</button>
           </>
         )}
 
-        {/* PASO 3 */}
         {step === 3 && (
           <>
-            <div className="pqr-resume">
-              <p><strong>Nombre:</strong> {form.nombre}</p>
-              <p><strong>Documento:</strong> {form.documento}</p>
-              <p><strong>Tipo:</strong> {form.tipo}</p>
-              <p><strong>Área:</strong> {form.area}</p>
-              <p><strong>Asunto:</strong> {form.asunto}</p>
-            </div>
+            <p><b>Nombre:</b> {form.nombre}</p>
+            <p><b>Tipo:</b> {getNombre(tipos, form.tipo)}</p>
+            <p><b>Solicitud:</b> {getNombre(solicitudes, form.area)}</p>
+            <p><b>Motivo:</b> {getNombre(motivos, form.motivo)}</p>
 
-            <div className="pqr-actions">
-              <button className="pqr-secondary" onClick={back}>Atrás</button>
-              <button onClick={submit}>Enviar solicitud</button>
-            </div>
+            <button onClick={submit}>Enviar</button>
           </>
         )}
 
-        {/* ÉXITO */}
         {step === 4 && (
-          <div className="pqr-success">
-            <h3>Solicitud registrada</h3>
-            <p className="pqr-radicado">{radicado}</p>
-            <span>Número de radicado</span>
-            <p>Recibirás respuesta en los tiempos establecidos por ley.</p>
-          </div>
+          <>
+            <h3>Radicado generado:</h3>
+            <h2>{radicado}</h2>
+          </>
         )}
 
       </div>
