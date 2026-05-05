@@ -21,16 +21,28 @@ export default function PQR() {
   const [tipos, setTipos] = useState([]);
   const [solicitudes, setSolicitudes] = useState([]);
   const [motivos, setMotivos] = useState([]);
+  const [tiposId, setTiposId] = useState([]); // 👈 NUEVO
   const [radicado, setRadicado] = useState("");
 
   const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
+  /* ========================
+     CARGAR DATOS INICIALES
+  ======================== */
   useEffect(() => {
     fetch("http://localhost:4000/tipos-pqr")
       .then(res => res.json())
       .then(setTipos);
+
+    fetch("http://localhost:4000/tipos-identificacion") // 👈 NUEVO
+      .then(res => res.json())
+      .then(setTiposId);
+
   }, []);
 
+  /* ========================
+     DINÁMICOS
+  ======================== */
   const handleTipo = async (value) => {
     set("tipo", value);
 
@@ -53,9 +65,18 @@ export default function PQR() {
     set("motivo", "");
   };
 
+  /* ========================
+     UTIL
+  ======================== */
   const getNombre = (list, id) =>
     list.find(i => i.id == id)?.nombre || "";
 
+  const getTipoIdNombre = (id) =>
+    tiposId.find(t => t.id_tipo_identificacion == id)?.tipo_identificacion || "";
+
+  /* ========================
+     SUBMIT
+  ======================== */
   const submit = async () => {
     const res = await fetch("http://localhost:4000/pqr", {
       method: "POST",
@@ -76,33 +97,46 @@ export default function PQR() {
 
         <h2>Radicación PQR</h2>
 
+        {/* PASO 1 */}
         {step === 1 && (
           <>
-            <input placeholder="Nombre"
+            <input
+              placeholder="Nombre"
               value={form.nombre}
               onChange={e => set("nombre", e.target.value)}
             />
 
+            {/* 🔥 SELECT DINÁMICO */}
             <select
               value={form.tipo_identificacion}
               onChange={e => set("tipo_identificacion", e.target.value)}
             >
               <option value="">Tipo identificación</option>
-              <option value="1">Cédula</option>
-              <option value="2">NIT</option>
+
+              {tiposId.map(t => (
+                <option
+                  key={t.id_tipo_identificacion}
+                  value={t.id_tipo_identificacion}
+                >
+                  {t.tipo_identificacion}
+                </option>
+              ))}
             </select>
 
-            <input placeholder="Documento"
+            <input
+              placeholder="Documento"
               value={form.documento}
               onChange={e => set("documento", e.target.value)}
             />
 
-            <input placeholder="Correo"
+            <input
+              placeholder="Correo"
               value={form.correo}
               onChange={e => set("correo", e.target.value)}
             />
 
-            <input placeholder="Teléfono"
+            <input
+              placeholder="Teléfono"
               value={form.telefono}
               onChange={e => set("telefono", e.target.value)}
             />
@@ -111,6 +145,7 @@ export default function PQR() {
           </>
         )}
 
+        {/* PASO 2 */}
         {step === 2 && (
           <>
             <select onChange={e => handleTipo(e.target.value)}>
@@ -134,11 +169,13 @@ export default function PQR() {
               ))}
             </select>
 
-            <input placeholder="Asunto"
+            <input
+              placeholder="Asunto"
               onChange={e => set("asunto", e.target.value)}
             />
 
-            <textarea placeholder="Descripción"
+            <textarea
+              placeholder="Descripción"
               onChange={e => set("descripcion", e.target.value)}
             />
 
@@ -146,10 +183,12 @@ export default function PQR() {
           </>
         )}
 
+        {/* PASO 3 */}
         {step === 3 && (
           <>
             <p><b>Nombre:</b> {form.nombre}</p>
-            <p><b>Tipo:</b> {getNombre(tipos, form.tipo)}</p>
+            <p><b>Tipo identificación:</b> {getTipoIdNombre(form.tipo_identificacion)}</p>
+            <p><b>Tipo PQR:</b> {getNombre(tipos, form.tipo)}</p>
             <p><b>Solicitud:</b> {getNombre(solicitudes, form.area)}</p>
             <p><b>Motivo:</b> {getNombre(motivos, form.motivo)}</p>
 
@@ -157,6 +196,7 @@ export default function PQR() {
           </>
         )}
 
+        {/* FINAL */}
         {step === 4 && (
           <>
             <h3>Radicado generado:</h3>

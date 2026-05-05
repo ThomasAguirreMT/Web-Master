@@ -52,6 +52,13 @@ const transporter = nodemailer.createTransport({
 /* ========================
    ENDPOINTS SELECTS
 ======================== */
+
+/* 🔥 NUEVO */
+app.get("/tipos-identificacion", async (req, res) => {
+  const [rows] = await db.execute("SELECT * FROM tipo_identificacion");
+  res.json(rows);
+});
+
 app.get("/tipos-pqr", async (req, res) => {
   const [rows] = await db.execute("SELECT * FROM tipo_pqr");
   res.json(rows);
@@ -182,10 +189,8 @@ app.post("/pqr", validatePQR, async (req, res) => {
           <p><b>Descripción:</b> ${data.descripcion}</p>
         `
       });
-
-      console.log(" Email interno enviado");
     } catch (err) {
-      console.error(" Error email interno:", err);
+      console.error("Error email interno:", err);
     }
 
     /* ========================
@@ -197,43 +202,22 @@ app.post("/pqr", validatePQR, async (req, res) => {
         to: data.correo,
         subject: `Confirmación de PQR ${radicado}`,
         html: `
-          <h2 style="color:#0d6efd;">Hemos recibido tu solicitud</h2>
-
-          <p>Hola <b>${data.nombre}</b>,</p>
-
-          <p>Tu solicitud fue registrada correctamente.</p>
-
-          <hr>
-
-          <p><b>Radicado:</b> ${radicado}</p>
-          <p><b>Tipo:</b> ${nombres.tipo_nombre}</p>
-          <p><b>Solicitud:</b> ${nombres.solicitud_nombre}</p>
-          <p><b>Motivo:</b> ${nombres.motivo_nombre}</p>
-
-          <hr>
-
-          <p>Te responderemos en el menor tiempo posible.</p>
-
-          <p style="font-size:12px;color:gray;">
-            Este es un mensaje automático, por favor no responder.
-          </p>
+          <h2>Hemos recibido tu solicitud</h2>
+          <p>Radicado: <b>${radicado}</b></p>
         `
       });
-
-      console.log(" Email usuario enviado");
     } catch (err) {
-      console.error(" Error email usuario:", err);
+      console.error("Error email usuario:", err);
     }
 
     res.json({ success: true, radicado });
 
   } catch (error) {
-    console.error(" ERROR GENERAL:", error);
+    console.error("ERROR GENERAL:", error);
     res.status(500).json({ error: "Error servidor" });
   }
 });
 
-/* ======================== */
 app.listen(process.env.PORT || 4000, () => {
   console.log("Servidor corriendo");
 });
