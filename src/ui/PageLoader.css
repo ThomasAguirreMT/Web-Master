@@ -1,0 +1,429 @@
+.cinematic-loader {
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 999999;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at center,
+      #0a0a0a 0%,
+      #000000 70%);
+
+  animation:
+    loaderExit 1s ease forwards;
+
+  animation-delay: 3.4s;
+}
+
+/* BACKGROUND */
+
+.loader-background {
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.03),
+      transparent 70%);
+
+  filter: blur(40px);
+
+  animation:
+    bgPulse 6s ease-in-out infinite;
+}
+
+/* LOGO CONTAINER */
+
+.logo-container {
+
+  position: relative;
+
+width: clamp(250px, 42vw, 350px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation:
+    logoFloat 5s ease-in-out infinite;
+}
+/* OUTLINE */
+
+.logo-outline {
+
+  width: 100%;
+
+  position: absolute;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.08));
+
+  animation:
+    outlineAppear 1s ease forwards,
+    outlineFade 2s ease forwards;
+
+  animation-delay:
+    0s,
+    1.2s;
+}
+
+/* FILL WRAPPER */
+
+.logo-fill-wrapper {
+
+  position: absolute;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  clip-path:
+    inset(0 100% 0 0);
+
+  animation:
+    fillReveal 2.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+
+  animation-delay: 0.7s;
+}
+
+/* FILL */
+
+.logo-fill {
+
+  width: 100%;
+
+  opacity: 0;
+
+  filter:
+    brightness(1.1) drop-shadow(0 0 18px rgba(255, 255, 255, 0.12));
+
+  animation:
+    fillAppear 1s ease forwards;
+
+  animation-delay: 0.9s;
+}
+
+/* SCAN LIGHT */
+
+.logo-scan-light {
+
+  position: absolute;
+
+  width: 180px;
+  height: 120%;
+
+  background:
+    linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.24),
+      transparent);
+
+  filter: blur(20px);
+
+  transform: skewX(-20deg);
+
+  animation:
+    scanMove 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+
+  animation-delay: 0.8s;
+
+  opacity: 0;
+}
+
+/* BOTTOM */
+
+.loader-bottom {
+
+  position: relative;
+
+margin-top: clamp(220px, 38vh, 420px);
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 14px;
+
+  opacity: 0;
+
+  animation:
+    textAppear 1s ease forwards;
+
+  animation-delay: 1.6s;
+}
+
+/* BAR */
+
+.loader-progress-track {
+
+  width: 220px;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.loader-progress-fill {
+
+  width: 0%;
+  height: 100%;
+
+  background:
+    linear-gradient(90deg,
+      transparent,
+      #ffffff,
+      transparent);
+
+  animation:
+    loadingBar 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+/* TEXT */
+
+.loader-text {
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.36);
+}
+
+/* OUTLINE */
+
+@keyframes outlineAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      scale(0.98);
+
+  }
+
+  to {
+
+    opacity: 0.28;
+
+    transform:
+      scale(1);
+
+  }
+
+}
+
+/* OUTLINE FADE */
+
+@keyframes outlineFade {
+
+  to {
+
+    opacity: 0.05;
+
+    filter:
+      blur(2px);
+
+  }
+
+}
+
+/* FILL REVEAL */
+
+@keyframes fillReveal {
+
+  from {
+
+    clip-path:
+      inset(0 100% 0 0);
+
+  }
+
+  to {
+
+    clip-path:
+      inset(0 0% 0 0);
+
+  }
+
+}
+
+/* FILL */
+
+@keyframes fillAppear {
+
+  from {
+
+    opacity: 0;
+
+    filter:
+      brightness(2) blur(10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    filter:
+      brightness(1.05) blur(0px);
+
+  }
+
+}
+
+/* SCAN */
+
+@keyframes scanMove {
+
+  0% {
+
+    left: -220px;
+
+    opacity: 0;
+
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+
+    left: 100%;
+
+    opacity: 0;
+
+  }
+
+}
+
+/* FLOAT */
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0px);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-6px);
+
+  }
+
+}
+
+/* BAR */
+
+@keyframes loadingBar {
+
+  0% {
+
+    width: 0%;
+    opacity: 1;
+
+  }
+
+  70% {
+
+    width: 100%;
+    opacity: 1;
+
+  }
+
+  100% {
+
+    width: 100%;
+    opacity: 0;
+
+  }
+
+}
+
+/* TEXT */
+
+@keyframes textAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0px);
+
+  }
+
+}
+
+/* BG */
+
+@keyframes bgPulse {
+
+  0%,
+  100% {
+
+    opacity: 0.8;
+
+    transform:
+      scale(1);
+
+  }
+
+  50% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.03);
+
+  }
+
+}
+
+/* EXIT */
+
+@keyframes loaderExit {
+
+  to {
+
+    opacity: 0;
+
+    transform:
+      scale(1.04);
+
+    visibility: hidden;
+
+  }
+
+}

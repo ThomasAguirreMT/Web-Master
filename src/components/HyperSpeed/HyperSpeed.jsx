@@ -1,7 +1,5 @@
-
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 import './HyperSpeed.css';
 
 
@@ -354,13 +352,18 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
           };
         }
         this.container = container;
+
+        // ─── ÚNICO CAMBIO: renderer directo, sin EffectComposer ───────────────
         this.renderer = new THREE.WebGLRenderer({
           antialias: false,
-          alpha: true
+          alpha: true,
+          powerPreference: 'default',           // evita fallo en Firefox con GPU integrada
+          failIfMajorPerformanceCaveat: false    // no abortar si la GPU es lenta
         });
         this.renderer.setSize(container.offsetWidth, container.offsetHeight, false);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.composer = new EffectComposer(this.renderer);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // limitar DPR
+        // ─────────────────────────────────────────────────────────────────────
+
         container.append(this.renderer.domElement);
 
         this.camera = new THREE.PerspectiveCamera(
@@ -418,73 +421,21 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         this.onTouchEnd = this.onTouchEnd.bind(this);
         this.onContextMenu = this.onContextMenu.bind(this);
 
-        window.addEventListener('resize', this.onWindowResize.bind(this));
+        // Guardar referencia bound para poder removerla en dispose
+        this._boundOnWindowResize = this.onWindowResize.bind(this);
+        window.addEventListener('resize', this._boundOnWindowResize);
       }
 
       onWindowResize() {
         const width = this.container.offsetWidth;
         const height = this.container.offsetHeight;
 
-        this.renderer.setSize(width, height);
+        this.renderer.setSize(width, height, false);
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
-        this.composer.setSize(width, height);
-      }
-
-      initPasses() {
-        this.renderPass = new RenderPass(this.scene, this.camera);
-        this.bloomPass = new EffectPass(
-          this.camera,
-          new BloomEffect({
-            luminanceThreshold: 0.2,
-            luminanceSmoothing: 0,
-            resolutionScale: 1
-          })
-        );
-
-        const smaaPass = new EffectPass(
-          this.camera,
-          new SMAAEffect({
-            preset: SMAAPreset.MEDIUM,
-            searchImage: SMAAEffect.searchImageDataURL,
-            areaImage: SMAAEffect.areaImageDataURL
-          })
-        );
-        this.renderPass.renderToScreen = false;
-        this.bloomPass.renderToScreen = false;
-        smaaPass.renderToScreen = true;
-        this.composer.addPass(this.renderPass);
-        this.composer.addPass(this.bloomPass);
-        this.composer.addPass(smaaPass);
-      }
-
-      loadAssets() {
-        const assets = this.assets;
-        return new Promise(resolve => {
-          const manager = new THREE.LoadingManager(resolve);
-
-          const searchImage = new Image();
-          const areaImage = new Image();
-          assets.smaa = {};
-          searchImage.addEventListener('load', function () {
-            assets.smaa.search = this;
-            manager.itemEnd('smaa-search');
-          });
-
-          areaImage.addEventListener('load', function () {
-            assets.smaa.area = this;
-            manager.itemEnd('smaa-area');
-          });
-          manager.itemStart('smaa-search');
-          manager.itemStart('smaa-area');
-
-          searchImage.src = SMAAEffect.searchImageDataURL;
-          areaImage.src = SMAAEffect.areaImageDataURL;
-        });
       }
 
       init() {
-        this.initPasses();
         const options = this.options;
         this.road.init();
         this.leftCarLights.init();
@@ -570,27 +521,28 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         if (updateCamera) {
           this.camera.updateProjectionMatrix();
         }
-
       }
 
+      // ─── ÚNICO CAMBIO: render directo en lugar de this.composer.render() ───
       render(delta) {
-        this.composer.render(delta);
+        this.renderer.render(this.scene, this.camera);
       }
+      // ────────────────────────────────────────────────────────────────────────
 
       dispose() {
         this.disposed = true;
 
+        // Cancelar el loop de animación
+        if (this._rafId) cancelAnimationFrame(this._rafId);
+
         if (this.renderer) {
           this.renderer.dispose();
-        }
-        if (this.composer) {
-          this.composer.dispose();
         }
         if (this.scene) {
           this.scene.clear();
         }
 
-        window.removeEventListener('resize', this.onWindowResize.bind(this));
+        window.removeEventListener('resize', this._boundOnWindowResize);
         if (this.container) {
           this.container.removeEventListener('mousedown', this.onMouseDown);
           this.container.removeEventListener('mouseup', this.onMouseUp);
@@ -604,7 +556,7 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
       }
 
       setSize(width, height, updateStyles) {
-        this.composer.setSize(width, height, updateStyles);
+        this.renderer.setSize(width, height, updateStyles);
       }
 
       tick() {
@@ -617,7 +569,7 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         const delta = this.clock.getDelta();
         this.render(delta);
         this.update(delta);
-        requestAnimationFrame(this.tick);
+        this._rafId = requestAnimationFrame(this.tick);
       }
     }
 
@@ -1110,13 +1062,11 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
 
       const myApp = new App(container, options);
       appRef.current = myApp;
-      myApp.loadAssets().then(() => {
-        myApp.init();
-        setTimeout(() => {
-          myApp.onWindowResize();
-        }, 100);
-      });
-       
+      // Sin loadAssets: era exclusivo para cargar las imágenes de SMAA que ya no se usa
+      myApp.init();
+      setTimeout(() => {
+        myApp.onWindowResize();
+      }, 100);
     })();
 
     return () => {
@@ -1147,8 +1097,6 @@ const HyperSpeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         <div className="hero-content" style={{ position: "relative", zIndex: 2 }}>
           <h1>INTERNET DEDICADO DE ALTA VELOCIDAD</h1>
           <h2>PARA TU ISP O EMPRESA</h2>
-
-          
         </div>
 
       </div>
