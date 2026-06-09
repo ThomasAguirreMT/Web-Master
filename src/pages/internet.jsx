@@ -13,6 +13,7 @@ const Internet = () => {
       <>
         <HyperSpeed />
         <Animations />
+ 
         <NuestrosPlanes />
         <RankingSection />
         <CTAWhatsapp />

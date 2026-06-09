@@ -51,7 +51,6 @@ const Serviciodesarrollo = () => {
         </div>
       </div>
 
-      {/* 🔵 BACKEND */}
       <div className="servicio">
         <div className="servicio-img">
           <video src={backendVideo} autoPlay loop muted playsInline />
@@ -77,7 +76,6 @@ const Serviciodesarrollo = () => {
         </div>
       </div>
 
-      {/* 🔵 FRONTEND */}
       <div className="servicio">
         <div className="servicio-img">
           <video src={frontendVideo} autoPlay loop muted playsInline />

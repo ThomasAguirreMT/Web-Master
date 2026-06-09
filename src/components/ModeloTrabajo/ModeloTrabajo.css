@@ -1,113 +1,394 @@
 .modelo {
+  position: relative;
+
   width: 100%;
+  min-height: 90vh;
+
   background: #000;
-  color: white;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   padding: 80px 10%;
+
   overflow: hidden;
 }
 
-/* TEXTO */
-.modelo-content {
-  max-width: 500px;
-  z-index: 2;
+/* =========================
+   GLOW AZUL
+========================= */
+
+.modelo-glow {
+  position: absolute;
+
+  right: -300px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 900px;
+  height: 900px;
+
+  background: radial-gradient(
+    circle,
+    rgba(0,170,255,.18),
+    transparent 70%
+  );
+
+  filter: blur(120px);
+
+  pointer-events: none;
 }
+
+/* =========================
+   ESFERA
+========================= */
+
+.modelo-img {
+  position: absolute;
+
+  right: -50px;
+  top: 50%;
+
+transform: translateX(30%) translateY(-50%);
+}
+
+.modelo-img img {
+  width: 675px;
+
+  opacity: 0.80;
+
+  animation: girar 45s linear infinite;
+
+  filter: drop-shadow(
+    0 0 25px rgba(0,170,255,.25)
+  );
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.modelo-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 600px;}
+
+/* =========================
+   ETIQUETA
+========================= */
+
+.modelo-tag {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  margin-bottom: 25px;
+
+  border-radius: 50px;
+
+  background: rgba(0,170,255,.08);
+
+  border: 1px solid rgba(0,170,255,.2);
+
+  color: #00aaff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+/* =========================
+   TITULO
+========================= */
 
 .modelo-content h2 {
-  font-size: 42px;
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  line-height: 0.95;
   font-weight: 900;
-  line-height: 1.2;
+  letter-spacing: -2px;
+  color:white;
 }
-
 .modelo-content h2 span {
   color: #00aaff;
 }
 
-/* LINEA */
-.line {
-  height: 2px;
-  width: 160%;
-  margin: 19px auto 14px auto;
-  border-radius: 2px;
+/* =========================
+   TEXTO
+========================= */
 
-  background: linear-gradient(90deg,
-      transparent,
-      #2e3192,
-      #38b6ff,
-
-      #2e3192,
-      transparent);
-
-
-}
-
-/* PARRAFO */
 .modelo-content p {
-  font-size: 16px;
-  color: #ccc;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  color: #ffffff;
+
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 45px;
+
+  max-width: 650px;
 }
 
-.modelo-content p span {
-  color: #00aaff;
-  font-weight: 600;
+/* =========================
+   TARJETAS
+========================= */
+
+.modelo-stats {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+
+  margin-bottom: 40px;
 }
 
-/* BOTON */
-.btn-modelo {
-  padding: 15px 100px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #1aa7d7, #2e3c8f);
-  color: white;
-  font-weight: 1000;
-  font-size: 18px; /* 🔥 aquí aumentas el tamaño */
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn-modelo:hover {
-  transform: scale(1.05);
-}
-
-/* IMAGEN DERECHA */
-.modelo-img {
+.stat-card {
   position: relative;
-  right: -250px;
-  top: 300px;
-  transform: translateY(-50%);}
 
-.modelo-img img {
-  width: 700px;
-  right: -100px;
-  opacity: 0.4;
+  overflow: hidden;
 
-  animation: mundo 20s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(0,150,255,0.3));
+  background: rgba(255,255,255,.02);
 
+  border: 1px solid rgba(255,255,255,.08);
 
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  transition: .35s;
 }
 
-/* ANIMACIÓN */
-@keyframes mundo {
+/* BORDE ELÉCTRICO */
+.stat-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00aaff,
+    #4f46e5,
+    #00aaff,
+    transparent
+  );
+
+  background-size: 300% 100%;
+
+  animation: electricBorder 6s linear infinite;
+
+  opacity: .7;
+
+  z-index: 0;
+}
+
+/* FONDO INTERNO */
+.stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 1px;
+
+  background: #020202;
+
+  border-radius: 19px;
+
+  z-index: 1;
+}
+
+/* CONTENIDO ENCIMA */
+.stat-card h3,
+.stat-card span {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes electricBorder {
+
   0% {
-    transform: rotate(0deg) translateY(0px) scale(1);
+    background-position: 0% 50%;
   }
-  25% {
-    transform: rotate(90deg) translateY(-10px) scale(1.03);
-  }
-  50% {
-    transform: rotate(180deg) translateY(0px) scale(1);
-  }
-  75% {
-    transform: rotate(270deg) translateY(10px) scale(1.03);
-  }
+
   100% {
-    transform: rotate(360deg) translateY(0px) scale(1);
+    background-position: 300% 50%;
+  }
+
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 0 25px rgba(0,170,255,.15),
+    0 0 40px rgba(79,70,229,.08);
+}
+.stat-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(0,170,255,.5);
+
+  box-shadow:
+    0 0 25px rgba(0,170,255,.15);
+}
+
+.stat-card h3 {
+  margin: 0;
+
+  color: #00aaff;
+
+  font-size: 2rem;
+
+  font-weight: 900;
+}
+
+.stat-card span {
+  color: white;
+
+  font-size: .95rem;
+
+  margin-top: 8px;
+
+  display: block;
+}
+
+/* =========================
+   BOTON
+========================= */
+
+.btn-modelo {
+  position: relative;
+
+  overflow: hidden;
+
+  border: none;
+
+  padding: 18px 40px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #00aaff,
+    #2e3192
+  );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .35s;
+}
+
+.btn-modelo::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 120%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+
+  transition: .8s;
+}
+
+.btn-modelo:hover::before {
+  left: 120%;
+}
+
+.btn-modelo:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 30px rgba(0,170,255,.4);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+  .modelo {
+    justify-content: center;
+    text-align: center;
+
+    padding: 80px 8%;
+  }
+
+  .modelo-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modelo-img img {
+    width: 500px;
   }
 }
 
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .modelo {
+    min-height: auto;
+
+    padding: 80px 6%;
+  }
+
+  .modelo-content h2 {
+    font-size: 2.8rem;
+  }
+
+  .modelo-content p {
+    font-size: 1rem;
+  }
+
+  .modelo-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-modelo {
+    width: 100%;
+  }
+
+  .modelo-img {
+    opacity: .25;
+  }
+
+  .modelo-img img {
+    width: 350px;
+  }
+}

@@ -1,0 +1,208 @@
+/* ==========================
+   SECTION
+========================== */
+
+.wwu-section {
+  position: relative;
+
+  background: #000;
+
+  overflow: hidden;
+
+  padding: 140px 20px;
+
+  color: white;
+}
+
+/* ==========================
+   BACKGROUND WORD
+========================== */
+
+.wwu-bg-text {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: clamp(8rem, 20vw, 18rem);
+
+  font-weight: 900;
+
+  color: rgba(255,255,255,0.03);
+
+  white-space: nowrap;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.wwu-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+/* ==========================
+   TAG
+========================== */
+
+.wwu-tag {
+  display: inline-block;
+
+  color: #2997ff;
+
+  font-size: .9rem;
+
+  letter-spacing: 4px;
+
+  font-weight: 700;
+
+  margin-bottom: 30px;
+}
+
+/* ==========================
+   TITLES
+========================== */
+
+.wwu-title {
+  margin: 0;
+
+  font-size: clamp(3rem, 7vw, 7rem);
+
+  line-height: 1;
+
+  font-weight: 900;
+}
+
+.wwu-highlight {
+  margin-top: 15px;
+  margin-bottom: 40px;
+
+  color: #2997ff;
+
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  font-weight: 800;
+}
+
+/* ==========================
+   DESCRIPTION
+========================== */
+
+.wwu-description {
+  max-width: 900px;
+
+  margin: 0 auto 70px;
+
+  color: #d1d1d6;
+
+  font-size: 1.2rem;
+
+  line-height: 1.8;
+}
+
+/* ==========================
+   FEATURES
+========================== */
+
+.wwu-features {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+.wwu-feature {
+  background: linear-gradient(
+    180deg,
+    rgba(41,151,255,0.12),
+    rgba(255,255,255,0.03)
+  );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+
+  padding: 35px 20px;
+
+  transition: .3s ease;
+}
+
+.wwu-feature:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(41,151,255,.4);
+}
+
+.wwu-feature span {
+  display: block;
+
+  font-size: 2rem;
+
+  margin-bottom: 15px;
+}
+
+.wwu-feature p {
+  margin: 0;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 992px) {
+
+  .wwu-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+  .wwu-section {
+    padding: 100px 20px;
+  }
+
+  .wwu-title {
+    font-size: 3rem;
+  }
+
+  .wwu-highlight {
+    font-size: 2rem;
+  }
+
+  .wwu-description {
+    font-size: 1rem;
+  }
+
+  .wwu-features {
+    grid-template-columns: 1fr;
+  }
+
+  .wwu-bg-text {
+    font-size: 5rem;
+  }
+}

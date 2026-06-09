@@ -1,30 +1,48 @@
 import "./herosoftware.css";
 
-// VIDEO DESKTOP
 import videoDesktop from "../../assets/desarrollo/software.mp4";
-
-// VIDEO MOBILE
 import videoMobile from "../../assets/desarrollo/videodesarrollocelular.mp4";
 
 const HeroSoftware = () => {
   return (
     <section className="hs-container">
-
+      {/* VIDEO DESKTOP */}
       <video
-        className="hs-video"
+        className="hs-video hs-video-desktop"
         autoPlay
         loop
         muted
         playsInline
-        preload="none"
       >
-        {/* 📱 MOBILE */}
-        <source src={videoMobile} media="(max-width: 768px)" />
-
-        {/* 💻 DESKTOP */}
-        <source src={videoDesktop} media="(min-width: 769px)" />
+        <source src={videoDesktop} type="video/mp4" />
       </video>
 
+      {/* VIDEO MOBILE */}
+      <video
+        className="hs-video hs-video-mobile"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={videoMobile} type="video/mp4" />
+      </video>
+
+      {/* CONTENIDO */}
+      <div className="hs-content">
+        <h1 className="hs-title">
+          ¿TIENES UNA IDEA
+          <br />
+          DE NEGOCIO?
+        </h1>
+
+        <div className="hs-line"></div>
+
+        <p className="hs-subtitle">
+          Web Master Colombia
+          <strong> ¡lo puede hacer realidad!</strong>
+        </p>
+      </div>
     </section>
   );
 };

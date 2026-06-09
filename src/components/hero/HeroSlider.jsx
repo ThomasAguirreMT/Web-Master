@@ -19,24 +19,26 @@ import slidedesarrolloen from "../../assets/imageneshomecarrusel/slidedesarrollo
 /* ======================================================
    DEFINICIÓN DE SLIDES
 ====================================================== */
-
-
 const slides = [
   {
     type: "image",
     variant: "dev",
     title: "¿ERES ISP?",
-    subtitle: "TRABAJA CON NOSOTROS",
+    subtitle: "CARRIER PARA TU CRECIMIENTO.",
+    description:
+      "Internet, televisión y respaldo para operadores en crecimiento.",
     image: slidetrabaja,
     floating: true,
     link: "/trabajaconnosotros"
   },
+
   {
     type: "fiber",
     title: "INTERNET DEDICADO DE ALTA VELOCIDAD",
     subtitle: "PARA TU ISP O EMPRESA",
     link: "/internet"
   },
+
   {
     type: "image",
     variant: "tv",
@@ -45,6 +47,7 @@ const slides = [
     image: slidetv,
     link: "/television"
   },
+
   {
     type: "image",
     variant: "dev",
@@ -56,7 +59,7 @@ const slides = [
 ];
 
 export default function HeroSlider() {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
@@ -126,6 +129,7 @@ export default function HeroSlider() {
 
         {/* CONTENIDO */}
         <div className="hero-content">
+
           <h1>{slide.title}</h1>
 
           {slide.variant === "tv" ? (
@@ -137,15 +141,25 @@ export default function HeroSlider() {
               />
             </div>
           ) : (
-            <h2>{slide.subtitle}</h2>
+            <>
+              <h2>{slide.subtitle}</h2>
+
+              {slide.description && (
+                <p className="hero-description">
+                  {slide.description}
+                </p>
+              )}
+            </>
           )}
 
-          <button className="hero-btn" onClick={() => navigate(slide.link)} >
-            
+          <button
+            className="hero-btn"
+            onClick={() => navigate(slide.link)}
+          >
             VER MÁS
-            
             <span className="hero-btn-arrow">→</span>
           </button>
+
         </div>
         {/* prueba */}
 

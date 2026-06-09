@@ -43,7 +43,7 @@ export default function PQR() {
 
   const API =
     "https://thomas.webmastercolombia.net";
- 
+
 
   /* =========================
      HELPERS
@@ -299,21 +299,18 @@ export default function PQR() {
         <div className="pqr-steps">
 
           <div
-            className={`pqr-step ${
-              step >= 1 ? "active" : ""
-            }`}
+            className={`pqr-step ${step >= 1 ? "active" : ""
+              }`}
           />
 
           <div
-            className={`pqr-step ${
-              step >= 2 ? "active" : ""
-            }`}
+            className={`pqr-step ${step >= 2 ? "active" : ""
+              }`}
           />
 
           <div
-            className={`pqr-step ${
-              step >= 3 ? "active" : ""
-            }`}
+            className={`pqr-step ${step >= 3 ? "active" : ""
+              }`}
           />
 
         </div>

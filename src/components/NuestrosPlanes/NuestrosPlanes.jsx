@@ -27,10 +27,10 @@ const planes = [
 export default function NuestrosPlanes() {
   return (
     <section className="planes-section">
-<div className="planes-header">
-  <h2>   NUESTROS PLANES</h2>
-  <span className="arrow"> ›</span>
-</div>
+      <div className="planes-header">
+        <h2>   NUESTROS PLANES</h2>
+        <span className="arrow"> ›</span>
+      </div>
       <p className="planes-subtitle">
         Con nuestros planes de Internet Dedicado obtienes una conexión exclusiva,
         estable y de alto desempeño, pensada para empresas que no pueden detenerse.
@@ -50,10 +50,23 @@ export default function NuestrosPlanes() {
 
             <p className="plan-text">{plan.texto}</p>
 
-            <button className="plan-btn">
+            <button className="plan-btn"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/573176683567?text=Hola,%20quiero%20hablar%20sobre%20mi%20proyecto",
+                  "_blank"
+                )
+              }
+            >
               <Search size={18} />
-              Saber mas
+              Saber más
             </button>
+
+
+
+
+
+
           </div>
         ))}
       </div>

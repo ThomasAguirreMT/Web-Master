@@ -1,14 +1,43 @@
+import { useEffect, useState } from "react";
 import "./trabajacon.css";
 
-// VIDEOS
 import videoDesktop from "../../assets/desarrollo/trabajaconnosotros.mp4";
 import videoMobile from "../../assets/desarrollo/trabajaconnosotros-mobile.mp4";
 
 export default function WorkWithUs() {
+  const words = [
+
+     {
+      top: "GENERAMOS",
+      bottom: "RESULTADOS"
+    },
+    {
+      top: "IMPULSAMOS TU",
+      bottom: "CRECIMIENTO"
+    },
+    {
+      top: "OPTIMIZAMOS TU",
+      bottom: "INFRAESTRUCTURA"
+    },
+    {
+      top: "FORTALECEMOS TU",
+      bottom: "CONECTIVIDAD"
+    }
+  ];
+
+  const [currentWord, setCurrentWord] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % words.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="crs-container">
 
-      {/* HERO VIDEO */}
       <div className="crs-hero">
 
         {/* VIDEO DESKTOP */}
@@ -19,7 +48,7 @@ export default function WorkWithUs() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         />
 
         {/* VIDEO MOBILE */}
@@ -30,27 +59,30 @@ export default function WorkWithUs() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         />
 
         <div className="crs-overlay" />
 
-   
+        {/* TEXTO ANIMADO */}
+        <div className="crs-text">
 
-      </div>
+          <span
+            key={`top-${currentWord}`}
+            className="crs-static"
+          >
+            {words[currentWord].top}
+          </span>
 
-      {/* INFO */}
-      <div className="crs-info">
-        <h2>
-          <span className="crs-arrow">›</span>
-          ¿POR QUÉ TRABAJAR CON NOSOTROS?
-        </h2>
+          <h1
+            key={`bottom-${currentWord}`}
+            className="crs-word"
+          >
+            {words[currentWord].bottom}
+          </h1>
 
-        <p>
-          En Web Master somos el aliado tecnológico de los ISPs. Ofrecemos
-          acompañamiento técnico especializado, soporte en infraestructura y
-          asesoría en redes para optimizar y escalar tus operaciones.
-        </p>
+        </div>
+
       </div>
 
     </section>

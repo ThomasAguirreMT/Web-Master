@@ -1,27 +1,218 @@
-/* CONTENEDOR */
+/* ===================================
+   HERO CONTAINER
+=================================== */
+
 .hs-container {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
 }
 
-/* VIDEO */
+/* ===================================
+   VIDEOS
+=================================== */
+
 .hs-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
 
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+  object-position: center center;
+
+  z-index: 1;
 }
 
-/* =========================
-   MOBILE AJUSTE FINO
-========================= */
-@media (max-width: 768px) {
-  .hs-container {
-    height: 70vh;
+.hs-video-desktop {
+  display: block;
+}
+
+.hs-video-mobile {
+  display: none;
+}
+
+/* ===================================
+   OVERLAY OSCURO
+=================================== */
+
+.hs-container::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  z-index: 2;
+}
+
+/* ===================================
+   CONTENIDO
+=================================== */
+
+.hs-content {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+  max-width: 1200px;
+
+  text-align: center;
+  color: white;
+
+  z-index: 10;
+}
+
+/* ===================================
+   TITULO
+=================================== */
+
+.hs-title {
+  margin: 0;
+
+  font-size: clamp(3rem, 6vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ===================================
+   LINEA
+=================================== */
+
+.hs-line {
+  width: 80%;
+  max-width: 850px;
+
+  height: 2px;
+
+  margin: 25px auto;
+
+  background: white;
+}
+
+/* ===================================
+   SUBTITULO
+=================================== */
+
+.hs-subtitle {
+  margin: 0;
+
+  font-size: clamp(1.3rem, 2vw, 3rem);
+  font-weight: 400;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hs-subtitle strong {
+  font-weight: 700;
+}
+
+/* ===================================
+   LAPTOPS
+=================================== */
+
+@media (max-width: 1200px) {
+  .hs-title {
+    font-size: clamp(3rem, 5vw, 5rem);
   }
+}
+
+/* ===================================
+   TABLETS
+=================================== */
+
+@media (max-width: 992px) {
+  .hs-container {
+    height: 90vh;
+  }
+
+  .hs-title {
+    font-size: 4rem;
+  }
+
+  .hs-subtitle {
+    font-size: 1.8rem;
+  }
+}
+
+/* ===================================
+   MOVIL
+=================================== */
+
+@media (max-width: 768px) {
+
+  .hs-container {
+    height: 100dvh;
+  }
+
+  .hs-video-desktop {
+    display: none;
+  }
+
+  .hs-video-mobile {
+    display: block;
+  }
+
+  .hs-content {
+    width: 92%;
+    top: 50%;
+  }
+
+  .hs-title {
+    font-size: 2.7rem;
+    line-height: 1.05;
+  }
+
+  .hs-line {
+    width: 70%;
+    margin: 18px auto;
+  }
+
+  .hs-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+}
+
+/* ===================================
+   CELULARES PEQUEÑOS
+=================================== */
+
+@media (max-width: 480px) {
+
+  .hs-content {
+    width: 95%;
+  }
+
+  .hs-title {
+    font-size: 2.2rem;
+  }
+
+  .hs-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hs-line {
+    width: 60%;
+  }
+}
+
+/* ===================================
+   PREVIENE SCROLL HORIZONTAL
+=================================== */
+
+html,
+body {
+  overflow-x: hidden;
 }
