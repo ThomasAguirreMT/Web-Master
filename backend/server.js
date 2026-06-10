@@ -53,7 +53,6 @@ const transporter = nodemailer.createTransport({
    ENDPOINTS SELECTS
 ======================== */
 
-/* 🔥 NUEVO */
 app.get("/tipos-identificacion", async (req, res) => {
   const [rows] = await db.execute("SELECT * FROM tipo_identificacion");
   res.json(rows);

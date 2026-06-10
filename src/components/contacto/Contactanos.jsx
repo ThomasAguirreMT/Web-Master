@@ -7,7 +7,7 @@ export default function ContactElite() {
   const ref = useRef();
 
 
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -43,6 +43,13 @@ export default function ContactElite() {
           <p>317 668 3567</p>
         </div>
 
+
+        <div className="ce-item">
+          <h4>LÍNEA DE VENTAS</h4>
+          <p>317 668 3567</p>
+        </div>
+
+
         <div className="ce-item">
           <h4>CORREO</h4>
           <p className="ce-link">info@webmastercolombia.net</p>
@@ -50,15 +57,17 @@ export default function ContactElite() {
 
         <div className="ce-item">
           <h4>INSTAGRAM</h4>
-          <p>@webmaster</p>
+          <p>@web_mastercolombia</p>
         </div>
       </div>
 
       {/* FORM */}
       <div className="ce-form">
 
-        <h3>NOSOTROS TE LLAMAMOS</h3>
-        <p>Déjanos tus datos y te contactamos rápidamente.</p>
+        <h3>Solicita Asesoría Gratuita</h3>
+        <p>
+          Déjanos tus datos y uno de nuestros asesores te contactará en menos de 15 minutos.
+        </p>        <p>Déjanos tus datos y te contactamos rápidamente.</p>
 
         <form className="ce-form-box">
           <div className="ce-row">

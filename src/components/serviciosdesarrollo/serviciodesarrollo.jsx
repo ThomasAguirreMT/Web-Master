@@ -25,7 +25,6 @@ const Serviciodesarrollo = () => {
   return (
     <section className="servicios">
 
-      {/* 🔵 MOVIL */}
       <div className="servicio">
         <div className="servicio-img">
           <video src={movilVideo} autoPlay loop muted playsInline />

@@ -40,7 +40,6 @@ export default function WorkWithUs() {
 
       <div className="crs-hero">
 
-        {/* VIDEO DESKTOP */}
         <video
           className="crs-video crs-video-desktop"
           src={videoDesktop}
@@ -51,7 +50,6 @@ export default function WorkWithUs() {
           preload="metadata"
         />
 
-        {/* VIDEO MOBILE */}
         <video
           className="crs-video crs-video-mobile"
           src={videoMobile}
@@ -64,7 +62,6 @@ export default function WorkWithUs() {
 
         <div className="crs-overlay" />
 
-        {/* TEXTO ANIMADO */}
         <div className="crs-text">
 
           <span

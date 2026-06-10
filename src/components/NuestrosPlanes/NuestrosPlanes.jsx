@@ -53,7 +53,7 @@ export default function NuestrosPlanes() {
             <button className="plan-btn"
               onClick={() =>
                 window.open(
-                  "https://wa.me/573176683567?text=Hola,%20quiero%20hablar%20sobre%20mi%20proyecto",
+                  "https://wa.me/573176683567?text=Hola,%20quiero informacion%20sobre%20los%20planes",
                   "_blank"
                 )
               }
