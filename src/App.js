@@ -36,6 +36,14 @@ const Software = lazy(() => import("./pages/software"));
 const Trabaja = lazy(() => import("./pages/trabaja"));
 const Contacto = lazy(() => import("./pages/contacto"));
 
+const ProteccionInfantil = lazy(() =>
+  import("./pages/proteccioninfantil")
+);
+
+const Normativa = lazy(() =>
+  import("./pages/Normativa")
+);
+
 const DesarrolloMobile = lazy(() =>
   import("./pages/desarrollomobile")
 );
@@ -151,6 +159,16 @@ function AppRoutes() {
           path="/pqr"
           element={<PQRPage />}
         />
+
+         <Route
+          path="/proteccioninfantil"
+          element={<ProteccionInfantil />}
+        />
+
+        <Route
+          path="/normativa"
+          element={<Normativa />} />
+        
 
         {/* fallback */}
 
