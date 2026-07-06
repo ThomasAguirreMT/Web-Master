@@ -211,7 +211,7 @@ export default function SpeedTest() {
 
                 <div className="info-card">
 
-                    <div className="info-icon">⏱️</div>
+                    <div className="info-icon">🦾</div>
 
                     <h3>Latencia</h3>
 
