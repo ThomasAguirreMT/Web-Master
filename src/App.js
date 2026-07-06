@@ -63,7 +63,9 @@ const WorkWithUs = lazy(() =>
 const PQRPage = lazy(() =>
   import("./pages/pqr")
 );
-
+const SpeedTestPage = lazy(() =>
+  import("./pages/speedtest")
+);
 /* =========================
    SCROLL TOP
 ========================= */
@@ -160,7 +162,7 @@ function AppRoutes() {
           element={<PQRPage />}
         />
 
-         <Route
+        <Route
           path="/proteccioninfantil"
           element={<ProteccionInfantil />}
         />
@@ -168,7 +170,12 @@ function AppRoutes() {
         <Route
           path="/normativa"
           element={<Normativa />} />
-        
+
+        <Route
+          path="/speedtest"
+          element={<SpeedTestPage />}
+        />
+
 
         {/* fallback */}
 

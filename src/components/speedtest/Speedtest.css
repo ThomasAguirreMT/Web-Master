@@ -1,0 +1,427 @@
+/* ==========================================================
+   SPEED TEST
+========================================================== */
+
+.speedtest{
+    position:relative;
+    overflow:hidden;
+    background:#05080f;
+    color:#fff;
+    padding:90px 7%;
+    font-family:"Montserrat",sans-serif;
+}
+
+/* ==========================================================
+   FONDO
+========================================================== */
+
+.speedtest-glow{
+    position:absolute;
+    width:900px;
+    height:900px;
+    top:-350px;
+    left:50%;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,
+        rgba(0,174,255,.10),
+        transparent 70%);
+    pointer-events:none;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.speedtest-header{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:9px 22px;
+
+    border-radius:50px;
+
+    background:rgba(0,174,255,.12);
+
+    border:1px solid rgba(0,174,255,.25);
+
+    color:#3fc7ff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:24px;
+}
+
+.speedtest-header h1{
+
+    font-size:56px;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    margin-bottom:22px;
+}
+
+.speedtest-header p{
+
+    color:#bcc9d8;
+
+    font-size:19px;
+
+    line-height:1.9;
+}
+
+/* ==========================================================
+   RECOMENDACIONES
+========================================================== */
+
+.speedtest-help{
+
+    max-width:1400px;
+
+    margin:0 auto 70px;
+
+    background:#0b1520;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:24px;
+
+    padding:45px;
+}
+
+.speedtest-help h2{
+
+    text-align:center;
+
+    font-size:40px;
+
+    margin-bottom:12px;
+}
+
+.speedtest-help h2::after{
+
+    content:"";
+
+    display:block;
+
+    width:90px;
+
+    height:4px;
+
+    background:#00aeff;
+
+    border-radius:10px;
+
+    margin:18px auto 0;
+}
+
+.help-description{
+
+    max-width:850px;
+
+    margin:28px auto 40px;
+
+    text-align:center;
+
+    color:#bfcddd;
+
+    line-height:1.8;
+
+    font-size:17px;
+}
+
+.recommendations{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:18px;
+}
+
+.recommendations div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:20px 24px;
+
+    border-radius:14px;
+
+    background:#162535;
+
+    color:#e5edf5;
+
+    font-size:16px;
+
+    transition:.30s;
+}
+
+.recommendations div:hover{
+
+    background:#1b3348;
+
+    transform:translateY(-4px);
+}
+
+/* ==========================================================
+   INFO
+========================================================== */
+
+.speedtest-info{
+
+    max-width:1400px;
+
+    margin:0 auto 70px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+
+    gap:26px;
+}
+
+.info-card{
+
+    background:#0b1520;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:35px;
+
+    transition:.35s;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.info-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00aeff;
+
+    box-shadow:0 18px 40px rgba(0,174,255,.12);
+}
+
+.info-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#123550;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    margin-bottom:28px;
+}
+
+.info-card h3{
+
+    font-size:20px;
+
+    margin-bottom:18px;
+}
+
+.info-card p{
+
+    color:#c5d2df;
+
+    line-height:1.9;
+
+    font-size:17px;
+}
+
+/* ==========================================================
+   CARD SPEED TEST
+========================================================== */
+
+.speedtest-card{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    background:#0b1520;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:35px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.speedtest-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:28px;
+}
+
+.speedtest-card-header h2{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+}
+
+.speedtest-card-header p{
+
+    color:#c0ccd9;
+
+    line-height:1.8;
+}
+
+.status-online{
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    background:#10281f;
+
+    color:#43f58d;
+
+    border:1px solid rgba(67,245,141,.25);
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+.speedtest-frame-container{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#fff;
+}
+
+.speedtest-frame{
+
+    width:100%;
+
+    height:760px;
+
+    border:none;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.speedtest{
+
+padding:70px 22px;
+
+}
+
+.speedtest-header h1{
+
+font-size:42px;
+
+}
+
+.speedtest-help{
+
+padding:30px;
+
+}
+
+.speedtest-card{
+
+padding:22px;
+
+}
+
+.speedtest-frame{
+
+height:700px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.speedtest-header h1{
+
+font-size:34px;
+
+}
+
+.speedtest-header p{
+
+font-size:17px;
+
+}
+
+.speedtest-help h2{
+
+font-size:30px;
+
+}
+
+.speedtest-card-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.speedtest-frame{
+
+height:650px;
+
+}
+
+.recommendations{
+
+grid-template-columns:1fr;
+
+}
+
+}
