@@ -56,7 +56,6 @@ export default function Footer() {
                                 info@webmastercolombia.net
                             </a>
                         </li>
-                        <li><Link to="/pqr">Radica aqui tu PQR</Link></li>
 
                     </ul>
                 </div>
@@ -70,6 +69,8 @@ export default function Footer() {
                     <ul>
                         <li><Link to="/proteccioninfantil">Protección Infantil</Link></li>
                         <li><Link to="/normativa">Protección al usuario y Normativa</Link></li>
+                        <li><Link to="/pqr">Radica aqui tu PQR</Link></li>
+
 
                     </ul>
 

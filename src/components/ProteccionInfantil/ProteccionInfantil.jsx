@@ -33,7 +33,7 @@ export default function Pinfantil() {
                 "Es la ley colombiana que busca prevenir y combatir la explotación, la pornografía y el turismo sexual con menores de edad mediante medidas de protección y control."
         },
         {
-            pregunta: "¿Qué hace TEAS para proteger a los menores?",
+            pregunta: "¿Qué hace WEB MASTER para proteger a los menores?",
             respuesta:
                 "Promovemos el uso responsable de Internet, apoyamos campañas de prevención y facilitamos el acceso a canales oficiales para denunciar contenido ilegal."
         },
