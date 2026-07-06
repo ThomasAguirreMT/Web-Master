@@ -1,18 +1,15 @@
-import Serviciodesarrollo from "../components/serviciosdesarrollo/serviciodesarrollo";
-import HeroSoftware from "../components/herosofware/herosoftware";
-import ContactForm from "../components/contactForm/ContactForm";
 
-const SoftwarePage = () => {
+
+import Pinfantil from "../components/ProteccionInfantil/ProteccionInfantil";
+
+const ProteccionInfantil = () => {
   return (
     <>
-      <HeroSoftware />
-      <Serviciodesarrollo />
-  
 
-      <ContactForm />
+      <Pinfantil />
 
     </>
   );
 };
 
-export default SoftwarePage;  
+export default ProteccionInfantil; 
