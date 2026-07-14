@@ -1,12 +1,76 @@
 import "./Contacta.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import logoElite from "../../assets/logo/logo.svg";
+import {
+  FaWhatsapp,
+  FaHeadset,
+  FaEnvelope,
+  FaInstagram,
+  FaPhoneVolume,
+} from "react-icons/fa6";
 
 export default function ContactElite() {
   const ref = useRef();
 
+  /* ===========================
+     EFECTO MAQUINA DE ESCRIBIR
+  =========================== */
 
+  const textoCompleto = "CONTÁCTANOS";
+  const [titulo, setTitulo] = useState("");
+
+  /* ===========================
+     FORMULARIO
+  =========================== */
+
+  const [form, setForm] = useState({
+    nombre: "",
+    telefono: "",
+    correo: "",
+    asunto: "",
+    mensaje: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const texto = `
+🌐 *NUEVA SOLICITUD WEB MASTER*
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+👤 *Nombre:*
+${form.nombre}
+
+📞 *Teléfono:*
+${form.telefono}
+
+📧 *Correo:*
+${form.correo}
+
+📝 *Asunto:*
+${form.asunto}
+
+💬 *Mensaje:*
+${form.mensaje}
+`;
+
+    window.open(
+      `https://wa.me/573176683567?text=${encodeURIComponent(texto)}`,
+      "_blank"
+    );
+  };
+
+  /* ===========================
+     ANIMACIÓN AL HACER SCROLL
+  =========================== */
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,79 +79,182 @@ export default function ContactElite() {
           ref.current.classList.add("ce-visible");
         }
       },
-      { threshold: 0.2 }
+      {
+        threshold: 0.2,
+      }
     );
 
-    observer.observe(ref.current);
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* ===========================
+     MAQUINA DE ESCRIBIR
+  =========================== */
+
+  useEffect(() => {
+    let i = 0;
+
+    const escribir = setInterval(() => {
+      setTitulo(textoCompleto.slice(0, i + 1));
+
+      i++;
+
+      if (i >= textoCompleto.length) {
+        clearInterval(escribir);
+      }
+    }, 110);
+
+    return () => clearInterval(escribir);
   }, []);
 
   return (
     <section className="ce-container" ref={ref}>
+      {/*==========================================
+      COLUMNA IZQUIERDA
+      ==========================================*/}
 
-      {/* LEFT */}
       <div className="ce-left">
         <h2 className="ce-title">
-          <span>›</span> CONTÁCTANOS
+          <span className="arrow">›</span>
+
+          {titulo}
+
+          <span className="typing-cursor">|</span>
         </h2>
 
-        {/* WHATSAPP */}
+        {/* WhatsApp */}
+
         <div className="ce-whatsapp">
-          <div className="ce-dot"></div>
+          <FaWhatsapp className="ce-big-icon" />
+
           <span>324 505 6199</span>
         </div>
 
-        <button className="ce-btn">Saber más</button>
+        {/* Soporte */}
 
         <div className="ce-item">
-          <h4>LÍNEA DE SOPORTE</h4>
+          <div className="ce-item-title">
+            <FaHeadset className="ce-icon" />
+
+            <h4>LÍNEA DE SOPORTE</h4>
+          </div>
+
           <p>317 668 3567</p>
         </div>
 
+        {/* Ventas */}
 
         <div className="ce-item">
-          <h4>LÍNEA DE VENTAS</h4>
+          <div className="ce-item-title">
+            <FaPhoneVolume className="ce-icon" />
+
+            <h4>LÍNEA DE VENTAS</h4>
+          </div>
+
           <p>317 668 3567</p>
         </div>
 
+        {/* Correo */}
 
         <div className="ce-item">
-          <h4>CORREO</h4>
-          <p className="ce-link">info@webmastercolombia.net</p>
+          <div className="ce-item-title">
+            <FaEnvelope className="ce-icon" />
+
+            <h4>CORREO ELECTRÓNICO</h4>
+          </div>
+
+          <p className="ce-link">
+            info@webmastercolombia.net
+          </p>
         </div>
 
+        {/* Instagram */}
+
         <div className="ce-item">
-          <h4>INSTAGRAM</h4>
+          <div className="ce-item-title">
+            <FaInstagram className="ce-icon" />
+
+            <h4>INSTAGRAM</h4>
+          </div>
+
           <p>@web_mastercolombia</p>
         </div>
       </div>
 
-      {/* FORM */}
+      {/*==========================================
+      FORMULARIO
+      ==========================================*/}
+
       <div className="ce-form">
-
         <h3>Solicita Asesoría Gratuita</h3>
+
         <p>
-          Déjanos tus datos y uno de nuestros asesores te contactará en menos de 15 minutos.
-        </p>        <p>Déjanos tus datos y te contactamos rápidamente.</p>
+          Déjanos tus datos y uno de nuestros asesores se
+          pondrá en contacto contigo en el menor tiempo
+          posible.
+        </p>
 
-        <form className="ce-form-box">
+        <form
+          className="ce-form-box"
+          onSubmit={handleSubmit}
+        >
           <div className="ce-row">
-            <input placeholder="Nombre" />
-            <input placeholder="Teléfono" />
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre completo"
+              value={form.nombre}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="tel"
+              name="telefono"
+              placeholder="Teléfono"
+              value={form.telefono}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="ce-row">
-            <input placeholder="Correo electrónico" />
-            <input placeholder="Asunto" />
+            <input
+              type="email"
+              name="correo"
+              placeholder="Correo electrónico"
+              value={form.correo}
+              onChange={handleChange}
+            />
+
+            <input
+              type="text"
+              name="asunto"
+              placeholder="Asunto"
+              value={form.asunto}
+              onChange={handleChange}
+            />
           </div>
 
-          <textarea placeholder="Mensaje"></textarea>
+          <textarea
+            name="mensaje"
+            placeholder="Cuéntanos cómo podemos ayudarte..."
+            rows={6}
+            value={form.mensaje}
+            onChange={handleChange}
+            required
+          />
 
-          <button type="submit" className="ce-submit">
+          <button
+            type="submit"
+            className="ce-submit"
+          >
             ENVIAR MENSAJE
           </button>
         </form>
       </div>
-
     </section>
   );
 }
