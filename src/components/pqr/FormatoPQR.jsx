@@ -32,7 +32,12 @@ export default function PQR() {
     motivo: "",
     asunto: "",
     descripcion: ""
+
   });
+
+  const [errors, setErrors] = useState({});
+
+  const [touched, setTouched] = useState({});
 
   /* =========================
      API
@@ -56,7 +61,129 @@ export default function PQR() {
       [key]: value
     }));
 
+    setTouched(prev => ({
+      ...prev,
+      [key]: true
+    }));
+
+    validateField(key, value);
+
   };
+  const validateField = (name, value) => {
+
+    let error = "";
+
+    switch (name) {
+
+      case "nombre":
+
+        if (!value.trim()) {
+
+          error = "El nombre es obligatorio";
+
+        } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(value)) {
+
+          error = "Solo se permiten letras";
+
+        } else if (value.trim().length < 3) {
+
+          error = "Debe tener mínimo 3 caracteres";
+
+        }
+
+        break;
+
+      case "documento":
+
+        if (!value) {
+
+          error = "El documento es obligatorio";
+
+        } else if (!/^\d+$/.test(value)) {
+
+          error = "Solo números";
+
+        } else if (value.length < 6) {
+
+          error = "Documento muy corto";
+
+        }
+
+        break;
+
+      case "correo":
+
+        if (!value.trim()) {
+
+          error = "El correo es obligatorio";
+
+        } else if (
+          !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)
+        ) {
+
+          error = "Ingrese un correo válido";
+
+        }
+
+        break;
+
+      case "telefono":
+
+        if (!value) {
+
+          error = "El teléfono es obligatorio";
+
+        } else if (!/^\d+$/.test(value)) {
+
+          error = "Solo números";
+
+        } else if (value.length !== 10) {
+
+          error = "Debe contener 10 dígitos";
+
+        }
+
+        break;
+
+      case "asunto":
+
+        if (!value.trim()) {
+
+          error = "El asunto es obligatorio";
+
+        } else if (value.length < 5) {
+
+          error = "Muy corto";
+
+        }
+
+        break;
+
+      case "descripcion":
+
+        if (!value.trim()) {
+
+          error = "La descripción es obligatoria";
+
+        } else if (value.length < 20) {
+
+          error = "Debe contener mínimo 20 caracteres";
+
+        }
+
+        break;
+
+      default:
+        break;
+    }
+
+    setErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
+
+  };
+
 
   const getNombre = (list, id) => {
 
@@ -323,15 +450,31 @@ export default function PQR() {
 
             <input
               type="text"
-              placeholder="Nombre completo"
+              placeholder="Nombre completo *"
               value={form.nombre}
               onChange={e =>
                 set(
                   "nombre",
-                  e.target.value
+                  e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, "")
                 )
               }
+              className={
+                touched.nombre
+                  ? errors.nombre
+                    ? "input-error"
+                    : "input-success"
+                  : ""
+              }
             />
+
+            {
+              touched.nombre &&
+              errors.nombre && (
+                <small className="error-text">
+                  {errors.nombre}
+                </small>
+              )
+            }
 
             <select
               value={
@@ -368,39 +511,89 @@ export default function PQR() {
 
             <input
               type="text"
-              placeholder="Documento"
+              placeholder="Documento *"
               value={form.documento}
               onChange={e =>
                 set(
                   "documento",
-                  e.target.value
+                  e.target.value.replace(/\D/g, "")
                 )
+              }
+              className={
+                touched.documento
+                  ? errors.documento
+                    ? "input-error"
+                    : "input-success"
+                  : ""
               }
             />
 
+            {
+              touched.documento &&
+              errors.documento && (
+                <small className="error-text">
+                  {errors.documento}
+                </small>
+              )
+            }
+
             <input
               type="email"
-              placeholder="Correo"
+              placeholder="Correo electrónico *"
               value={form.correo}
               onChange={e =>
                 set(
                   "correo",
-                  e.target.value
+                  e.target.value.trim()
                 )
+              }
+              className={
+                touched.correo
+                  ? errors.correo
+                    ? "input-error"
+                    : "input-success"
+                  : ""
               }
             />
 
+            {
+              touched.correo &&
+              errors.correo && (
+                <small className="error-text">
+                  {errors.correo}
+                </small>
+              )
+            }
+
             <input
               type="text"
-              placeholder="Teléfono"
+              inputMode="numeric"
+              maxLength={10}
+              placeholder="Teléfono *"
               value={form.telefono}
               onChange={e =>
                 set(
                   "telefono",
-                  e.target.value
+                  e.target.value.replace(/\D/g, "")
                 )
               }
+              className={
+                touched.telefono
+                  ? errors.telefono
+                    ? "input-error"
+                    : "input-success"
+                  : ""
+              }
             />
+
+            {
+              touched.telefono &&
+              errors.telefono && (
+                <small className="error-text">
+                  {errors.telefono}
+                </small>
+              )
+            }
 
             <button
               onClick={() => setStep(2)}

@@ -361,3 +361,36 @@
   }
 
 }
+
+
+.input-error{
+
+    border:2px solid #e53935 !important;
+
+    background:#fff7f7;
+
+}
+
+.input-success{
+
+    border:2px solid #22c55e !important;
+
+    background:#f8fff8;
+
+}
+
+.error-text{
+
+    display:block;
+
+    margin-top:6px;
+
+    margin-bottom:12px;
+
+    color:#e53935;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
