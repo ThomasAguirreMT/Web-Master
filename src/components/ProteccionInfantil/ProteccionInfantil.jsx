@@ -56,9 +56,7 @@ export default function Pinfantil() {
 
             <div className="proteccion-hero">
 
-                <span className="badge">
-                    PROTECCIÓN INFANTIL
-                </span>
+        
 
                 <h1>
                     Internet seguro para niños y adolescentes
@@ -81,7 +79,7 @@ export default function Pinfantil() {
 
                     rel="noopener noreferrer"
 
-                    className="hero-btn"
+                    className="hero-btnon"
 
                 >
 

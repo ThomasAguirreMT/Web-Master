@@ -82,9 +82,6 @@ export default function Normativa() {
 
             <div className="normativa-header">
 
-                <span className="badge">
-                    NORMATIVA
-                </span>
 
                 <h1>
                     Regulación del Sector TIC

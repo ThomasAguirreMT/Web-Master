@@ -42,23 +42,15 @@ export default function ContactElite() {
     e.preventDefault();
 
     const texto = `
-🌐 *NUEVA SOLICITUD WEB MASTER*
-
-━━━━━━━━━━━━━━━━━━━━━━
-
-👤 *Nombre:*
+!Hola! estoy interesado en recibir asesoria.
 ${form.nombre}
 
-📞 *Teléfono:*
 ${form.telefono}
 
-📧 *Correo:*
 ${form.correo}
 
-📝 *Asunto:*
 ${form.asunto}
 
-💬 *Mensaje:*
 ${form.mensaje}
 `;
 
@@ -129,7 +121,7 @@ ${form.mensaje}
         <div className="ce-whatsapp">
           <FaWhatsapp className="ce-big-icon" />
 
-          <span>324 505 6199</span>
+          <span> 317 668      3567</span>
         </div>
 
         {/* Soporte */}

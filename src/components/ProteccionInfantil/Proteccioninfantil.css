@@ -1,6 +1,6 @@
 .proteccion{
 
-    background:#05080f;
+    background:#020202;
 
     color:white;
 
@@ -72,7 +72,7 @@
 
 }
 
-.hero-btn{
+.hero-btnon{
 
     display:inline-flex;
 
@@ -476,6 +476,8 @@ font-size:30px;
 }
 
 .canal-card span{
+
+    
 
     font-size:22px;
 
