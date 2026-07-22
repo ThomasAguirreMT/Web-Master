@@ -394,3 +394,147 @@
     font-weight:600;
 
 }
+
+.pqr-counter{
+
+    text-align:right;
+
+    font-size:.82rem;
+
+    color:#6b7280;
+
+    margin-top:-8px;
+
+    margin-bottom:18px;
+
+}
+
+.pqr-upload{
+
+    margin-top:20px;
+
+}
+
+.upload-info{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:.8rem;
+
+    color:#777;
+
+}
+
+.archivo-ok{
+
+    margin-top:12px;
+
+    color:#16a34a;
+
+    font-weight:600;
+
+}
+
+
+
+/*==============================
+UPLOAD
+==============================*/
+
+.pqr-upload{
+
+    margin-top:25px;
+
+}
+
+.pqr-label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+.pqr-label span{
+
+    font-weight:400;
+
+    color:#777;
+
+}
+
+.btn-upload{
+
+    display:inline-block;
+
+    padding:12px 18px;
+
+    background:#0057d9;
+
+    color:#fff;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+    user-select:none;
+
+}
+
+.btn-upload:hover{
+
+    background:#0046b0;
+
+}
+
+.archivo-ok{
+
+    margin-top:15px;
+
+    padding:14px;
+
+    background:#f3fdf6;
+
+    border:1px solid #b8e6c3;
+
+    border-radius:8px;
+
+    color:#1b5e20;
+
+    word-break:break-word;
+
+}
+
+.upload-info{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#666;
+
+    font-size:.82rem;
+
+}
+
+.error-text{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#d32f2f;
+
+    font-size:.82rem;
+
+}

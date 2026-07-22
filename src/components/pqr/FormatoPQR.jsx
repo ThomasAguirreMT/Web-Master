@@ -1,11 +1,36 @@
 import { useState, useEffect } from "react";
-import "./Formatopqr.css";
+
+import "./FormatoPQR.css";
+
+import Header from "./components/Header";
+import Progress from "./components/Progress";
+import StepOne from "./components/StepOne";
+import StepTwo from "./components/StepTwo";
+import StepThree from "./components/StepThree";
+import Success from "./components/Success";
+
+import {
+  getTipos,
+  getTiposIdentificacion,
+  getSolicitudes,
+  getMotivos,
+  enviarPQR
+} from "./services/api";
+
+import {
+  getNombre,
+  getTipoIdNombre
+} from "./utils/helpers";
+
+import {
+  validateField
+} from "./utils/validation";
 
 export default function PQR() {
 
-  /* =========================
-     STATE
-  ========================= */
+  /*=========================
+      STATES
+  =========================*/
 
   const [step, setStep] = useState(1);
 
@@ -15,22 +40,36 @@ export default function PQR() {
 
   const [tipos, setTipos] = useState([]);
 
+  const [tiposId, setTiposId] = useState([]);
+
   const [solicitudes, setSolicitudes] = useState([]);
 
   const [motivos, setMotivos] = useState([]);
 
-  const [tiposId, setTiposId] = useState([]);
+  const [file, setFile] = useState(null);
+
+  const [fileError, setFileError] = useState("");
 
   const [form, setForm] = useState({
+
     nombre: "",
+
     tipo_identificacion: "",
+
     documento: "",
+
     correo: "",
+
     telefono: "",
+
     tipo: "",
+
     area: "",
+
     motivo: "",
+
     asunto: "",
+
     descripcion: ""
 
   });
@@ -39,20 +78,9 @@ export default function PQR() {
 
   const [touched, setTouched] = useState({});
 
-  /* =========================
-     API
-  ========================= */
-
-
-
-
-  const API =
-    "https://thomas.webmastercolombia.net";
-
-
-  /* =========================
-     HELPERS
-  ========================= */
+  /*=========================
+      SET FIELD
+  =========================*/
 
   const set = (key, value) => {
 
@@ -66,283 +94,118 @@ export default function PQR() {
       [key]: true
     }));
 
-    validateField(key, value);
-
-  };
-  const validateField = (name, value) => {
-
-    let error = "";
-
-    switch (name) {
-
-      case "nombre":
-
-        if (!value.trim()) {
-
-          error = "El nombre es obligatorio";
-
-        } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(value)) {
-
-          error = "Solo se permiten letras";
-
-        } else if (value.trim().length < 3) {
-
-          error = "Debe tener mínimo 3 caracteres";
-
-        }
-
-        break;
-
-      case "documento":
-
-        if (!value) {
-
-          error = "El documento es obligatorio";
-
-        } else if (!/^\d+$/.test(value)) {
-
-          error = "Solo números";
-
-        } else if (value.length < 6) {
-
-          error = "Documento muy corto";
-
-        }
-
-        break;
-
-      case "correo":
-
-        if (!value.trim()) {
-
-          error = "El correo es obligatorio";
-
-        } else if (
-          !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)
-        ) {
-
-          error = "Ingrese un correo válido";
-
-        }
-
-        break;
-
-      case "telefono":
-
-        if (!value) {
-
-          error = "El teléfono es obligatorio";
-
-        } else if (!/^\d+$/.test(value)) {
-
-          error = "Solo números";
-
-        } else if (value.length !== 10) {
-
-          error = "Debe contener 10 dígitos";
-
-        }
-
-        break;
-
-      case "asunto":
-
-        if (!value.trim()) {
-
-          error = "El asunto es obligatorio";
-
-        } else if (value.length < 5) {
-
-          error = "Muy corto";
-
-        }
-
-        break;
-
-      case "descripcion":
-
-        if (!value.trim()) {
-
-          error = "La descripción es obligatoria";
-
-        } else if (value.length < 20) {
-
-          error = "Debe contener mínimo 20 caracteres";
-
-        }
-
-        break;
-
-      default:
-        break;
-    }
+    const error = validateField(key, value);
 
     setErrors(prev => ({
       ...prev,
-      [name]: error
+      [key]: error
     }));
 
   };
 
-
-  const getNombre = (list, id) => {
-
-    return (
-      list.find(i => i.id == id)?.nombre || ""
-    );
-
-  };
-
-  const getTipoIdNombre = (id) => {
-
-    return (
-      tiposId.find(
-        t => t.id_tipo_identificacion == id
-      )?.tipo_identificacion || ""
-    );
-
-  };
-
-  /* =========================
-     INITIAL DATA
-  ========================= */
+  /*=========================
+      LOAD INITIAL DATA
+  =========================*/
 
   useEffect(() => {
 
-    const loadData = async () => {
+    const load = async () => {
 
       try {
 
         const [
-          tiposRes,
-          tiposIdRes
+
+          tiposData,
+
+          tiposIdData
+
         ] = await Promise.all([
 
-          fetch(`${API}/tipos-pqr`),
+          getTipos(),
 
-          fetch(
-            `${API}/tipos-identificacion`
-          )
+          getTiposIdentificacion()
 
         ]);
-
-        if (!tiposRes.ok || !tiposIdRes.ok) {
-
-          throw new Error(
-            "Error cargando datos"
-          );
-
-        }
-
-        const tiposData =
-          await tiposRes.json();
-
-        const tiposIdData =
-          await tiposIdRes.json();
 
         setTipos(tiposData);
 
         setTiposId(tiposIdData);
 
-      } catch (error) {
+      } catch (err) {
 
-        console.error(error);
+        console.error(err);
 
       }
 
     };
 
-    loadData();
+    load();
 
   }, []);
 
-  /* =========================
-     TIPO
-  ========================= */
+  /*=========================
+      HANDLE TIPO
+  =========================*/
 
   const handleTipo = async (value) => {
 
+    set("tipo", value);
+
+    set("area", "");
+
+    set("motivo", "");
+
+    setSolicitudes([]);
+
+    setMotivos([]);
+
+    if (!value) return;
+
     try {
 
-      set("tipo", value);
-
-      set("area", "");
-
-      set("motivo", "");
-
-      setSolicitudes([]);
-
-      setMotivos([]);
-
-      if (!value) return;
-
-      const res = await fetch(
-        `${API}/solicitudes/${value}`
-      );
-
-      if (!res.ok) {
-
-        throw new Error(
-          "Error cargando solicitudes"
-        );
-
-      }
-
-      const data = await res.json();
+      const data = await getSolicitudes(value);
 
       setSolicitudes(data);
 
-    } catch (error) {
+    } catch (err) {
 
-      console.error(error);
+      console.error(err);
 
     }
 
   };
 
-  /* =========================
-     SOLICITUD
-  ========================= */
+  /*=========================
+      HANDLE SOLICITUD
+  =========================*/
 
   const handleSolicitud = async (value) => {
 
+    set("area", value);
+
+    set("motivo", "");
+
+    setMotivos([]);
+
+    if (!value) return;
+
     try {
 
-      set("area", value);
-
-      set("motivo", "");
-
-      setMotivos([]);
-
-      if (!value) return;
-
-      const res = await fetch(
-        `${API}/motivos/${value}`
-      );
-
-      if (!res.ok) {
-
-        throw new Error(
-          "Error cargando motivos"
-        );
-
-      }
-
-      const data = await res.json();
+      const data = await getMotivos(value);
 
       setMotivos(data);
 
-    } catch (error) {
+    } catch (err) {
 
-      console.error(error);
+      console.error(err);
 
     }
 
   };
 
-  /* =========================
-     SUBMIT
-  ========================= */
+  /*=========================
+      SUBMIT
+  =========================*/
 
   const submit = async () => {
 
@@ -350,41 +213,17 @@ export default function PQR() {
 
       setLoading(true);
 
-      const res = await fetch(
-        `${API}/pqr`,
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type":
-              "application/json"
-          },
-
-          body: JSON.stringify(form)
-        }
-      );
-
-      if (!res.ok) {
-
-        throw new Error(
-          "Error enviando PQR"
-        );
-
-      }
-
-      const data = await res.json();
+      const data = await enviarPQR(form, file);
 
       setRadicado(data.radicado);
 
       setStep(4);
 
-    } catch (error) {
+    } catch (err) {
 
-      console.error(error);
+      console.error(err);
 
-      alert(
-        "No se pudo enviar la solicitud."
-      );
+      alert("No fue posible enviar la solicitud.");
 
     } finally {
 
@@ -392,11 +231,9 @@ export default function PQR() {
 
     }
 
-  };
-
-  /* =========================
-     RENDER
-  ========================= */
+  };    /*=========================
+        RENDER
+    =========================*/
 
   return (
 
@@ -404,448 +241,106 @@ export default function PQR() {
 
       <div className="pqr-box">
 
-        {/* HEADER */}
+        <Header />
 
-        <div className="pqr-header">
-
-          <h2>
-            Radicación <span>PQR</span>
-          </h2>
-
-          <p>
-            A través de este formulario
-            puedes registrar peticiones,
-            quejas o reclamos de forma
-            rápida y segura.
-          </p>
-
-        </div>
-
-        {/* STEPS */}
-
-        <div className="pqr-steps">
-
-          <div
-            className={`pqr-step ${step >= 1 ? "active" : ""
-              }`}
-          />
-
-          <div
-            className={`pqr-step ${step >= 2 ? "active" : ""
-              }`}
-          />
-
-          <div
-            className={`pqr-step ${step >= 3 ? "active" : ""
-              }`}
-          />
-
-        </div>
-
-        {/* PASO 1 */}
+        <Progress step={step} />
 
         {step === 1 && (
 
-          <>
+          <StepOne
 
-            <input
-              type="text"
-              placeholder="Nombre completo *"
-              value={form.nombre}
-              onChange={e =>
-                set(
-                  "nombre",
-                  e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, "")
-                )
-              }
-              className={
-                touched.nombre
-                  ? errors.nombre
-                    ? "input-error"
-                    : "input-success"
-                  : ""
-              }
-            />
+            form={form}
 
-            {
-              touched.nombre &&
-              errors.nombre && (
-                <small className="error-text">
-                  {errors.nombre}
-                </small>
-              )
-            }
+            set={set}
 
-            <select
-              value={
-                form.tipo_identificacion
-              }
-              onChange={e =>
-                set(
-                  "tipo_identificacion",
-                  e.target.value
-                )
-              }
-            >
+            tiposId={tiposId}
 
-              <option value="">
-                Tipo identificación
-              </option>
+            errors={errors}
 
-              {tiposId.map(t => (
+            touched={touched}
 
-                <option
-                  key={
-                    t.id_tipo_identificacion
-                  }
-                  value={
-                    t.id_tipo_identificacion
-                  }
-                >
-                  {t.tipo_identificacion}
-                </option>
+            setStep={setStep}
 
-              ))}
-
-            </select>
-
-            <input
-              type="text"
-              placeholder="Documento *"
-              value={form.documento}
-              onChange={e =>
-                set(
-                  "documento",
-                  e.target.value.replace(/\D/g, "")
-                )
-              }
-              className={
-                touched.documento
-                  ? errors.documento
-                    ? "input-error"
-                    : "input-success"
-                  : ""
-              }
-            />
-
-            {
-              touched.documento &&
-              errors.documento && (
-                <small className="error-text">
-                  {errors.documento}
-                </small>
-              )
-            }
-
-            <input
-              type="email"
-              placeholder="Correo electrónico *"
-              value={form.correo}
-              onChange={e =>
-                set(
-                  "correo",
-                  e.target.value.trim()
-                )
-              }
-              className={
-                touched.correo
-                  ? errors.correo
-                    ? "input-error"
-                    : "input-success"
-                  : ""
-              }
-            />
-
-            {
-              touched.correo &&
-              errors.correo && (
-                <small className="error-text">
-                  {errors.correo}
-                </small>
-              )
-            }
-
-            <input
-              type="text"
-              inputMode="numeric"
-              maxLength={10}
-              placeholder="Teléfono *"
-              value={form.telefono}
-              onChange={e =>
-                set(
-                  "telefono",
-                  e.target.value.replace(/\D/g, "")
-                )
-              }
-              className={
-                touched.telefono
-                  ? errors.telefono
-                    ? "input-error"
-                    : "input-success"
-                  : ""
-              }
-            />
-
-            {
-              touched.telefono &&
-              errors.telefono && (
-                <small className="error-text">
-                  {errors.telefono}
-                </small>
-              )
-            }
-
-            <button
-              onClick={() => setStep(2)}
-            >
-              Continuar
-            </button>
-
-          </>
+          />
 
         )}
-
-        {/* PASO 2 */}
 
         {step === 2 && (
 
-          <>
+          <StepTwo
 
-            <select
-              value={form.tipo}
-              onChange={e =>
-                handleTipo(
-                  e.target.value
-                )
-              }
-            >
+            form={form}
 
-              <option value="">
-                Tipo PQR
-              </option>
+            set={set}
 
-              {tipos.map(t => (
+            tipos={tipos}
 
-                <option
-                  key={t.id}
-                  value={t.id}
-                >
-                  {t.nombre}
-                </option>
+            solicitudes={solicitudes}
 
-              ))}
+            motivos={motivos}
 
-            </select>
+            handleTipo={handleTipo}
 
-            <select
-              value={form.area}
-              onChange={e =>
-                handleSolicitud(
-                  e.target.value
-                )
-              }
-            >
+            handleSolicitud={handleSolicitud}
 
-              <option value="">
-                Solicitud
-              </option>
+            errors={errors}
 
-              {solicitudes.map(s => (
+            touched={touched}
 
-                <option
-                  key={s.id}
-                  value={s.id}
-                >
-                  {s.nombre}
-                </option>
+            file={file}
 
-              ))}
+            setFile={setFile}
 
-            </select>
+            fileError={fileError}
 
-            <select
-              value={form.motivo}
-              onChange={e =>
-                set(
-                  "motivo",
-                  e.target.value
-                )
-              }
-            >
+            setFileError={setFileError}
 
-              <option value="">
-                Motivo
-              </option>
+            setStep={setStep}
 
-              {motivos.map(m => (
-
-                <option
-                  key={m.id}
-                  value={m.id}
-                >
-                  {m.nombre}
-                </option>
-
-              ))}
-
-            </select>
-
-            <input
-              type="text"
-              placeholder="Asunto"
-              value={form.asunto}
-              onChange={e =>
-                set(
-                  "asunto",
-                  e.target.value
-                )
-              }
-            />
-
-            <textarea
-              placeholder="Describe tu solicitud"
-              value={form.descripcion}
-              onChange={e =>
-                set(
-                  "descripcion",
-                  e.target.value
-                )
-              }
-            />
-
-            <div className="pqr-actions">
-
-              <button
-                className="pqr-secondary"
-                onClick={() => setStep(1)}
-              >
-                Atrás
-              </button>
-
-              <button
-                onClick={() => setStep(3)}
-              >
-                Continuar
-              </button>
-
-            </div>
-
-          </>
+          />
 
         )}
-
-        {/* PASO 3 */}
 
         {step === 3 && (
 
-          <>
+          <StepThree
 
-            <div className="pqr-resume">
+            form={form}
 
-              <p>
-                <b>Nombre:</b>{" "}
-                {form.nombre}
-              </p>
+            tipos={tipos}
 
-              <p>
-                <b>
-                  Tipo identificación:
-                </b>{" "}
-                {getTipoIdNombre(
-                  form.tipo_identificacion
-                )}
-              </p>
+            solicitudes={solicitudes}
 
-              <p>
-                <b>Documento:</b>{" "}
-                {form.documento}
-              </p>
+            motivos={motivos}
 
-              <p>
-                <b>Correo:</b>{" "}
-                {form.correo}
-              </p>
+            tiposId={tiposId}
 
-              <p>
-                <b>Teléfono:</b>{" "}
-                {form.telefono}
-              </p>
+            getNombre={getNombre}
 
-              <p>
-                <b>Tipo PQR:</b>{" "}
-                {getNombre(
-                  tipos,
-                  form.tipo
-                )}
-              </p>
+            getTipoIdNombre={() =>
+              getTipoIdNombre(
+                tiposId,
+                form.tipo_identificacion
+              )
+            }
 
-              <p>
-                <b>Solicitud:</b>{" "}
-                {getNombre(
-                  solicitudes,
-                  form.area
-                )}
-              </p>
+            loading={loading}
 
-              <p>
-                <b>Motivo:</b>{" "}
-                {getNombre(
-                  motivos,
-                  form.motivo
-                )}
-              </p>
+            submit={submit}
 
-              <p>
-                <b>Asunto:</b>{" "}
-                {form.asunto}
-              </p>
+            setStep={setStep}
 
-            </div>
-
-            <div className="pqr-actions">
-
-              <button
-                className="pqr-secondary"
-                onClick={() => setStep(2)}
-              >
-                Atrás
-              </button>
-
-              <button
-                onClick={submit}
-                disabled={loading}
-              >
-                {loading
-                  ? "Enviando..."
-                  : "Enviar"}
-              </button>
-
-            </div>
-
-          </>
+          />
 
         )}
 
-        {/* SUCCESS */}
-
         {step === 4 && (
 
-          <div className="pqr-success">
+          <Success
 
-            <h3>
-              Solicitud enviada
-              correctamente
-            </h3>
+            radicado={radicado}
 
-            <p>
-              Tu número de radicado es:
-            </p>
-
-            <div className="pqr-radicado">
-              {radicado}
-            </div>
-
-          </div>
+          />
 
         )}
 
@@ -854,4 +349,5 @@ export default function PQR() {
     </div>
 
   );
+
 }

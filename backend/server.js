@@ -15,8 +15,24 @@ const app = express();
    MIDDLEWARES
 ======================== */
 app.use(helmet());
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
-app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://webmastercolombia.net",
+  "https://www.webmastercolombia.net"
+];
+
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    callback(new Error("No permitido por CORS"));
+  }
+}));app.use(express.json());
 app.use(morgan("combined"));
 
 app.use(rateLimit({
