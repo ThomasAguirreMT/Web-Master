@@ -32,7 +32,7 @@ export default function StepOne({
 
             <Input
 
-                label="Nombre completo"
+            
 
                 required
 
@@ -66,7 +66,7 @@ export default function StepOne({
 
             <Select
 
-                label="Tipo de identificación"
+              
 
                 required
 
@@ -120,7 +120,7 @@ export default function StepOne({
 
             <Input
 
-                label="Documento"
+
 
                 required
 
@@ -150,13 +150,11 @@ export default function StepOne({
 
             <Input
 
-                label="Correo electrónico"
-
                 required
 
                 type="email"
 
-                placeholder="correo@ejemplo.com"
+                placeholder="correo@ejemplo.com outlook o gmail "
 
                 value={form.correo}
 
@@ -180,8 +178,7 @@ export default function StepOne({
 
             <Input
 
-                label="Teléfono"
-
+              
                 required
 
                 placeholder="3001234567"

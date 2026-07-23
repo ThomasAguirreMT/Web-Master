@@ -6,10 +6,13 @@ const request = async (endpoint, options = {}) => {
 
     if (!response.ok) {
 
-        throw new Error(`Error ${response.status}`);
+        const error = await response.text();
+
+        console.error(error);
+
+        throw new Error(error);
 
     }
-
     return response.json();
 
 };
@@ -30,22 +33,28 @@ export const getMotivos = (idSolicitud) =>
 
     request(`/motivos/${idSolicitud}`);
 
-export const enviarPQR = (form) =>
+export const enviarPQR = (form, file) => {
 
-    request("/pqr", {
+    const formData = new FormData();
+
+    Object.keys(form).forEach((key) => {
+
+        formData.append(key, form[key]);
+
+    });
+
+    if (file) {
+
+        formData.append("archivo", file);
+
+    }
+
+    return request("/pqr", {
 
         method: "POST",
 
-        headers: {
+        body: formData
 
-            "Content-Type": "application/json"
-
-        },
-
-        body: JSON.stringify(form)
-
-
-        
     });
 
-
+};

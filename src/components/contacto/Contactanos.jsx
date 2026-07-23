@@ -42,7 +42,7 @@ export default function ContactElite() {
     e.preventDefault();
 
     const texto = `
-!Hola! estoy interesado en recibir asesoria.
+!Hola vi la pagina! estoy interesado en recibir asesoria.
 ${form.nombre}
 
 ${form.telefono}

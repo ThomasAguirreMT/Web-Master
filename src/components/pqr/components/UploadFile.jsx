@@ -12,8 +12,8 @@ export default function UploadFile({
 
             <label className="pqr-label">
 
-                Adjuntar soporte
-                <span> (Opcional)</span>
+                Adjuntar EVIDENCIA
+
 
             </label>
 
@@ -23,7 +23,7 @@ export default function UploadFile({
 
                 type="file"
 
-                accept=".pdf,.jpg,.jpeg,.png"
+                accept=".pdf"
 
                 onChange={onChange}
 
@@ -32,15 +32,10 @@ export default function UploadFile({
             />
 
             <label
-
                 htmlFor="pqr-file"
-
                 className="btn-upload"
-
             >
-
-                📎 Seleccionar archivo
-
+                Seleccionar archivo
             </label>
 
             {
@@ -49,11 +44,7 @@ export default function UploadFile({
 
                     <div className="archivo-ok">
 
-                        <strong>Archivo:</strong>
-
-                        <br />
-
-                        {file.name}
+                        <strong>{file.name}</strong>
 
                         <br />
 
@@ -85,8 +76,7 @@ export default function UploadFile({
 
             <small className="upload-info">
 
-                Formatos permitidos: PDF, JPG, JPEG y PNG.
-
+                Adjunte un único archivo PDF (máximo 10 MB). Si tiene varios documentos, únalos en un solo PDF antes de enviarlo.
                 <br />
 
                 Tamaño máximo permitido: 10 MB.

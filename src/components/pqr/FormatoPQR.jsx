@@ -144,6 +144,22 @@ export default function PQR() {
   }, []);
 
   /*=========================
+    SCROLL AL CAMBIAR STEP
+=========================*/
+
+useEffect(() => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}, [step]);
+
+  /*=========================
       HANDLE TIPO
   =========================*/
 
@@ -351,3 +367,5 @@ export default function PQR() {
   );
 
 }
+
+
