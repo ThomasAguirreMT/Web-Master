@@ -586,3 +586,99 @@
     font-weight:600;
 
 }
+
+
+/*==========================================
+  VERIFICACIÓN DE CORREO
+==========================================*/
+
+.correo-info{
+
+    display:flex;
+
+    gap:16px;
+
+    padding:18px;
+
+    margin:20px 0;
+
+    border:1px solid rgba(0,157,255,.25);
+
+    background:rgba(0,157,255,.05);
+
+    border-radius:14px;
+
+}
+
+.correo-info-icono{
+
+    font-size:28px;
+
+}
+
+.correo-info h4{
+
+    margin:0 0 10px;
+
+    color:#ffffff;
+
+}
+
+.correo-info p{
+
+    margin:0 0 12px;
+
+    color:#c8d2dc;
+
+}
+
+.correo-info ol{
+
+    margin:0 0 12px 18px;
+
+    color:#d8e1ea;
+
+}
+
+.correo-info small{
+
+    color:#37d67a;
+
+    font-weight:600;
+
+}
+
+.correo-ok{
+
+    margin:18px 0;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    background:rgba(34,197,94,.12);
+
+    border:1px solid rgba(34,197,94,.35);
+
+    color:#22c55e;
+
+}
+
+.correo-ok strong{
+
+    display:block;
+
+    font-size:16px;
+
+}
+
+.correo-ok small{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#c9f7d7;
+
+}
+

@@ -10,12 +10,11 @@ export default function StepOne({
     touched,
     setStep,
 
-    enviarCodigo,
-    enviandoCodigo,
     mensajeCodigo,
 
     codigo,
     setCodigo,
+
 
     correoVerificado
 
@@ -151,6 +150,36 @@ export default function StepOne({
 
             />
 
+            {/*==========================================
+                INFORMACIÓN
+            ==========================================*/}
+
+            {
+
+                !mensajeCodigo && !correoVerificado && (
+
+                    <div className="correo-info">
+
+                        <h4>
+
+                             Verifica tu correo electrónico
+
+                        </h4>
+
+                        <p>
+
+                            Ingresa tu correo electrónico y
+
+                            enviaremos automáticamente un código de verificación para poder continuar con tu solicitud.
+
+                        </p>
+
+                    </div>
+
+                )
+
+            }
+
             <Input
 
                 required
@@ -173,55 +202,37 @@ export default function StepOne({
 
                 }
 
+              
+
                 error={errors.correo}
 
                 touched={touched.correo}
 
             />
 
+            {/*==========================================
+                ESTADO VERIFICACIÓN
+            ==========================================*/}
+
             <div className="correo-verificacion">
 
                 {
 
-                    !correoVerificado ? (
+                    mensajeCodigo && !correoVerificado && (
 
-                        <button
+                        <div className="correo-info enviado">
 
-                            type="button"
+                            <h4>
 
-                            className="btn-enviar-codigo"
+                                Código enviado
 
-                            onClick={enviarCodigo}
+                            </h4>
 
-                            disabled={
+                            <p>
 
-                                enviandoCodigo ||
+                                Revisa tu correo electrónico e ingresa el código de 6 dígitos.
 
-                                !form.correo ||
-
-                                errors.correo
-
-                            }
-
-                        >
-
-                            {
-
-                                enviandoCodigo
-
-                                    ? "Enviando..."
-
-                                    : "Enviar código"
-
-                            }
-
-                        </button>
-
-                    ) : (
-
-                        <div className="correo-ok">
-
-                             Correo verificado
+                            </p>
 
                         </div>
 
@@ -230,22 +241,34 @@ export default function StepOne({
                 }
 
                 {
-                    mensajeCodigo && !correoVerificado && (
 
-                        <small className="mensaje-codigo">
+                    correoVerificado && (
 
-                            {mensajeCodigo}
+                        <div className="correo-ok">
 
-                        </small>
+                            <strong>
+
+                                Correo verificado
+
+                            </strong>
+
+                            <small>
+
+                                Ya puedes continuar con tu solicitud.
+
+                            </small>
+
+                        </div>
 
                     )
+
                 }
 
             </div>
 
             {
 
-                mensajeCodigo && (
+                mensajeCodigo && !correoVerificado && (
 
                     <Input
 
@@ -256,8 +279,6 @@ export default function StepOne({
                         inputMode="numeric"
 
                         maxLength={6}
-
-                        disabled={correoVerificado}
 
                         onChange={(e) =>
 

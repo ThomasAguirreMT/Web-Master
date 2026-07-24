@@ -9,6 +9,9 @@ import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
 import Success from "./components/Success";
 
+
+import { useRef } from "react";
+
 import {
   getTipos,
   getTiposIdentificacion,
@@ -50,6 +53,11 @@ export default function PQR() {
   const [file, setFile] = useState(null);
 
   const [fileError, setFileError] = useState("");
+
+  const ultimoCorreo = useRef("");
+
+
+  const timerCorreo = useRef(null);
 
   const [form, setForm] = useState({
 
@@ -110,6 +118,29 @@ export default function PQR() {
       [key]: error
     }));
 
+    if (key === "correo") {
+
+      setCorreoVerificado(false);
+
+      setMensajeCodigo("");
+
+      setCodigo("");
+
+      ultimoCorreo.current = "";
+
+      clearTimeout(timerCorreo.current);
+
+      if (!error && value) {
+
+        timerCorreo.current = setTimeout(() => {
+
+          enviarCodigoAutomatico(value);
+
+        }, 800);
+
+      }
+
+    }
   };
 
   /*=========================
@@ -232,30 +263,26 @@ export default function PQR() {
     ENVIAR CÓDIGO
 =========================*/
 
-  const enviarCodigoCorreo = async () => {
 
-    if (!form.correo) {
+  const enviarCodigoAutomatico = async (correo) => {
 
-      alert("Ingrese primero un correo.");
+    if (!correo) return;
 
-      return;
+    if (ultimoCorreo.current === correo) return;
 
-    }
+    ultimoCorreo.current = correo;
 
     try {
 
       setEnviandoCodigo(true);
 
-      setMensajeCodigo("");
+      await enviarCodigo(correo);
 
-      await enviarCodigo(form.correo);
+      setMensajeCodigo("📨 Te enviamos un código de verificación.");
 
-      setMensajeCodigo("Te enviamos un código de verificación a tu correo.");
     } catch (err) {
 
       console.error(err);
-
-      alert("No fue posible enviar el código.");
 
     } finally {
 
@@ -349,9 +376,7 @@ export default function PQR() {
 
             setStep={setStep}
 
-            enviarCodigo={enviarCodigoCorreo}
 
-            enviandoCodigo={enviandoCodigo}
 
             mensajeCodigo={mensajeCodigo}
 
@@ -366,6 +391,8 @@ export default function PQR() {
             }}
 
             correoVerificado={correoVerificado}
+
+        
 
           />
 

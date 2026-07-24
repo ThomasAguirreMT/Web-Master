@@ -6,10 +6,12 @@ export default function Input({
     value,
     placeholder,
     onChange,
+    onBlur,
     error,
     touched,
     maxLength,
     inputMode,
+    disabled = false,
     className = ""
 
 }) {
@@ -39,6 +41,10 @@ export default function Input({
                 placeholder={placeholder}
 
                 onChange={onChange}
+
+                onBlur={onBlur}
+
+                disabled={disabled}
 
                 maxLength={maxLength}
 
