@@ -8,7 +8,16 @@ export default function StepOne({
     tiposId,
     errors,
     touched,
-    setStep
+    setStep,
+
+    enviarCodigo,
+    enviandoCodigo,
+    mensajeCodigo,
+
+    codigo,
+    setCodigo,
+
+    correoVerificado
 
 }) {
 
@@ -32,15 +41,13 @@ export default function StepOne({
 
             <Input
 
-            
-
                 required
 
                 placeholder="Nombre completo"
 
                 value={form.nombre}
 
-                onChange={(e)=>
+                onChange={(e) =>
 
                     set(
 
@@ -66,13 +73,11 @@ export default function StepOne({
 
             <Select
 
-              
-
                 required
 
                 value={form.tipo_identificacion}
 
-                onChange={(e)=>
+                onChange={(e) =>
 
                     set(
 
@@ -98,7 +103,7 @@ export default function StepOne({
 
                 {
 
-                    tiposId.map((t)=>(
+                    tiposId.map((t) => (
 
                         <option
 
@@ -120,8 +125,6 @@ export default function StepOne({
 
             <Input
 
-
-
                 required
 
                 placeholder="Número de documento"
@@ -130,13 +133,13 @@ export default function StepOne({
 
                 inputMode="numeric"
 
-                onChange={(e)=>
+                onChange={(e) =>
 
                     set(
 
                         "documento",
 
-                        e.target.value.replace(/\D/g,"")
+                        e.target.value.replace(/\D/g, "")
 
                     )
 
@@ -154,11 +157,11 @@ export default function StepOne({
 
                 type="email"
 
-                placeholder="correo@ejemplo.com outlook o gmail "
+                placeholder="correo@ejemplo.com"
 
                 value={form.correo}
 
-                onChange={(e)=>
+                onChange={(e) =>
 
                     set(
 
@@ -176,9 +179,104 @@ export default function StepOne({
 
             />
 
+            <div className="correo-verificacion">
+
+                {
+
+                    !correoVerificado ? (
+
+                        <button
+
+                            type="button"
+
+                            className="btn-enviar-codigo"
+
+                            onClick={enviarCodigo}
+
+                            disabled={
+
+                                enviandoCodigo ||
+
+                                !form.correo ||
+
+                                errors.correo
+
+                            }
+
+                        >
+
+                            {
+
+                                enviandoCodigo
+
+                                    ? "Enviando..."
+
+                                    : "Enviar código"
+
+                            }
+
+                        </button>
+
+                    ) : (
+
+                        <div className="correo-ok">
+
+                             Correo verificado
+
+                        </div>
+
+                    )
+
+                }
+
+                {
+                    mensajeCodigo && !correoVerificado && (
+
+                        <small className="mensaje-codigo">
+
+                            {mensajeCodigo}
+
+                        </small>
+
+                    )
+                }
+
+            </div>
+
+            {
+
+                mensajeCodigo && (
+
+                    <Input
+
+                        placeholder="Código de verificación"
+
+                        value={codigo}
+
+                        inputMode="numeric"
+
+                        maxLength={6}
+
+                        disabled={correoVerificado}
+
+                        onChange={(e) =>
+
+                            setCodigo(
+
+                                e.target.value.replace(/\D/g, "")
+
+                            )
+
+                        }
+
+                    />
+
+                )
+
+            }
+
             <Input
 
-              
                 required
 
                 placeholder="3001234567"
@@ -189,13 +287,13 @@ export default function StepOne({
 
                 maxLength={10}
 
-                onChange={(e)=>
+                onChange={(e) =>
 
                     set(
 
                         "telefono",
 
-                        e.target.value.replace(/\D/g,"")
+                        e.target.value.replace(/\D/g, "")
 
                     )
 
@@ -211,9 +309,15 @@ export default function StepOne({
 
                 <button
 
-                    onClick={()=>setStep(2)}
+                    onClick={() => setStep(2)}
 
-                    disabled={!puedeContinuar}
+                    disabled={
+
+                        !puedeContinuar ||
+
+                        !correoVerificado
+
+                    }
 
                 >
 

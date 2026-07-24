@@ -58,3 +58,51 @@ export const enviarPQR = (form, file) => {
     });
 
 };
+
+
+export const enviarCodigo = (correo) => {
+
+    return request("/correo/enviar-codigo", {
+
+        method: "POST",
+
+        headers: {
+
+            "Content-Type": "application/json"
+
+        },
+
+        body: JSON.stringify({
+
+            correo
+
+        })
+
+    });
+
+};
+
+
+export const verificarCodigo = (correo, codigo) => {
+
+    return request("/correo/verificar", {
+
+        method: "POST",
+
+        headers: {
+
+            "Content-Type": "application/json"
+
+        },
+
+        body: JSON.stringify({
+
+            correo,
+
+            codigo
+
+        })
+
+    });
+
+};

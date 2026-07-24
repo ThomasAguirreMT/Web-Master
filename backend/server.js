@@ -12,8 +12,16 @@ const morgan = require("morgan");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
+/*=====================================================
+=            CONFIGURACIÓN DE crypto es para el codigo de los correos
+=====================================================*/
+
+const crypto = require("crypto");
 
 const app = express();
+
+
+
 
 /*=====================================================
 =            CONFIGURACIÓN DE MULTER                  =
@@ -294,6 +302,196 @@ app.get("/motivos/:id", async (req, res) => {
 
 });
 
+
+/*=====================================================
+=            ENVIAR CÓDIGO DE VERIFICACIÓN            =
+=====================================================*/
+
+app.post("/correo/enviar-codigo", async (req, res) => {
+
+    try {
+
+        const { correo } = req.body;
+
+        if (!correo) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                message: "Debe ingresar un correo."
+
+            });
+
+        }
+
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!regex.test(correo)) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                message: "Correo electrónico inválido."
+
+            });
+
+        }
+
+        /*==========================================
+        GENERAR CÓDIGO DE 6 DÍGITOS
+        ==========================================*/
+
+        const codigo = crypto.randomInt(100000, 1000000).toString();
+
+        /*==========================================
+        ELIMINAR CÓDIGOS ANTERIORES
+        ==========================================*/
+
+        await db.execute(
+
+            "DELETE FROM verificacion_correo WHERE correo = ?",
+
+            [correo]
+
+        );
+
+        /*==========================================
+        FECHA DE EXPIRACIÓN (10 MINUTOS)
+        ==========================================*/
+
+        const fechaExpiracion = new Date(
+
+            Date.now() + (10 * 60 * 1000)
+
+        );
+
+        /*==========================================
+        GUARDAR CÓDIGO
+        ==========================================*/
+
+        await db.execute(
+
+            `
+
+            INSERT INTO verificacion_correo
+
+            (
+
+                correo,
+
+                codigo,
+
+                intentos,
+
+                verificado,
+
+                usado,
+
+                fecha_expiracion
+
+            )
+
+            VALUES
+
+            (
+
+                ?, ?, 0, 0, 0, ?
+
+            )
+
+            `,
+
+            [
+
+                correo,
+
+                codigo,
+
+                fechaExpiracion
+
+            ]
+
+        );
+
+        /*==========================================
+        ENVIAR CORREO
+        ==========================================*/
+
+        await transporter.sendMail({
+
+            from: `Sistema PQR <${process.env.EMAIL_USER}>`,
+
+            to: correo,
+
+            subject: "Código de verificación",
+
+            html: `
+
+                <div style="font-family:Arial,sans-serif">
+
+                    <h2>Verificación de correo</h2>
+
+                    <p>
+
+                        Tu código de verificación es:
+
+                    </p>
+
+                    <h1 style="letter-spacing:6px">
+
+                        ${codigo}
+
+                    </h1>
+
+                    <p>
+
+                        Este código es válido durante
+
+                        <b>10 minutos</b>.
+
+                    </p>
+
+                    <hr>
+
+                    <small>
+
+                        Si no solicitaste este código,
+
+                        puedes ignorar este mensaje.
+
+                    </small>
+
+                </div>
+
+            `
+
+        });
+
+        return res.json({
+
+            success: true,
+
+            message: "Código enviado correctamente."
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+
+            success: false,
+
+            message: "No fue posible enviar el código."
+
+        });
+
+    }
+
+});
 /*=====================================================
 =            VALIDACIONES                             =
 =====================================================*/

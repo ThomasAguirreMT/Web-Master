@@ -554,3 +554,35 @@
     box-shadow:0 10px 25px rgba(0,153,255,.30);
 
 }
+
+
+
+.correo-ok{
+
+    color:#22c55e;
+
+    font-weight:700;
+
+    margin:10px 0;
+
+}
+
+.mensaje-codigo{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#9ca3af;
+
+    font-size:.9rem;
+
+}
+
+.mensaje-codigo.ok{
+
+    color:#22c55e;
+
+    font-weight:600;
+
+}

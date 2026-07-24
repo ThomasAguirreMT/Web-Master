@@ -14,9 +14,10 @@ import {
   getTiposIdentificacion,
   getSolicitudes,
   getMotivos,
-  enviarPQR
+  enviarPQR,
+  enviarCodigo,
+  verificarCodigo
 } from "./services/api";
-
 import {
   getNombre,
   getTipoIdNombre
@@ -77,6 +78,14 @@ export default function PQR() {
   const [errors, setErrors] = useState({});
 
   const [touched, setTouched] = useState({});
+
+  const [codigo, setCodigo] = useState("");
+
+  const [correoVerificado, setCorreoVerificado] = useState(false);
+
+  const [enviandoCodigo, setEnviandoCodigo] = useState(false);
+
+  const [mensajeCodigo, setMensajeCodigo] = useState("");
 
   /*=========================
       SET FIELD
@@ -147,17 +156,17 @@ export default function PQR() {
     SCROLL AL CAMBIAR STEP
 =========================*/
 
-useEffect(() => {
+  useEffect(() => {
 
     window.scrollTo({
 
-        top: 0,
+      top: 0,
 
-        behavior: "smooth"
+      behavior: "smooth"
 
     });
 
-}, [step]);
+  }, [step]);
 
   /*=========================
       HANDLE TIPO
@@ -220,6 +229,69 @@ useEffect(() => {
   };
 
   /*=========================
+    ENVIAR CÓDIGO
+=========================*/
+
+  const enviarCodigoCorreo = async () => {
+
+    if (!form.correo) {
+
+      alert("Ingrese primero un correo.");
+
+      return;
+
+    }
+
+    try {
+
+      setEnviandoCodigo(true);
+
+      setMensajeCodigo("");
+
+      await enviarCodigo(form.correo);
+
+      setMensajeCodigo("Te enviamos un código de verificación a tu correo.");
+    } catch (err) {
+
+      console.error(err);
+
+      alert("No fue posible enviar el código.");
+
+    } finally {
+
+      setEnviandoCodigo(false);
+
+    }
+
+  };
+  /*=========================
+    VERIFICAR CÓDIGO
+=========================*/
+
+  const verificarCodigoCorreo = async (valor) => {
+
+    if (valor.length !== 6) return;
+
+    try {
+
+      await verificarCodigo(form.correo, valor);
+
+      setCorreoVerificado(true);
+
+
+    } catch (err) {
+
+      console.error(err);
+
+      setCorreoVerificado(false);
+
+      setMensajeCodigo("❌ Código incorrecto.");
+
+    }
+
+  };
+
+  /*=========================
       SUBMIT
   =========================*/
 
@@ -276,6 +348,24 @@ useEffect(() => {
             touched={touched}
 
             setStep={setStep}
+
+            enviarCodigo={enviarCodigoCorreo}
+
+            enviandoCodigo={enviandoCodigo}
+
+            mensajeCodigo={mensajeCodigo}
+
+            codigo={codigo}
+
+            setCodigo={(valor) => {
+
+              setCodigo(valor);
+
+              verificarCodigoCorreo(valor);
+
+            }}
+
+            correoVerificado={correoVerificado}
 
           />
 
