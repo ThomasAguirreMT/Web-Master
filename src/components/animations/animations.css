@@ -1,117 +1,373 @@
+/* =========================================================
+   ANIMATIONS SECTION
+========================================================= */
+
 .animations-section {
-    display: flex;
+    width: 100%;
+    min-height: 520px;
+
+    display: grid;
+    grid-template-columns: 1fr minmax(420px, 650px) 1fr;
+
     align-items: center;
-    justify-content: space-between;
-    background-color: #ffffff;
-    padding: 80px 80px;
-    gap: 100px;
+    justify-items: center;
+
+    background: #ffffff;
+
+    padding: 70px 6%;
+
+    gap: 40px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
 
-/* COLUMNAS */
-.left {
-    flex: 0.1;
-}
 
-.center {
+/* =========================================================
+   CONTENEDORES
+========================================================= */
 
-    flex: 1.4;
-}
-
+.left,
+.center,
 .right {
-    flex: 0.8;
+    width: 100%;
 }
 
-/* IZQUIERDA */
+
+/* =========================================================
+   VIDEO IZQUIERDO
+========================================================= */
+
 .left {
-    margin-top: auto;
-    
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .left video {
-    width: 280px;
+    width: min(300px, 100%);
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
 }
 
-.label {
-    margin-top: 20px;
-    font-size: 100px;
+.left video:hover {
+    transform: translateY(-8px) scale(1.03);
 
+    filter: drop-shadow(
+        0 25px 35px rgba(0, 0, 0, 0.18)
+    );
 }
 
-/* CENTRO */
+
+/* =========================================================
+   CENTRO
+========================================================= */
+
 .center {
-    padding: 0 40px;
-    top: 45px;;
+    max-width: 620px;
+
+    padding: 35px 45px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.08);
+
+    position: relative;
 }
+
+
+/* Línea superior */
+
+.center::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 70px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        #00aaff,
+        #007bff
+    );
+
+    border-radius: 0 0 10px 10px;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
 
 .center ul {
-    list-style: disc;
-    font-size: 16px;
-    line-height: 1.8;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
 }
 
-/* DERECHA */
+
+.center li {
+
+    position: relative;
+
+    padding-left: 28px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #222;
+
+}
+
+
+/* Punto */
+
+.center li::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 10px;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #009cff;
+
+    box-shadow:
+        0 0 0 5px rgba(0, 156, 255, 0.10);
+}
+
+
+/* Negritas */
+
+.center strong {
+
+    color: #009cff;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   VIDEO DERECHO
+========================================================= */
+
 .right {
+
     display: flex;
+
     justify-content: center;
+
+    align-items: center;
 }
 
 .right video {
-    width: 230px;
+
+    width: min(260px, 100%);
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 20px 30px rgba(0, 0, 0, 0.12)
+    );
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
 }
 
-/* ========================= */
-/* 📱 TABLET */
-@media (max-width: 1024px) {
+.right video:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+    filter: drop-shadow(
+        0 25px 35px rgba(0, 0, 0, 0.18)
+    );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
 
     .animations-section {
-        padding: 60px 40px;
-        gap: 30px;
+
+        grid-template-columns:
+            0.8fr
+            minmax(350px, 1.4fr)
+            0.8fr;
+
+        padding: 60px 30px;
+
+        gap: 20px;
     }
 
-    .center {
-        padding: 0 20px;
-    }
+    .left video {
 
-    .left video,
-    .right video {
         width: 220px;
     }
 
-    .center ul {
-        font-size: 18px;
-    }
-}
-
-/* ========================= */
-/* 📱 MÓVIL */
-@media (max-width: 768px) {
-
-    .animations-section {
-        flex-direction: column; /* 🔥 CLAVE */
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    .left,
-    .center,
-    .right {
-        flex: unset;
-        width: 100%;
-    }
-
-    .center {
-        padding: 20px 0;
-    }
-
-    .left video,
     .right video {
+
         width: 200px;
     }
 
+    .center {
+
+        padding: 30px;
+    }
+
+    .center li {
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .animations-section {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 60px 30px;
+    }
+
+    .center {
+
+        order: 1;
+
+        max-width: 600px;
+
+        width: 100%;
+    }
+
+    .left {
+
+        order: 0;
+    }
+
+    .right {
+
+        order: 2;
+    }
+
+    .left video {
+
+        width: 230px;
+    }
+
+    .right video {
+
+        width: 220px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .animations-section {
+
+        padding: 45px 18px;
+
+        gap: 25px;
+    }
+
+    .center {
+
+        padding: 28px 22px;
+
+        border-radius: 20px;
+    }
+
     .center ul {
-        list-style-position: inside;
-        font-size: 16px;
+
+        gap: 15px;
+    }
+
+    .center li {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+        padding-left: 24px;
+    }
+
+    .center li::before {
+
+        width: 7px;
+        height: 7px;
+
+        top: 9px;
+    }
+
+    .left video {
+
+        width: 190px;
+    }
+
+    .right video {
+
+        width: 190px;
     }
 }
