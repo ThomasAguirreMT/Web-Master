@@ -3,214 +3,736 @@
 ========================= */
 
 .planes-section {
+
   background: #efefef;
+
   padding: 90px 70px;
-  font-family: 'Montserrat', sans-serif;
+
+  font-family: "Montserrat", sans-serif;
+
 }
+
 
 /* =========================
    HEADER
 ========================= */
 
 .planes-header {
+
   display: flex;
+
   align-items: center;
-  gap: 10px;
-  /* separación entre texto y flecha */
-  margin-bottom: 15px;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+
+  margin-left: 45px;
+
 }
 
-/* Título */
-.planes-header h2 {
-  margin-top: 10px;
-  margin-left: 45px;
+
+/* =========================
+   FLECHA DEL TÍTULO
+========================= */
+
+.planes-title-mark {
+
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #000;
+
+  flex-shrink: 0;
+
   position: relative;
+
+}
+
+
+/* Línea azul debajo de la flecha */
+
+.planes-title-mark::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: 2px;
+
+  left: 7px;
+
+  width: 28px;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #00aaff,
+    #2e3192
+  );
+
+  border-radius: 10px;
+
+}
+
+
+/* =========================
+   CONTENIDO DEL TÍTULO
+========================= */
+
+.planes-title-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+
+}
+
+
+/* Texto superior */
+
+.planes-eyebrow {
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #2e3192;
+
+  margin-bottom: 2px;
+
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+.planes-header h2 {
+
+  margin: 0;
+
   font-size: 34px;
-  font-weight: 800;
+
+  font-weight: 900;
 
   letter-spacing: 1px;
+
+  line-height: 1.1;
+
+  color: #050505;
+
 }
 
-/* Flecha como texto (›) */
-.arrow {
-  font-size: 80px;
-  font-weight: 800;
-  line-height: 1;
-  transform: translateY(-2px);
+
+/* PLANES EN AZUL */
+
+.planes-header h2 span {
+
+  color: #009cff;
+
 }
 
-/* Si usas flecha hecha con CSS */
-.arrow-icon {
-  width: 22px;
-  height: 22px;
-  border-right: 5px solid #000;
-  border-top: 5px solid #000;
-  transform: rotate(45deg);
-}
 
 /* =========================
    SUBTÍTULO
 ========================= */
 
 .planes-subtitle {
+
   max-width: 900px;
+
+  margin-left: 45px;
+
   margin-bottom: 70px;
+
   color: #444;
+
+  font-size: 16px;
+
   line-height: 1.6;
+
 }
 
+
 /* =========================
-   CONTENEDOR TARJETAS
+   CONTENEDOR DE TARJETAS
 ========================= */
 
 .planes-container {
+
   display: flex;
+
   justify-content: center;
+
+  align-items: stretch;
+
   gap: 40px;
+
   flex-wrap: wrap;
+
 }
+
 
 /* =========================
    CARD
 ========================= */
 
 .plan-card {
+
   background: #f4f4f4;
+
   width: 240px;
+
+  min-height: 410px;
+
   padding: 25px 25px 35px 25px;
+
   border-radius: 8px;
+
   border: 2px solid #38b6ff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+
   text-align: center;
+
   position: relative;
-  transition: all 0.35s ease;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
 }
 
+
+/* =========================
+   HOVER CARD
+========================= */
+
 .plan-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+
+  transform: translateY(-8px) scale(1.03);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.25);
+
 }
+
 
 /* =========================
    ICONO AZUL FLOTANTE
 ========================= */
 
 .icon-circle {
+
   position: absolute;
+
   top: -20px;
+
   right: -15px;
+
   background: #2e3192;
-  color: rgb(255, 255, 255);
+
+  color: #ffffff;
+
   width: 60px;
+
   height: 60px;
+
   border-radius: 50%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.35);
+
   z-index: 2;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+
 }
+
+
+/* Animación del icono */
+
+.plan-card:hover .icon-circle {
+
+  transform: rotate(180deg);
+
+  background: #009cff;
+
+}
+
 
 /* =========================
    RECTÁNGULO NEGRO SUPERIOR
 ========================= */
 
 .plan-top {
-  background: #000;
-  color: #fff;
+
+  background: #000000;
+
+  color: #ffffff;
+
   border-radius: 8px;
+
   padding: 40px 15px 30px 15px;
+
   margin-top: -60px;
+
   margin-bottom: 25px;
+
+  position: relative;
+
+  overflow: hidden;
+
 }
 
-.plan-top h3 {
-  font-size: 78px;
-  margin: 0;
-  font-weight: 900;
-  line-height: 1;
-}
 
-/* Línea azul debajo del número */
-.blue-line {
-  height: 2px;
+/* Brillo superior */
+
+.plan-top::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -100%;
+
   width: 100%;
-  margin: 12px auto 14px auto;
-  border-radius: 2px;
 
-  background: linear-gradient(90deg,
-      transparent,
-      #2e3192,
-      #38b6ff,
+  height: 2px;
 
-      #2e3192,
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #38b6ff,
+    transparent
+  );
+
+  animation: planLight 4s linear infinite;
+
 }
 
-.plan-top span {
-  font-size: 22px;
-  letter-spacing: 3px;
-  font-weight: 600;
+
+@keyframes planLight {
+
+  0% {
+
+    left: -100%;
+
+  }
+
+  50% {
+
+    left: 100%;
+
+  }
+
+  100% {
+
+    left: 100%;
+
+  }
+
 }
+
 
 /* =========================
-   TEXTO DESCRIPCIÓN
+   NÚMERO DE GIGAS
+========================= */
+
+.plan-top h3 {
+
+  font-size: 78px;
+
+  margin: 0;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+}
+
+
+/* =========================
+   LÍNEA AZUL
+========================= */
+
+.blue-line {
+
+  height: 2px;
+
+  width: 100%;
+
+  margin: 12px auto 14px auto;
+
+  border-radius: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #2e3192,
+    #38b6ff,
+    #2e3192,
+    transparent
+  );
+
+}
+
+
+/* =========================
+   TEXTO GIGAS
+========================= */
+
+.plan-top span {
+
+  font-size: 22px;
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+
+}
+
+
+/* =========================
+   DESCRIPCIÓN
 ========================= */
 
 .plan-text {
+
   font-size: 14px;
+
   color: #333;
+
   margin-bottom: 30px;
+
   line-height: 1.6;
+
 }
+
 
 /* =========================
    BOTÓN
 ========================= */
 
 .plan-btn {
-  background: linear-gradient(90deg, #1da1f2, #2e3192);
+
+  background: linear-gradient(
+    90deg,
+    #1da1f2,
+    #2e3192
+  );
+
   border: none;
-  color: white;
+
+  color: #ffffff;
+
   padding: 12px 24px;
+
   border-radius: 30px;
+
   font-size: 14px;
+
+  font-family: "Montserrat", sans-serif;
+
   cursor: pointer;
+
   display: flex;
+
   align-items: center;
+
+  justify-content: center;
+
   gap: 8px;
+
   margin: 0 auto;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
 }
+
+
+/* Hover botón */
 
 .plan-btn:hover {
+
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.35);
+
+  background: linear-gradient(
+    90deg,
+    #009cff,
+    #25277f
+  );
+
 }
 
+
 /* =========================
-   RESPONSIVE
+   ICONO DEL BOTÓN
+========================= */
+
+.plan-btn svg {
+
+  transition: transform 0.3s ease;
+
+}
+
+
+.plan-btn:hover svg {
+
+  transform: scale(1.15);
+
+}
+
+
+/* =========================
+   TABLET
 ========================= */
 
 @media (max-width: 1200px) {
-  .planes-container {
-    gap: 40px;
-  }
-}
 
-@media (max-width: 768px) {
   .planes-section {
-    padding: 70px 30px;
+
+    padding: 80px 40px;
+
   }
 
+
   .planes-container {
-    flex-direction: column;
-    align-items: center;
+
+    gap: 30px;
+
   }
+
 
   .plan-card {
-    width: 100%;
-    max-width: 320px;
+
+    width: 220px;
+
   }
+
+}
+
+
+/* =========================
+   TABLET PEQUEÑA
+========================= */
+
+@media (max-width: 992px) {
+
+  .planes-header {
+
+    margin-left: 20px;
+
+  }
+
+
+  .planes-subtitle {
+
+    margin-left: 20px;
+
+  }
+
+
+  .planes-container {
+
+    gap: 35px;
+
+  }
+
+
+  .plan-card {
+
+    width: 250px;
+
+  }
+
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 768px) {
+
+  .planes-section {
+
+    padding: 70px 25px;
+
+  }
+
+
+  /* Header */
+
+  .planes-header {
+
+    margin-left: 0;
+
+    gap: 10px;
+
+  }
+
+
+  .planes-title-mark {
+
+    width: 35px;
+
+    height: 35px;
+
+  }
+
+
+  .planes-title-mark svg {
+
+    width: 28px;
+
+    height: 28px;
+
+  }
+
+
+  .planes-eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+  }
+
+
+  .planes-header h2 {
+
+    font-size: 28px;
+
+  }
+
+
+  /* Subtítulo */
+
+  .planes-subtitle {
+
+    margin-left: 0;
+
+    margin-bottom: 50px;
+
+    font-size: 15px;
+
+  }
+
+
+  /* Tarjetas */
+
+  .planes-container {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 55px;
+
+  }
+
+
+  .plan-card {
+
+    width: 100%;
+
+    max-width: 320px;
+
+  }
+
+}
+
+
+/* =========================
+   MÓVIL PEQUEÑO
+========================= */
+
+@media (max-width: 480px) {
+
+  .planes-section {
+
+    padding: 60px 18px;
+
+  }
+
+
+  .planes-title-mark {
+
+    width: 30px;
+
+  }
+
+
+  .planes-header h2 {
+
+    font-size: 24px;
+
+  }
+
+
+  .planes-eyebrow {
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+  }
+
+
+  .planes-subtitle {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+  }
+
+
+  .plan-card {
+
+    max-width: 290px;
+
+  }
+
+
+  .plan-top h3 {
+
+    font-size: 68px;
+
+  }
+
 }

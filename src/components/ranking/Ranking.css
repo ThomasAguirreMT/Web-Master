@@ -1,165 +1,720 @@
-/* CONTENEDOR */
+/* =====================================================
+   RANKING
+===================================================== */
+
 .ranking {
-  width: 100%;
-  height: 420px;
-  background: #000;
+    width: 100%;
+    min-height: 460px;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(46, 60, 143, 0.18),
+            transparent 40%
+        ),
+        #050505;
 
-  padding-left: 8%;
-  overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 70px 0 70px 8%;
+
+    overflow: hidden;
+
+    font-family: "Montserrat", sans-serif;
+
+    position: relative;
 }
 
-/* TEXTO IZQUIERDA */
+
+/* =====================================================
+   DETALLE SUPERIOR
+===================================================== */
+
+.ranking::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 180px;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #1aa7d7,
+        #2e3c8f,
+        transparent
+    );
+}
+
+
+/* =====================================================
+   IZQUIERDA
+===================================================== */
+
+.ranking-left {
+
+    width: 48%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* PEQUEÑO LABEL */
+
+.ranking-label {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #38b6ff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* TITULO */
+
 .ranking-left h2 {
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 1.3;
-  color: white;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(32px, 3.2vw, 48px);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
 }
 
-.ranking-left span {
-  color: #1aa7d7;
+
+/* PALABRAS IMPORTANTES */
+
+.ranking-left h2 strong {
+
+    color: #24b9ef;
+
+    font-weight: 900;
 }
 
-/* DERECHA */
+
+/* DESCRIPCIÓN */
+
+.ranking-left p {
+
+    max-width: 540px;
+
+    margin-top: 25px;
+
+    margin-bottom: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   DERECHA
+===================================================== */
+
 .ranking-right {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
+
+    width: 52%;
+
+    height: 100%;
+
+    min-height: 460px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    position: relative;
 }
 
-/* FORMA (NO ES CÍRCULO COMPLETO) */
+
+/* =====================================================
+   CÍRCULO / FORMA
+===================================================== */
+
 .ranking-shape {
-  width: 620px;
-  height: 620px;
 
-  border-radius: 50%;
+    width: 590px;
 
-  background: linear-gradient(
-    135deg,
-    #1aa7d7 0%,
-    #2e3c8f 60%,
-    #1b1f6b 100%
-  );
+    height: 590px;
 
-  position: relative;
-  right: -80px;
+    border-radius: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #38c7f5 0%,
+            #1aa7d7 25%,
+            #303b91 65%,
+            #171d63 100%
+        );
+
+    position: relative;
+
+    right: -105px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        -20px 0 80px rgba(26, 167, 215, 0.12),
+        inset 15px 15px 50px rgba(255, 255, 255, 0.08);
+
+    transition: transform 0.5s ease;
 }
 
-/* CONTENIDO */
+
+/* efecto suave */
+
+.ranking-shape::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    transform: scale(0.88);
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
 .ranking-content {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  color: white;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+    color: white;
+
+    transform: translateX(-25px);
 }
 
-/* NUMERO */
-.ranking-number h1 {
-  font-size: 140px;
-  font-weight: 900;
-  line-height: 1;
+
+/* =====================================================
+   NUMERO
+===================================================== */
+
+.ranking-number {
+
+    text-align: center;
 }
+
+
+/* NUMERO 5 */
+
+.ranking-number h1 {
+
+    margin: 0;
+
+    font-size: 150px;
+
+    font-weight: 900;
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* PUESTO */
 
 .ranking-number span {
-  font-size: 18px;
-  font-weight: 700;
+
+    display: block;
+
+    margin-top: 22px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.85);
 }
 
-/* DIVISOR */
+
+/* =====================================================
+   DIVISOR
+===================================================== */
+
 .ranking-divider {
-  width: 2px;
-  height: 130px;
-  background: rgba(255,255,255,0.7);
+
+    width: 1px;
+
+    height: 150px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.8),
+            transparent
+        );
 }
 
-/* TEXTO */
+
+/* =====================================================
+   TEXTO RANKING
+===================================================== */
+
+.ranking-text {
+
+    min-width: 190px;
+}
+
+
 .ranking-text h3 {
-  font-size: 42px;
-  font-weight: 900;
-  line-height: 1;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 40px;
+
+    font-weight: 900;
+
+    line-height: 0.95;
+
+    letter-spacing: -1px;
 }
 
-/* OUTLINE */
+
+/* =====================================================
+   TEXTO OUTLINE
+===================================================== */
+
 .ranking-text .outline {
-  color: transparent;
-  -webkit-text-stroke: 1px white;
+
+    margin-top: 5px;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+
+    text-stroke: 1.5px rgba(255, 255, 255, 0.9);
 }
 
-/* BOTON */
+
+/* =====================================================
+   BOTON
+===================================================== */
+
 .ranking-btn {
-  margin-top: 25px;
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    margin-top: 28px;
 
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
+    padding: 6px 18px 6px 6px;
 
-  background: #e6e6e6;
-  color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 
-  font-weight: 600;
-  cursor: pointer;
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #111111;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
-/* ICONO */
+
+.ranking-btn:hover {
+
+    transform: translateY(-3px);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   ICONO DEL BOTON
+===================================================== */
+
 .btn-icon {
-  width: 28px;
-  height: 28px;
 
-  background: #2e3c8f;
-  color: white;
+    width: 32px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 32px;
 
-  border-radius: 50%;
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #38b6ff,
+            #2e3192
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    transition: transform 0.3s ease;
 }
 
 
-.ranking-text .outline {
-  color: rgba(255, 255, 255, 0.952);
-  -webkit-text-stroke: 1px white;
+.ranking-btn:hover .btn-icon {
+
+    transform: translateX(3px);
 }
-/* =========================
-   RESPONSIVE
-========================= */
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .ranking {
+
+        padding-left: 5%;
+
+    }
+
+    .ranking-left {
+
+        width: 50%;
+
+    }
+
+    .ranking-left h2 {
+
+        font-size: 34px;
+
+    }
+
+    .ranking-shape {
+
+        width: 500px;
+
+        height: 500px;
+
+        right: -100px;
+
+    }
+
+    .ranking-number h1 {
+
+        font-size: 120px;
+
+    }
+
+    .ranking-text h3 {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET PEQUEÑA
+===================================================== */
+
 @media (max-width: 900px) {
-  .ranking {
-    flex-direction: column;
-    height: auto;
-    padding: 40px 20px;
-    text-align: center;
-  }
 
-  .ranking-left h2 {
-    font-size: 26px;
-  }
+    .ranking {
 
-  .ranking-shape {
-    width: 350px;
-    height: 350px;
-    right: 0;
-    margin-top: 40px;
-  }
+        min-height: auto;
 
-  .ranking-number h1 {
-    font-size: 90px;
-  }
+        padding: 70px 30px;
 
-  .ranking-text h3 {
-    font-size: 28px;
-  }
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+    }
+
+
+    .ranking-left {
+
+        width: 100%;
+
+        max-width: 700px;
+
+    }
+
+
+    .ranking-left p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .ranking-right {
+
+        width: 100%;
+
+        min-height: 430px;
+
+        justify-content: center;
+
+    }
+
+
+    .ranking-shape {
+
+        width: 500px;
+
+        height: 500px;
+
+        right: 0;
+
+    }
+
+
+    .ranking-content {
+
+        transform: none;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOVIL
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .ranking {
+
+        padding: 60px 20px;
+
+        gap: 35px;
+
+    }
+
+
+    .ranking-label {
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .ranking-left h2 {
+
+        font-size: 28px;
+
+        line-height: 1.2;
+
+    }
+
+
+    .ranking-left p {
+
+        font-size: 14px;
+
+    }
+
+
+    .ranking-right {
+
+        min-height: 330px;
+
+    }
+
+
+    .ranking-shape {
+
+        width: 350px;
+
+        height: 350px;
+
+    }
+
+
+    .ranking-content {
+
+        gap: 15px;
+
+    }
+
+
+    .ranking-number h1 {
+
+        font-size: 90px;
+
+        letter-spacing: -5px;
+
+    }
+
+
+    .ranking-number span {
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+
+        margin-top: 15px;
+
+    }
+
+
+    .ranking-divider {
+
+        height: 100px;
+
+    }
+
+
+    .ranking-text {
+
+        min-width: 120px;
+
+    }
+
+
+    .ranking-text h3 {
+
+        font-size: 25px;
+
+    }
+
+
+    .ranking-btn {
+
+        margin-top: 18px;
+
+        padding-right: 12px;
+
+        font-size: 9px;
+
+    }
+
+
+    .btn-icon {
+
+        width: 27px;
+
+        height: 27px;
+
+        font-size: 15px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOVIL MUY PEQUEÑO
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .ranking-shape {
+
+        width: 310px;
+
+        height: 310px;
+
+    }
+
+
+    .ranking-number h1 {
+
+        font-size: 75px;
+
+    }
+
+
+    .ranking-text h3 {
+
+        font-size: 21px;
+
+    }
+
+
+    .ranking-content {
+
+        gap: 10px;
+
+    }
+
 }
