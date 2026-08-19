@@ -4,6 +4,8 @@ import DesarrolloFront from "../components/DesarrolloFront/DesarrolloF";
 import DesarrolloCF from "../components/DesarrolloCF/DesarrolloCF";
 import FrontendBackend from "../components/ConsumoF/ConsumoFront";
 import MagicB from "../components/MagicBentoFB/MagicBentoFb";
+import ContactSection from "../components/contacto/Contactanos";
+
 
 const DesarrolloFrontend = () => {
   return (
@@ -12,8 +14,7 @@ const DesarrolloFrontend = () => {
       <DesarrolloCF />
       <FrontendBackend />
       <MagicB />
-      <ContactForm />
-
+  <ContactSection />
 
     </>
   );

@@ -4,6 +4,9 @@ import Desarrollomo from "../components/desarrollomo/desarrollomobile";
 import ServiciosConsultoria from "../components/DesarrolloCon/DesarrolloConsultoria";
 import DesarrolloEmpresarial from "../components/DesarrolloEm/DesarrolloEmpresarial";
 import MagicBento from "../components/MagicBento/MagicBento";
+
+import ContactSection from "../components/contacto/Contactanos";
+
 const DesarrolloMobilee = () => {
   return (
     <>
@@ -11,7 +14,7 @@ const DesarrolloMobilee = () => {
       <ServiciosConsultoria />
       <DesarrolloEmpresarial />
       <MagicBento />
-      <ContactForm />
+      <ContactSection />
 
 
     </>

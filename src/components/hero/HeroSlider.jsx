@@ -26,7 +26,7 @@ const slides = [
     title: "¿ERES ISP?",
     subtitle: "CARRIER PARA TU CRECIMIENTO.",
     description:
-      "Internet, televisión y respaldo para operadores en crecimiento.",
+      "Internet Dedicado, televisión y respaldo para operadores en crecimiento.",
     image: slidetrabaja,
     floating: true,
     link: "/trabajaconnosotros"

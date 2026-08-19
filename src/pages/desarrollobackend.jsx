@@ -5,6 +5,9 @@ import DesarrolloCB from "../components/DesarrolloCBack/DesarrolloCBack";
 import Servidores from "../components/centrosdedatos/Centrosdatos";
 import BackendSection from "../components/MagicBentoBack/Mbento";
 import Beneficios from "../components/escalabilidad/escala"; 
+import ContactSection from "../components/contacto/Contactanos";
+    
+
 const DesarrolloFrontend = () => {
   return (
     <>
@@ -15,7 +18,8 @@ const DesarrolloFrontend = () => {
       <BackendSection />
       <Beneficios />
 
-      <ContactForm />
+ 
+        <ContactSection />
 
     </>
   );

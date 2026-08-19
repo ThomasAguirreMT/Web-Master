@@ -4,6 +4,7 @@ import Animations from "../components/animations/animations";
 import NuestrosPlanes from "../components/NuestrosPlanes/NuestrosPlanes";
 import RankingSection from "../components/ranking/Ranking";
 import CTAWhatsapp from "../components/planes/planes";
+import ContactSection from "../components/contacto/Contactanos";
 
 const Internet = () => {
 
@@ -17,6 +18,8 @@ const Internet = () => {
         <NuestrosPlanes />
         <RankingSection />
         <CTAWhatsapp />
+              <ContactSection />
+        
 
       </>
     );

@@ -1,163 +1,660 @@
-/* CONTENEDOR */
+/* =========================================================
+   WEBMASTER - BENEFITS
+========================================================= */
+
 .bnf2-container {
-  padding: 70px 8%;
-  background: #e9e9e9;
+  position: relative;
+  width: 100%;
+  padding: 100px 8%;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(56, 182, 255, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(45, 47, 127, 0.12),
+      transparent 40%
+    ),
+    #eeeeee;
+
+  overflow: hidden;
 }
 
-/* TITULO */
-.bnf2-title {
-  font-size: 22px;
+
+/* =========================================================
+   DETALLES DE FONDO
+========================================================= */
+
+.bnf2-container::before {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -250px;
+  right: -200px;
+
+  border-radius: 50%;
+
+  background: rgba(56, 182, 255, 0.06);
+
+  pointer-events: none;
+}
+
+
+.bnf2-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  bottom: -250px;
+  left: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(45, 47, 127, 0.05);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bnf2-header {
+  position: relative;
+
+  max-width: 850px;
+
+  margin-bottom: 55px;
+
+  z-index: 2;
+}
+
+
+.bnf2-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: #168fca;
+
+  font-size: 13px;
+
   font-weight: 800;
-  margin-bottom: 30px;
+
+  letter-spacing: 2px;
+}
+
+
+.bnf2-title {
   display: flex;
+
   align-items: center;
-  gap: 10px;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin: 0;
+
+  color: #080819;
+
+  font-size: clamp(28px, 3vw, 42px);
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: -1px;
 }
 
-.bnf2-title span {
+
+.bnf2-title strong {
+  color: #168fca;
+
+  font-weight: 900;
+}
+
+
+.bnf2-title-mark {
   color: #38b6ff;
-  font-size: 26px;
+
+  font-size: 46px;
+
+  line-height: 0.7;
+
+  margin-right: 5px;
 }
 
-/* ======================
-   GRID BASE
-====================== */
+
+.bnf2-description {
+  max-width: 720px;
+
+  margin-top: 20px;
+
+  color: #555;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
 .bnf2-grid {
+  position: relative;
+
+  z-index: 2;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 140px);
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  grid-auto-rows: minmax(190px, auto);
+
   gap: 20px;
 }
 
-/* ======================
+
+/* =========================================================
    CARD
-====================== */
+========================================================= */
+
 .bnf2-card {
-  background: linear-gradient(180deg, #2d2f7f, #05051a);
-  border-radius: 16px;
-  padding: 18px;
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 24px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
   color: white;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(56, 182, 255, 0.13),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #30348b 0%,
+      #17194e 48%,
+      #060617 100%
+    );
 
-  transition: 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+
+  flex-direction: column;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
 
 .bnf2-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 18px rgba(56, 182, 255, 0.4);
+  transform: translateY(-7px);
+
+  border-color:
+    rgba(56, 182, 255, 0.4);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(56, 182, 255, 0.1);
 }
 
-/* ======================
-   POSICIONES EXACTAS
-====================== */
 
-/* GRANDE */
-.bnf2-big {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
+/* =========================================================
+   BRILLO INTERNO
+========================================================= */
+
+.bnf2-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(56, 182, 255, 0.2),
+      transparent 70%
+    );
+
+  pointer-events: none;
 }
 
-/* SEGURIDAD */
-.bnf2-grid .bnf2-card:nth-child(2) {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
 
-/* MIKROTIK */
-.bnf2-grid .bnf2-card:nth-child(3) {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-}
+/* =========================================================
+   NÚMERO
+========================================================= */
 
-/* MONITOREO */
-.bnf2-grid .bnf2-card:nth-child(4) {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
+.bnf2-number {
+  position: absolute;
 
-/* CISCO (ANCHO) */
-.bnf2-wide {
-  grid-column: 1 / 3;
-  grid-row: 3 / 4;
-}
+  top: 18px;
+  right: 22px;
 
-/* CONFIGURACIÓN */
-.bnf2-grid .bnf2-card:nth-child(6) {
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-}
+  font-size: 11px;
 
-/* CRECIMIENTO */
-.bnf2-grid .bnf2-card:nth-child(7) {
-  grid-column: 1 / 2;
-  grid-row: 4 / 5;
-}
-
-/* INFRAESTRUCTURA */
-.bnf2-grid .bnf2-card:nth-child(8) {
-  grid-column: 2 / 4;
-  grid-row: 4 / 5;
-}
-
-/* ======================
-   TITULOS
-====================== */
-.bnf2-card h3 {
-  font-size: 18px;
   font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: rgba(255, 255, 255, 0.35);
 }
+
+
+/* =========================================================
+   TITULOS
+========================================================= */
+
+.bnf2-card h3,
+.bnf2-card h4 {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0;
+
+  max-width: 90%;
+
+  color: white;
+
+  font-weight: 800;
+
+  line-height: 1.25;
+}
+
+
+.bnf2-card h3 {
+  font-size: 19px;
+}
+
+
+.bnf2-card h3 span {
+  color: #38b6ff;
+}
+
 
 .bnf2-card h4 {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+
+  letter-spacing: 0.2px;
 }
 
-/* LINEA */
+
+/* =========================================================
+   LINEA DE TITULO
+========================================================= */
+
 .bnf2-card h3::after,
 .bnf2-card h4::after {
   content: "";
+
   display: block;
-  width: 90px;
+
+  width: 75px;
+
   height: 2px;
-  margin-top: 6px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #38b6ff,
-    transparent
-  );
+
+  margin-top: 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #38b6ff,
+      transparent
+    );
 }
 
-/* ICONOS */
+
+/* =========================================================
+   ICONOS
+========================================================= */
+
+.bnf2-icon-wrapper {
+  position: relative;
+
+  z-index: 2;
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 75px;
+}
+
+
 .bnf2-card img {
-  width: 55px;
-  margin: auto;
+  width: 58px;
+
+  height: 58px;
+
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(56, 182, 255, 0.6));
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(56, 182, 255, 0.65)
+    );
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
-/* TEXTO */
+
+.bnf2-card:hover img {
+  transform: scale(1.1);
+
+  filter:
+    drop-shadow(
+      0 0 15px rgba(56, 182, 255, 0.9)
+    );
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
 .bnf2-card p {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 12px 0 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
   font-size: 12px;
-  opacity: 0.9;
+
+  line-height: 1.55;
 }
 
-/* ======================
-   RESPONSIVE
-====================== */
-@media (max-width: 900px) {
+
+/* =========================================================
+   TARJETA PRINCIPAL
+========================================================= */
+
+.bnf2-big {
+  grid-column: 1;
+  grid-row: span 2;
+
+  min-height: 400px;
+
+  padding: 30px;
+}
+
+
+.bnf2-big .bnf2-icon-wrapper {
+  min-height: 130px;
+}
+
+
+.bnf2-big .bnf2-card-line {
+  width: 100%;
+
+  height: 1px;
+
+  margin-top: 18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #38b6ff,
+      transparent
+    );
+}
+
+
+.bnf2-big img {
+  width: 82px;
+
+  height: 82px;
+}
+
+
+.bnf2-big p {
+  max-width: 470px;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TARJETAS ANCHAS
+========================================================= */
+
+.bnf2-wide {
+  grid-column: span 2;
+}
+
+
+/* =========================================================
+   DISTRIBUCIÓN
+========================================================= */
+
+/*
+   01        02        03
+   01        04        05
+   06        06        07
+   08        08        09
+*/
+
+.bnf2-card:nth-child(6) {
+  grid-column: span 2;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .bnf2-container {
+    padding: 80px 6%;
+  }
+
+  .bnf2-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .bnf2-big {
+    grid-column: span 2;
+
+    grid-row: span 1;
+
+    min-height: 300px;
+  }
+
+  .bnf2-wide {
+    grid-column: span 2;
+  }
+
+  .bnf2-card:nth-child(6) {
+    grid-column: span 2;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .bnf2-container {
+    padding: 70px 5%;
+  }
+
+  .bnf2-header {
+    margin-bottom: 40px;
+  }
+
+  .bnf2-title {
+    font-size: 30px;
+  }
+
+  .bnf2-description {
+    font-size: 15px;
+  }
+
   .bnf2-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+
+    gap: 16px;
   }
 
+  .bnf2-card,
   .bnf2-big,
   .bnf2-wide,
-  .bnf2-grid .bnf2-card {
-    grid-column: auto !important;
-    grid-row: auto !important;
+  .bnf2-card:nth-child(6) {
+    grid-column: auto;
+
+    grid-row: auto;
+
+    min-height: 230px;
   }
+
+  .bnf2-big {
+    min-height: 330px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .bnf2-container {
+    padding: 60px 20px;
+  }
+
+  .bnf2-eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .bnf2-title {
+    font-size: 26px;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.5px;
+  }
+
+  .bnf2-title-mark {
+    font-size: 36px;
+  }
+
+  .bnf2-description {
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  .bnf2-card {
+    min-height: 240px;
+
+    padding: 22px;
+
+    border-radius: 17px;
+  }
+
+  .bnf2-big {
+    min-height: 350px;
+  }
+
+  .bnf2-card h3 {
+    font-size: 17px;
+  }
+
+  .bnf2-card h4 {
+    font-size: 13px;
+  }
+
+  .bnf2-card p {
+    font-size: 12px;
+  }
+
+  .bnf2-card img {
+    width: 55px;
+
+    height: 55px;
+  }
+
+  .bnf2-big img {
+    width: 70px;
+
+    height: 70px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE MUY PEQUEÑO
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .bnf2-container {
+    padding: 50px 15px;
+  }
+
+  .bnf2-title {
+    font-size: 23px;
+  }
+
+  .bnf2-card {
+    padding: 19px;
+  }
+
 }
