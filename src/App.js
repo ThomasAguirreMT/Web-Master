@@ -1,3 +1,5 @@
+import SEO from "./components/SEO/seo";
+
 import {
   BrowserRouter,
   Routes,
@@ -98,98 +100,103 @@ function ScrollToTop() {
 
 /* =========================
    ROUTES
-========================= */
+========================= */function AppRoutes() {
 
-function AppRoutes() {
+  const location = useLocation();
+
   return (
 
-    <Suspense fallback={<PageLoader />}>
+    <>
 
-      <Routes>
+      <SEO pathname={location.pathname} />
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+      <Suspense fallback={<PageLoader />}>
 
-        <Route
-          path="/internet"
-          element={<Internet />}
-        />
+        <Routes>
 
-        <Route
-          path="/television"
-          element={<TelevisionPage />}
-        />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        <Route
-          path="/software"
-          element={<Software />}
-        />
+          <Route
+            path="/internet"
+            element={<Internet />}
+          />
 
-        <Route
-          path="/trabaja"
-          element={<Trabaja />}
-        />
+          <Route
+            path="/television"
+            element={<TelevisionPage />}
+          />
 
-        <Route
-          path="/contacto"
-          element={<Contacto />}
-        />
+          <Route
+            path="/software"
+            element={<Software />}
+          />
 
-        <Route
-          path="/desarrollomobile"
-          element={<DesarrolloMobile />}
-        />
+          <Route
+            path="/trabaja"
+            element={<Trabaja />}
+          />
 
-        <Route
-          path="/desarrollofrontend"
-          element={<DesarrolloFrontend />}
-        />
+          <Route
+            path="/contacto"
+            element={<Contacto />}
+          />
 
-        <Route
-          path="/desarrollobackend"
-          element={<Desarrollobackend />}
-        />
+          <Route
+            path="/desarrollomobile"
+            element={<DesarrolloMobile />}
+          />
 
-        <Route
-          path="/trabajaconnosotros"
-          element={<WorkWithUs />}
-        />
+          <Route
+            path="/desarrollofrontend"
+            element={<DesarrolloFrontend />}
+          />
 
-        <Route
-          path="/pqr"
-          element={<PQRPage />}
-        />
+          <Route
+            path="/desarrollobackend"
+            element={<Desarrollobackend />}
+          />
 
-        <Route
-          path="/proteccioninfantil"
-          element={<ProteccionInfantil />}
-        />
+          <Route
+            path="/trabajaconnosotros"
+            element={<WorkWithUs />}
+          />
 
-        <Route
-          path="/normativa"
-          element={<Normativa />} />
+          <Route
+            path="/pqr"
+            element={<PQRPage />}
+          />
 
-        <Route
-          path="/speedtest"
-          element={<SpeedTestPage />}
-        />
+          <Route
+            path="/proteccioninfantil"
+            element={<ProteccionInfantil />}
+          />
 
+          <Route
+            path="/normativa"
+            element={<Normativa />}
+          />
 
-        {/* fallback */}
+          <Route
+            path="/speedtest"
+            element={<SpeedTestPage />}
+          />
 
-        <Route
-          path="*"
-          element={<Home />}
-        />
+          <Route
+            path="*"
+            element={<Home />}
+          />
 
-      </Routes>
+        </Routes>
 
-    </Suspense>
+      </Suspense>
+
+    </>
+
   );
 }
-
 /* =========================
    APP
 ========================= */
