@@ -1,5 +1,5 @@
-import HyperSpeed from "../components/HyperSpeed/HyperSpeed";
 
+import DesarrolloHero from "../components/internetflash/speed";
 import Animations from "../components/animations/animations";
 import NuestrosPlanes from "../components/NuestrosPlanes/NuestrosPlanes";
 import RankingSection from "../components/ranking/Ranking";
@@ -10,21 +10,22 @@ const Internet = () => {
 
 
 
-    return (
-      <>
-        <HyperSpeed />
-        <Animations />
- 
-        <NuestrosPlanes />
-        <RankingSection />
-        <CTAWhatsapp />
-              <ContactSection />
-        
+  return (
+    <>
 
-      </>
-    );
+      <DesarrolloHero />
+      <Animations />
+
+      <NuestrosPlanes />
+      <RankingSection />
+      <CTAWhatsapp />
+      <ContactSection />
+
+
+    </>
+  );
 };
 
 export default Internet;
-    
-    
+
+

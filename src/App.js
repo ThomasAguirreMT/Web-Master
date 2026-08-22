@@ -31,12 +31,29 @@ import PageLoader from "./ui/PageLoader";
    LAZY PAGES
 ========================= */
 
-const Home = lazy(() => import("./pages/Home"));
-const Internet = lazy(() => import("./pages/internet"));
-const TelevisionPage = lazy(() => import("./pages/television"));
-const Software = lazy(() => import("./pages/software"));
-const Trabaja = lazy(() => import("./pages/trabaja"));
-const Contacto = lazy(() => import("./pages/contacto"));
+const Home = lazy(() =>
+  import("./pages/Home")
+);
+
+const Internet = lazy(() =>
+  import("./pages/internet")
+);
+
+const TelevisionPage = lazy(() =>
+  import("./pages/television")
+);
+
+const Software = lazy(() =>
+  import("./pages/software")
+);
+
+const Trabaja = lazy(() =>
+  import("./pages/trabaja")
+);
+
+const Contacto = lazy(() =>
+  import("./pages/contacto")
+);
 
 const ProteccionInfantil = lazy(() =>
   import("./pages/proteccioninfantil")
@@ -65,42 +82,41 @@ const WorkWithUs = lazy(() =>
 const PQRPage = lazy(() =>
   import("./pages/pqr")
 );
+
 const SpeedTestPage = lazy(() =>
   import("./pages/speedtest")
 );
+
+
 /* =========================
    SCROLL TOP
 ========================= */
 
 function ScrollToTop() {
+
   const { pathname } = useLocation();
 
   useEffect(() => {
 
-    window.scrollTo({
-      top: 0,
-      behavior: "instant"
-    });
+    /*
+      Cada vez que cambia la ruta,
+      comenzamos nuevamente desde
+      la parte superior.
+    */
 
-    const timeout = setTimeout(() => {
-
-      window.scrollTo({
-        top: 0,
-        behavior: "instant"
-      });
-
-    }, 50);
-
-    return () => clearTimeout(timeout);
+    window.scrollTo(0, 0);
 
   }, [pathname]);
 
   return null;
 }
 
+
 /* =========================
    ROUTES
-========================= */function AppRoutes() {
+========================= */
+
+function AppRoutes() {
 
   const location = useLocation();
 
@@ -108,81 +124,168 @@ function ScrollToTop() {
 
     <>
 
-      <SEO pathname={location.pathname} />
+      {/* =========================
+          SEO DINÁMICO
+      ========================= */}
 
-      <Suspense fallback={<PageLoader />}>
+      <SEO
+        pathname={location.pathname}
+      />
+
+
+      {/* =========================
+          LAZY LOADING
+      ========================= */}
+
+      <Suspense
+        fallback={<PageLoader />}
+      >
 
         <Routes>
+
+          {/* =========================
+              HOME
+          ========================= */}
 
           <Route
             path="/"
             element={<Home />}
           />
 
+
+          {/* =========================
+              INTERNET
+          ========================= */}
+
           <Route
             path="/internet"
             element={<Internet />}
           />
+
+
+          {/* =========================
+              TELEVISIÓN
+          ========================= */}
 
           <Route
             path="/television"
             element={<TelevisionPage />}
           />
 
+
+          {/* =========================
+              SOFTWARE
+          ========================= */}
+
           <Route
             path="/software"
             element={<Software />}
           />
+
+
+          {/* =========================
+              TRABAJA
+          ========================= */}
 
           <Route
             path="/trabaja"
             element={<Trabaja />}
           />
 
+
+          {/* =========================
+              CONTACTO
+          ========================= */}
+
           <Route
             path="/contacto"
             element={<Contacto />}
           />
+
+
+          {/* =========================
+              DESARROLLO MOBILE
+          ========================= */}
 
           <Route
             path="/desarrollomobile"
             element={<DesarrolloMobile />}
           />
 
+
+          {/* =========================
+              DESARROLLO FRONTEND
+          ========================= */}
+
           <Route
             path="/desarrollofrontend"
             element={<DesarrolloFrontend />}
           />
+
+
+          {/* =========================
+              DESARROLLO BACKEND
+          ========================= */}
 
           <Route
             path="/desarrollobackend"
             element={<Desarrollobackend />}
           />
 
+
+          {/* =========================
+              TRABAJA CON NOSOTROS
+          ========================= */}
+
           <Route
             path="/trabajaconnosotros"
             element={<WorkWithUs />}
           />
+
+
+          {/* =========================
+              PQR
+          ========================= */}
 
           <Route
             path="/pqr"
             element={<PQRPage />}
           />
 
+
+          {/* =========================
+              PROTECCIÓN INFANTIL
+          ========================= */}
+
           <Route
             path="/proteccioninfantil"
             element={<ProteccionInfantil />}
           />
+
+
+          {/* =========================
+              NORMATIVA
+          ========================= */}
 
           <Route
             path="/normativa"
             element={<Normativa />}
           />
 
+
+          {/* =========================
+              SPEED TEST
+          ========================= */}
+
           <Route
             path="/speedtest"
             element={<SpeedTestPage />}
           />
+
+
+          {/* =========================
+              FALLBACK
+          ========================= */}
 
           <Route
             path="*"
@@ -197,18 +300,52 @@ function ScrollToTop() {
 
   );
 }
+
+
 /* =========================
    APP
 ========================= */
 
 function App() {
+
+  /*
+    Evita que el navegador restaure
+    automáticamente la posición anterior
+    cuando se recarga o navega.
+  */
+
+  useEffect(() => {
+
+    if ("scrollRestoration" in window.history) {
+
+      window.history.scrollRestoration = "manual";
+
+    }
+
+  }, []);
+
+
   return (
 
     <BrowserRouter>
 
+      {/* =========================
+          SCROLL TOP
+      ========================= */}
+
       <ScrollToTop />
 
+
+      {/* =========================
+          NAVBAR
+      ========================= */}
+
       <Navbar />
+
+
+      {/* =========================
+          MAIN
+      ========================= */}
 
       <main className="app-container">
 
@@ -216,12 +353,24 @@ function App() {
 
       </main>
 
+
+      {/* =========================
+          FLOATING BUTTONS
+      ========================= */}
+
       <FloatingButtons />
+
+
+      {/* =========================
+          FOOTER
+      ========================= */}
 
       <Footer />
 
     </BrowserRouter>
+
   );
 }
+
 
 export default App;

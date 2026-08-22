@@ -4,13 +4,9 @@
 
 .wwu-section {
   position: relative;
-
   background: #000;
-
   overflow: hidden;
-
   padding: 140px 20px;
-
   color: white;
 }
 
@@ -20,22 +16,20 @@
 
 .wwu-bg-text {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
 
   font-size: clamp(8rem, 20vw, 18rem);
-
   font-weight: 900;
 
-  color: rgba(255,255,255,0.03);
+  color: rgba(255, 255, 255, 0.03);
 
   white-space: nowrap;
-
   pointer-events: none;
   user-select: none;
+
+  z-index: 0;
 }
 
 /* ==========================
@@ -44,9 +38,9 @@
 
 .wwu-container {
   position: relative;
-
   z-index: 2;
 
+  width: 100%;
   max-width: 1400px;
 
   margin: 0 auto;
@@ -63,10 +57,8 @@
 
   color: #2997ff;
 
-  font-size: .9rem;
-
+  font-size: 0.9rem;
   letter-spacing: 4px;
-
   font-weight: 700;
 
   margin-bottom: 30px;
@@ -80,7 +72,6 @@
   margin: 0;
 
   font-size: clamp(3rem, 7vw, 7rem);
-
   line-height: 1;
 
   font-weight: 900;
@@ -93,8 +84,9 @@
   color: #2997ff;
 
   font-size: clamp(2rem, 5vw, 4rem);
-
   font-weight: 800;
+
+  line-height: 1.1;
 }
 
 /* ==========================
@@ -102,6 +94,7 @@
 ========================== */
 
 .wwu-description {
+  width: 100%;
   max-width: 900px;
 
   margin: 0 auto 70px;
@@ -109,7 +102,6 @@
   color: #d1d1d6;
 
   font-size: 1.2rem;
-
   line-height: 1.8;
 }
 
@@ -128,11 +120,11 @@
 .wwu-feature {
   background: linear-gradient(
     180deg,
-    rgba(41,151,255,0.12),
-    rgba(255,255,255,0.03)
+    rgba(41, 151, 255, 0.12),
+    rgba(255, 255, 255, 0.03)
   );
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(10px);
 
@@ -140,13 +132,13 @@
 
   padding: 35px 20px;
 
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .wwu-feature:hover {
   transform: translateY(-6px);
 
-  border-color: rgba(41,151,255,.4);
+  border-color: rgba(41, 151, 255, 0.4);
 }
 
 .wwu-feature span {
@@ -161,7 +153,6 @@
   margin: 0;
 
   font-size: 1rem;
-
   font-weight: 600;
 }
 
@@ -171,8 +162,16 @@
 
 @media (max-width: 992px) {
 
+  .wwu-section {
+    padding: 110px 30px;
+  }
+
   .wwu-features {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wwu-description {
+    max-width: 750px;
   }
 }
 
@@ -183,26 +182,89 @@
 @media (max-width: 768px) {
 
   .wwu-section {
-    padding: 100px 20px;
+    padding: 90px 20px;
+  }
+
+  .wwu-tag {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
   }
 
   .wwu-title {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 11vw, 4rem);
+    line-height: 1.05;
   }
 
   .wwu-highlight {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+
+    margin-top: 12px;
+    margin-bottom: 30px;
   }
 
   .wwu-description {
     font-size: 1rem;
+    line-height: 1.7;
+
+    margin-bottom: 50px;
   }
 
   .wwu-features {
     grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .wwu-feature {
+    padding: 28px 20px;
+  }
+
+  .wwu-feature span {
+    font-size: 1.8rem;
+  }
+
+  .wwu-feature p {
+    font-size: 0.95rem;
   }
 
   .wwu-bg-text {
     font-size: 5rem;
+
+    opacity: 0.8;
   }
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media (max-width: 400px) {
+
+  .wwu-section {
+    padding: 75px 16px;
+  }
+
+  .wwu-tag {
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+  }
+
+  .wwu-title {
+    font-size: 2.4rem;
+  }
+
+  .wwu-highlight {
+    font-size: 1.7rem;
+  }
+
+  .wwu-description {
+    font-size: 0.92rem;
+  }
+
+  .wwu-bg-text {
+    font-size: 4rem;
+  }
+
 }
