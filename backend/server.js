@@ -93,14 +93,17 @@ const upload = multer({
 =====================================================*/
 
 app.use(helmet());
-
 const allowedOrigins = [
-
     "http://localhost:3000",
     "http://localhost:5173",
+
+    // Nuevo dominio
+    "https://internetdedicado.com",
+    "https://www.internetdedicado.com",
+
+    // Dominio anterior
     "https://webmastercolombia.net",
     "https://www.webmastercolombia.net"
-
 ];
 
 app.use(cors({

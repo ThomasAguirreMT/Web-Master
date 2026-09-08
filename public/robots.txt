@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://webmastercolombia.net/sitemap.xml
+Sitemap: https://internetdedicado.com/sitemap.xml
