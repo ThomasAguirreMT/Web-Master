@@ -7,7 +7,7 @@ export default function CTAWhatsapp() {
 
   const handleWhatsApp = () => {
     const mensaje =
-      "Hola, quiero información sobre los planes de Internet de Inttelgo.";
+      "Hola, quiero información sobre los planes.";
 
     const url = `https://wa.me/573176683567?text=${encodeURIComponent(mensaje)}`;
 
